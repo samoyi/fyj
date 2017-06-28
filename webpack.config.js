@@ -18,9 +18,6 @@ module.exports = {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
-                query: {
-                    presets: ["es2015"],
-                },
             },
             {
     			test: /\.scss$/,
@@ -32,6 +29,7 @@ module.exports = {
             },
         ],
     },
+
 
     devServer: {
         contentBase: "./build", // 本地服务器所加载的页面所在的目录
@@ -49,9 +47,4 @@ module.exports = {
         }),
     ],
 
-    // resolve: {
-    //     alias: {
-    //         "vue": "vue/dist/vue.common.js",
-    //     },
-    // },
 };

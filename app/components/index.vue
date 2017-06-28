@@ -1,15 +1,15 @@
 <template>
-    <div>div</div>
+    <div>{{msg}}</div>
 </template>
 
 <script>
     export default {
-        data () {
+        data: function () {
             return {
-                msg: 'Hello World!'
+                msg: "首页"
             }
         }
-    }
+    };
 </script>
 
 <style>

@@ -1,17 +1,11 @@
+"use strict";
 
-// import Vue from "Vue";
 import Vue from 'vue/dist/vue.js'
+// import "scss/common.scss";
 
-import "./common.scss";
-// var Vue = require('vue');
-// import indexCarousel from './components/index/carousel.vue';
-var carousel = require("./components/index/carousel.vue");
+var app = require('./app.vue');
 
 new Vue({
-    el: '#root',
-    components: { carousel }
-})
-
-let a = 22333333;
-
-console.log(a);
+    el: '#wrapper',
+    components: { app }
+});
