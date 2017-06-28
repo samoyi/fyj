@@ -20,12 +20,17 @@ module.exports = {
                 loader: "babel-loader",
             },
             {
-    			test: /\.scss$/,
+    			test: /\.(scss)$/,
     			loader: "style-loader!css-loader!sass-loader",
     		},
             {
                 test: /\.vue$/,
                 loader: "vue-loader",
+                options: {
+                    loaders: {
+                        scss: 'vue-style-loader!css-loader!sass-loader',
+                    },
+                },
             },
         ],
     },
