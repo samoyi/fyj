@@ -26,6 +26,10 @@ module.exports = {
     			test: /\.scss$/,
     			loader: "style-loader!css-loader!sass-loader",
     		},
+            {
+                test: /\.vue$/,
+                loader: "vue-loader",
+            },
         ],
     },
 
@@ -43,5 +47,11 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
              sourceMap: true, // 压缩后仍然显示source map
         }),
-    ]
+    ],
+
+    // resolve: {
+    //     alias: {
+    //         "vue": "vue/dist/vue.common.js",
+    //     },
+    // },
 };
