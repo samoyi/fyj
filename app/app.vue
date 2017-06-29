@@ -1,12 +1,13 @@
 <template>
     <section id="content">
-        <h1>{{siteTitle}}</h1>
+        <app-header></app-header>
         <cLoadingPage></cLoadingPage>
         <cIndexPage></cIndexPage>
     </section>
 </template>
 
 <script>
+import header from "./components/header.vue";
 import cLoadingPage from "./components/loading.vue";
 import cIndexPage from "./components/index.vue";
 export default {
@@ -16,11 +17,13 @@ export default {
     }
   },
   components: {
-    cLoadingPage,
-    cIndexPage,
+      "app-header": header,
+      cLoadingPage,
+      cIndexPage,
   }
 }
 </script>
 
-<style>
+<style lang="scss">
+    $headerHeight: 55px;
 </style>

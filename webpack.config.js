@@ -15,13 +15,17 @@ module.exports = {
     module: {
         loaders: [
             {
+                test: /\.css$/,
+                loader: "style-loader!css-loader",
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: "babel-loader",
             },
             {
     			test: /\.(scss)$/,
-    			loader: "style-loader!css-loader!sass-loader",
+    			loader: "style-loader!css-loader!sass-loader?modules",
     		},
             {
                 test: /\.vue$/,

@@ -1,6 +1,6 @@
 <template>
-    <section>
-        <img src="http://www.fuyj.com.cn/front/images/logo.png" />
+    <section id="loadingPage">
+        loading
     </section>
 </template>
 
