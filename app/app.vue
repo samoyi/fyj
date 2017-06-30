@@ -25,5 +25,7 @@ export default {
 </script>
 
 <style lang="scss">
-    $headerHeight: 55px;
+    body{
+        background-color: #f6f6f6;
+    }
 </style>

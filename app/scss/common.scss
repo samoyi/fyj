@@ -1,9 +1,11 @@
 @import "reset.scss";
 
-html, body, #wrapper
-{
+html, body, #wrapper{
 	width:100%;
 	position: absolute; top: 0; left: 0;
 	background-size :cover; background-position: center;
     font-family: "Microsoft YaHei";
 }
+
+$headerHeight: 55px;
+$h2FontSize: 14px;

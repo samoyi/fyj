@@ -1,3 +1,7 @@
+const nWindowHeight = window.innerHeight;
+const nHeaderHeight = 55;
+
+
 function AJAX_GET(sURL, fnSuccessCallback, fnFailCallback) {
     let xhr = new XMLHttpRequest();
     xhr.addEventListener('readystatechange', function () {
@@ -14,4 +18,4 @@ function AJAX_GET(sURL, fnSuccessCallback, fnFailCallback) {
     xhr.send(null);
 }
 
-export {AJAX_GET};
+export {nWindowHeight, nHeaderHeight, AJAX_GET};

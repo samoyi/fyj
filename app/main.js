@@ -6,6 +6,7 @@ import VueAwesomeSwiper from 'vue-awesome-swiper';
 Vue.use(VueAwesomeSwiper);
 
 
+
 import "./scss/common.scss";
 
 var app = require('./app.vue');

@@ -20,3 +20,5 @@
 维护 | 通过`import Vue from "Vue";`直接引用时命令行出现错误，网页也有如下错误`vue.runtime.esm.js:430 [Vue warn]: You are using the runtime-only build of Vue where the template compiler is not available. Either pre-compile the templates into render functions, or use the compiler-included build.`。 整理该问题|  | -- | 6.28 | https://zhuanlan.zhihu.com/p/22115243
 维护 | 只在main.js里加严格模式，是否可以影响全局？ ||||
 维护 | 在其他地方加载模块模块时，路径前面必须要有`./`，但是main.js中加载vue时，则不能有 ||||
+维护 | 我在common.scss中定义了一些通用的变量，每个vue文件中需要使用这些变量时都要单独import，有没有只引用一遍的方法 ||||
+维护 | 首页新品模块的vue文件中，为了修改子组件的样式，没有使用scoped | 有可能和其他样式冲突 | | 6.30 | scss的最外层节点采用语义明确的ID命名，降低冲突的可能性

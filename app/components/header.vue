@@ -29,6 +29,7 @@
 
 <style lang="scss" scoped>
 header{
+    @import "../scss/common.scss";
     z-index: 9;
     width: 100%; height: $headerHeight;
     background-color: yellow;
