@@ -42,6 +42,7 @@ export default {
     height: 390px;
     background-color: #d7ecf1;
     position: relative;
+    margin-top: 22px;
     h2{
         font-size: $h2FontSize;
         text-align: center;

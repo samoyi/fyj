@@ -1,4 +1,5 @@
 import cIndexPage from "./components/index.vue";
+import cDetailPage from "./components/detail.vue";
 
 const questionsComponent = {
 template:`<section id="questions">
@@ -38,6 +39,10 @@ const router = new VueRouter({
           component: cIndexPage,
       },
       {
+          path: "/detail",
+          component: cDetailPage,
+      },
+      {
           path: "/questions",
           component: questionsComponent
       },
@@ -55,7 +60,7 @@ const router = new VueRouter({
       },
       { // 默认
           path: "*",
-          redirect: ""
+          redirect: "/detail"
       },
   ]
 });

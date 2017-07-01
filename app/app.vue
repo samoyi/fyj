@@ -1,8 +1,8 @@
 <template>
     <section id="content">
-        <router-view></router-view>
-        <app-header></app-header>
         <cLoadingPage></cLoadingPage>
+        <app-header></app-header>
+        <router-view></router-view>
     </section>
 </template>
 

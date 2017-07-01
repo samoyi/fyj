@@ -3,7 +3,8 @@
         <awesome-swiper></awesome-swiper>
         <new-products :list="newProducts"></new-products>
         <hot-products :list="hotProducts"></hot-products>
-        <buttoml-list></buttoml-list>
+        <buttom-list></buttom-list>
+        <buttom-copyright></buttom-copyright>
     </section>
 </template>
 
@@ -12,6 +13,7 @@
     import newProducts from "./index/newProducts.vue";
     import hotProducts from "./index/hotProducts.vue";
     import buttomlList from "./index/buttomlList.vue";
+    import copyright from "./index/copyright.vue";
 
     import {AJAX_GET} from "../js/common.js";
 
@@ -26,7 +28,8 @@
           "awesome-swiper": awesomeSwiper,
           "new-products": newProducts,
           "hot-products": hotProducts,
-          "buttoml-list": buttomlList,
+          "buttom-list": buttomlList,
+          "buttom-copyright": copyright,
         },
         mounted: function(){
             // 加载 carousel 组件中的数据
@@ -59,6 +62,7 @@
 <style lang="scss" scoped>
 @import "../scss/common.scss";
 #indexPage{
+    width: 100%;
     position: absolute; top: $headerHeight;
     .threeCard{
         height: 2300px; overflow: hidden;
