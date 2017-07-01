@@ -5,6 +5,9 @@
         <product-yongxin :yongxin="yongxin"></product-yongxin>
         <product-spec :product-spec="productSpec"></product-spec>
         <product-notice></product-notice>
+        <add-cart></add-cart>
+        <!--buttomPad防止最下边被加入购物车按钮挡住-->
+        <div class="buttomPad" style="height:64px;"></div>
     </section>
 </template>
 
@@ -14,6 +17,7 @@
     import yongxin from "./detail/yongxin.vue";
     import spec from "./detail/spec.vue";
     import notice from "./detail/notice.vue";
+    import addToCart from "./detail/addToCart.vue";
 
     import {AJAX_GET} from "../js/common.js";
 
@@ -31,6 +35,7 @@
           "product-yongxin": yongxin,
           "product-spec": spec,
           "product-notice": notice,
+          "add-cart": addToCart,
         },
         mounted: function(){
             // 加载 产品概述的数据
