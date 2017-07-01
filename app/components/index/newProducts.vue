@@ -1,6 +1,8 @@
 <template>
     <section id="indexNewProducts" v-if="list">
         <h2>新品推荐</h2>
+        <!-- <router-link to="/questions">常见问题</router-link>
+        <router-link to="/cooperation">合作联系</router-link> -->
         <product-card v-for="item in list" :key="item[1]" :cur-card-info="item"></product-card>
     </section>
 </template>
