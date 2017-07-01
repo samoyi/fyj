@@ -3,14 +3,13 @@
         <router-view></router-view>
         <app-header></app-header>
         <cLoadingPage></cLoadingPage>
-        <cIndexPage></cIndexPage>
     </section>
 </template>
 
 <script>
 import header from "./components/header.vue";
 import cLoadingPage from "./components/loading.vue";
-import cIndexPage from "./components/index.vue";
+// import cIndexPage from "./components/index.vue";
 
 
 
@@ -25,8 +24,6 @@ export default {
   components: {
       "app-header": header,
       cLoadingPage,
-      cIndexPage,
-    //   "app-router": router,
   },
   router,
 }
@@ -35,5 +32,9 @@ export default {
 <style lang="scss">
     body{
         background-color: #f6f6f6;
+        #content>section:first-child{
+            min-height: 200px;
+            margin-top: 55px;
+        }
     }
 </style>

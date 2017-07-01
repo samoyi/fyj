@@ -1,3 +1,5 @@
+import cIndexPage from "./components/index.vue";
+
 const questionsComponent = {
 template:`<section id="questions">
             <h2>常见问题</h2>
@@ -31,7 +33,10 @@ Vue.use(VueRouter);
 const router = new VueRouter({
   //配置routes
   routes:[
-      //定义3个导航和组件的映射关系
+      {
+          path: "",
+          component: cIndexPage,
+      },
       {
           path: "/questions",
           component: questionsComponent
@@ -48,10 +53,10 @@ const router = new VueRouter({
           path: "/contact",
           component: contactComponent
       },
-    //   { // 默认
-    //       path: "*",
-    //       redirect: "/privacy"
-    //   },
+      { // 默认
+          path: "*",
+          redirect: ""
+      },
   ]
 });
 
