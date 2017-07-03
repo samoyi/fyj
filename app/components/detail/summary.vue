@@ -3,8 +3,8 @@
         <p class="title">{{productSummary[0]}}</p>
         <p class="price">
             <span>¥</span>
-            <span class="num">{{productSummary[2]}}</span>
-            <span>{{productSummary[3]}}</span>
+            <span class="num" v-if="productSummary[2]">{{productSummary[2][0]}}</span>
+            <span v-if="productSummary[3]">元/{{(productSummary[3][0])}}</span>
         </p>
         <p class="des" v-html="productSummary[1]"></p>
     </div>

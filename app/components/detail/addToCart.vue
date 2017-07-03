@@ -1,18 +1,18 @@
 <template>
-    <div class="addToCart">
+    <div class="addToCart" v-if="productSummary">
         <div class="chooseBox" v-show="bDispalyChooseBox">
             <img class="thumbnail" />
-            <p class="name"></p>
-            <p class="price"></p>
-            <div>
+            <p class="name">{{productSummary[0]}}</p>
+            <p class="price" v-if="productSummary[2]">¥{{productSummary[2][0]}}</p>
+            <div  v-if="productSummary[3]">
                 <span>规格</span>
-                <i></i>
+                <i v-for="item in productSummary[3]">{{item}}</i>
             </div>
             <div>
                 <span>数量</span>
-                <i></i>
-                <span></span>
-                <i></i>
+                <i>-</i>
+                <span>1</span>
+                <i>+</i>
             </div>
         </div>
         <div class="btnArea">
@@ -24,7 +24,7 @@
 <script>
 
 export default {
-    props: ["notice"],
+    props: ["productSummary"],
     data() {
         return {
             bDispalyChooseBox: false,

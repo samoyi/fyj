@@ -5,7 +5,7 @@
         <product-yongxin :yongxin="yongxin"></product-yongxin>
         <product-spec :product-spec="productSpec"></product-spec>
         <product-notice></product-notice>
-        <add-cart></add-cart>
+        <add-cart :product-summary="productSummary"></add-cart>
         <!--buttomPad防止最下边被加入购物车按钮挡住-->
         <div class="buttomPad" style="height:64px;"></div>
     </section>
@@ -41,7 +41,10 @@
             // 加载 产品概述的数据
             {
                 let sURL = "../data/productSummary.json",
-                fnSuccessCallback = (res)=>{this.productSummary = JSON.parse(res);};
+                fnSuccessCallback = (res)=>{this.productSummary = JSON.parse(res);
+                    console.log((this.productSummary)[2][0]);
+                    console.log((this.productSummary)[3][0]);
+                };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
 
