@@ -5,9 +5,10 @@
         <product-yongxin :yongxin="yongxin"></product-yongxin>
         <product-spec :product-spec="productSpec"></product-spec>
         <product-notice></product-notice>
-        <add-cart :product-summary="productSummary"></add-cart>
         <!--buttomPad防止最下边被加入购物车按钮挡住-->
         <div class="buttomPad" style="height:64px;"></div>
+        <div v-show="bDispalyChooseBox" class="shade" @click="switchChooseBox"></div>
+        <add-cart :display-box="bDispalyChooseBox" @switchChooseBox="switchChooseBox" :product-summary="productSummary"></add-cart>
     </section>
 </template>
 
@@ -27,6 +28,9 @@
                 productSummary: [],
                 yongxin: "",
                 productSpec: [],
+                // bDispalyChooseBox 是否显示加入购物车的规格数量选择框。
+                // 显示选择框的同时也显示半透明遮罩
+                bDispalyChooseBox: false,
             }
         },
         components: {
@@ -62,8 +66,12 @@
                 AJAX_GET(sURL, fnSuccessCallback);
             }
         },
+        methods: {
+            switchChooseBox(){ // 隐藏半透明遮罩，同时隐藏购物车选择框
+                this.bDispalyChooseBox = !this.bDispalyChooseBox;
+            },
+        }
     };
-
 
 </script>
 
@@ -72,11 +80,20 @@
 #detailPage{
     width: 100%;
     position: absolute; top: $headerHeight;
-    .threeCard{
-        height: 2300px; overflow: hidden;
-        >div{
-            height: 690px;
-        }
+    // .threeCard{
+    //     height: 2300px; overflow: hidden;
+    //     >div{
+    //         height: 690px;
+    //     }
+    // }
+    awesome-swiper{
+        z-index: 0;
+    }
+    .shade{
+        width: 100%; height: 100%;
+        z-index: 1; // awesome-swiper 组件会自动设置 z-index 为 1。这里必须也要设1覆盖它
+        position: absolute; top: 0;
+        background-color: rgba(0, 0, 0, 0.6);
     }
 }
 

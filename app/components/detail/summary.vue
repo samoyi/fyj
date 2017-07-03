@@ -1,12 +1,12 @@
 <template>
     <div class="productSummary" v-if="productSummary">
-        <p class="title">{{productSummary[0]}}</p>
+        <p class="title">{{productSummary[1]}}</p>
         <p class="price">
             <span>¥</span>
-            <span class="num" v-if="productSummary[2]">{{productSummary[2][0]}}</span>
-            <span v-if="productSummary[3]">元/{{(productSummary[3][0])}}</span>
+            <span class="num" v-if="productSummary[3]">{{productSummary[3][0]}}</span>
+            <span v-if="productSummary[4]">元/{{(productSummary[4][0])}}</span>
         </p>
-        <p class="des" v-html="productSummary[1]"></p>
+        <p class="des" v-html="productSummary[2]"></p>
     </div>
 </template>
 
