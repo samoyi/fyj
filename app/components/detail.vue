@@ -80,12 +80,6 @@
 #detailPage{
     width: 100%;
     position: absolute; top: $headerHeight;
-    // .threeCard{
-    //     height: 2300px; overflow: hidden;
-    //     >div{
-    //         height: 690px;
-    //     }
-    // }
     awesome-swiper{
         z-index: 0;
     }
@@ -93,7 +87,7 @@
         width: 100%; height: 100%;
         z-index: 1; // awesome-swiper 组件会自动设置 z-index 为 1。这里必须也要设1覆盖它
         position: absolute; top: 0;
-        background-color: rgba(0, 0, 0, 0.6);
+        background-color: rgba(0, 0, 0, 0.8);
     }
 }
 

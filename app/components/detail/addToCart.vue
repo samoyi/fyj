@@ -3,16 +3,16 @@
         <div class="chooseBox" v-show="displayBox">
             <img v-if="productSummary[0]" class="thumbnail" :src="productSummary[0][0]" />
             <p class="name">{{productSummary[1]}}</p>
-            <p class="price" v-if="productSummary[3]">¥{{productSummary[3][0]}}</p>
-            <div v-if="productSummary[4]">
+            <p class="price" v-if="productSummary[3]">¥{{productSummary[3][selectedSpecIndex]}}</p>
+            <div class="spec" v-if="productSummary[4]">
                 <span>规格</span>
-                <i v-for="item in productSummary[4]">{{item}}</i>
+                <i v-for="(item,index) in productSummary[4]" :class="{selected: selectedSpecIndex===index}" @click="changeSpec(index)">{{item}}</i>
             </div>
-            <div>
+            <div class="amount">
                 <span>数量</span>
-                <i>-</i>
-                <span>1</span>
-                <i>+</i>
+                <i class="sub" @click="amountSub">-</i>
+                <span class="num">{{amount}}</span>
+                <i class="add" @click="amountAdd">+</i>
             </div>
         </div>
         <div class="btnArea">
@@ -27,6 +27,8 @@ export default {
     props: ["productSummary", "displayBox"],
     data() {
         return {
+            selectedSpecIndex: 0,
+            amount: 1,
         }
     },
     methods: {
@@ -35,11 +37,22 @@ export default {
         switchChooseBox(){
             // 如果在已显示的状态下点击 加入购物车，则说明确实要将商品加入购物车
             if(this.$parent.bDispalyChooseBox){
+                this.selectedSpecIndex = 0;
+                this.amount = 1;
                 alert("已经加入购物车");
             }
 
             // 显示或隐藏半透明遮罩
             this.$emit("switchChooseBox");
+        },
+        amountSub(){
+            this.amount = --this.amount || 1;
+        },
+        amountAdd(){
+            this.amount++;
+        },
+        changeSpec(index){
+            this.selectedSpecIndex = index;
         },
     },
 }
@@ -56,27 +69,68 @@ export default {
         position: absolute; bottom: 0;
     }
     .chooseBox{
-        width: 100%; height: 163px;
+        width: 100%; height: 214px;
         background-color: white;
-        position: relative;
+        position: absolute; bottom: 64px;
         img{
             width: 75px; height: 75px;
             margin: 14px auto auto 14px;
         }
         .name{
             font-size: 14px;
-            margin-top: 32px;
             color: #1e1e1e;
-            position: absolute; top: 32px; left: 50px;
+            position: absolute; top: 30px; left: 100px;
         }
         .price{
             font-size: 10px;
             color: #17919f;
-            position: absolute; top: 52px; left: 50px;
+            position: absolute; top: 54px; left: 100px;
         }
+        $divHeight: 40px;
         div{
             font-size: 10px;
-            position: absolute; top: 32px; left: 14px;
+            height: $divHeight;
+            position: absolute; left: 14px;
+            >span:first-child{
+                margin-right: 15px;
+            }
+            i{
+                display: inline-block;
+                width: $divHeight; height: $divHeight; line-height: $divHeight;
+                border-radius: 50%;
+                text-align: center;
+            }
+        }
+        .spec{
+            top: 110px;
+            i{
+                margin-right: $divHeight;
+                background-color: #ebebeb;
+            }
+            .selected{
+                background-color: #17919f;
+                color: white;
+            }
+        }
+        .amount{
+            line-height: $divHeight;
+            top: 160px;
+            i{
+                position: absolute;
+                box-sizing: border-box;
+                border: 1px solid #ebebeb;
+            }
+            .num{
+                position: absolute;
+                top: 0;
+                left: 96px;
+            }
+            .sub{
+                left: 38px; top: 0;
+            }
+            .add{
+                left: 118px; top: 0;
+            }
         }
     }
 }
