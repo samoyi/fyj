@@ -1,16 +1,35 @@
 <template>
-    <section id="indexNewProducts" v-if="list">
-        <product-card v-for="item in list" :key="item[1]" :cur-card-info="item"></product-card>
+    <section class="cartList" v-if="list">
+        <div v-for="(item,index) in list">
+            <img :src="item.thumbnail" :alt="item.name" />
+            <p class="name">{{item.name}}</p>
+            <p class="name">规格: {{item.spec}}</p>
+            <p class="price">{{item.price}}×{{amount[index]}}</p>
+            <div class="amount">
+                <i class="sub" @click="amountSub(index)">-</i>
+                <span class="num">{{amount[index]}}</span>
+                <i class="add" @click="amountAdd(index)">+</i>
+            </div>
+        </div>
     </section>
 </template>
 
 <script>
-    import productCard from "../common/productCard_big.vue";
 
     export default {
         props: ["list"],
-        components: {
-            "product-card": productCard,
+        data() {
+            return {
+                amount: [], // 取回购物车数据后，根据数据更新
+            }
+        },
+        methods: {
+            amountSub(index){
+                this.amount[index] = --this.amount[index] || 1;
+            },
+            amountAdd(){
+                this.amount[index]++;
+            },
         },
     };
 
@@ -19,20 +38,27 @@
 <style lang="scss" scoped>
 @import "../../scss/common.scss";
 
-#indexNewProducts{
-    overflow: hidden;
-    width: 96%; height: 1155px;
-    position: relative; left: 2%;
-    h2{
-        font-size: $h2FontSize;
-        height: 95px; line-height: 95px;
-        text-align: center;
-    }
+.cartList{
     >div{
-        margin-bottom: 20px;
-    }
-    >div:last-child{
-        margin-bottom: 0;
+        .amount{
+            top: 160px;
+            i{
+                position: absolute;
+                box-sizing: border-box;
+                border: 1px solid #ebebeb;
+            }
+            .num{
+                position: absolute;
+                top: 0;
+                left: 96px;
+            }
+            .sub{
+                left: 38px; top: 0;
+            }
+            .add{
+                left: 118px; top: 0;
+            }
+        }
     }
 }
 </style>

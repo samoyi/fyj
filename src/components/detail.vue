@@ -1,6 +1,6 @@
 <template>
     <section id="detailPage">
-        <awesome-swiper></awesome-swiper>
+        <awesome-swiper :product-summary="productSummary"></awesome-swiper>
         <product-summary :product-summary="productSummary"></product-summary>
         <product-yongxin :yongxin="yongxin"></product-yongxin>
         <product-spec :product-spec="productSpec"></product-spec>

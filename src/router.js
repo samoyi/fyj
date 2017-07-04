@@ -1,5 +1,6 @@
 import cIndexPage from "./components/index.vue";
 import cDetailPage from "./components/detail.vue";
+import cCartPage from "./components/cart.vue";
 
 const questionsComponent = {
 template:`<section id="questions">
@@ -35,12 +36,16 @@ const router = new VueRouter({
   //配置routes
   routes:[
       {
-          path: "",
+          path: "/",
           component: cIndexPage,
       },
       {
           path: "/detail",
           component: cDetailPage,
+      },
+      {
+          path: "/cart",
+          component: cCartPage,
       },
       {
           path: "/questions",

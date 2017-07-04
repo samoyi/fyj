@@ -30,10 +30,10 @@
 <style lang="scss" scoped>
 header{
     @import "../scss/common.scss";
-    z-index: 9;
+    // z-index: 9;
     width: 100%; height: $headerHeight;
     background-color: yellow;
-    position: fixed; top: 0;
+    // position: fixed; top: 0;
     .logo, .navMenu, .user, .cart{
         position: absolute;
     }
