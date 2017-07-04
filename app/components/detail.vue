@@ -25,6 +25,7 @@
     export default {
         data: function () {
             return {
+                productInfo: null,
                 productSummary: [],
                 yongxin: "",
                 productSpec: [],
@@ -42,29 +43,37 @@
           "add-cart": addToCart,
         },
         mounted: function(){
-            // 加载 产品概述的数据
-            {
-                let sURL = "../data/productSummary.json",
-                fnSuccessCallback = (res)=>{this.productSummary = JSON.parse(res);
-                    console.log((this.productSummary)[2][0]);
-                    console.log((this.productSummary)[3][0]);
-                };
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
 
-            // 加载 产品用心的数据
             {
-                let sURL = "../data/productYongxin.json",
-                fnSuccessCallback = (res)=>{this.yongxin = JSON.parse(res);};
+                let sURL = "../data/productInfo.json",
+                    fnSuccessCallback = (res)=>{
+                        let oParsed = JSON.parse(res);
+                        this.productSummary = oParsed.summary;
+                        this.yongxin = oParsed.yongxin;
+                        this.productSpec = oParsed.spec;
+                    };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
-
-            // 加载 产品规格的数据
-            {
-                let sURL = "../data/productSpec.json",
-                fnSuccessCallback = (res)=>{this.productSpec = JSON.parse(res);};
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
+            // // 加载 产品概述的数据
+            // {
+            //     let sURL = "../data/productSummary.json",
+            //         fnSuccessCallback = (res)=>{this.productSummary = JSON.parse(res);};
+            //     AJAX_GET(sURL, fnSuccessCallback);
+            // }
+            //
+            // // 加载 产品用心的数据
+            // {
+            //     let sURL = "../data/productYongxin.json",
+            //         fnSuccessCallback = (res)=>{this.yongxin = JSON.parse(res);};
+            //     AJAX_GET(sURL, fnSuccessCallback);
+            // }
+            //
+            // // 加载 产品规格的数据
+            // {
+            //     let sURL = "../data/productSpec.json",
+            //         fnSuccessCallback = (res)=>{this.productSpec = JSON.parse(res);};
+            //     AJAX_GET(sURL, fnSuccessCallback);
+            // }
         },
         methods: {
             switchChooseBox(){ // 隐藏半透明遮罩，同时隐藏购物车选择框

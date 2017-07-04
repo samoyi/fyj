@@ -7,6 +7,8 @@
             <span v-if="productSummary[4]">元/{{(productSummary[4][0])}}</span>
         </p>
         <p class="des" v-html="productSummary[2]"></p>
+        <p class="type">{{productSummary[5]}}</p>
+        <p class="tags">{{productSummary[6]}}</p>
     </div>
 </template>
 
