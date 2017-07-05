@@ -1,15 +1,13 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-        <app-header></app-header>
         <router-view></router-view>
     </section>
 </template>
 
 <script>
-import header from "./components/header.vue";
+
 import cLoadingPage from "./components/loading.vue";
-// import cIndexPage from "./components/index.vue";
 
 
 
@@ -22,7 +20,6 @@ export default {
     }
   },
   components: {
-      "app-header": header,
       cLoadingPage,
   },
   router,

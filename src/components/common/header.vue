@@ -29,11 +29,11 @@
 
 <style lang="scss" scoped>
 header{
-    @import "../scss/common.scss";
-    // z-index: 9;
+    @import "../../scss/common.scss";
     width: 100%; height: $headerHeight;
-    background-color: yellow;
-    // position: fixed; top: 0;
+    position: fixed; top: 0;
+    z-index: 9;
+    background-color: white;
     .logo, .navMenu, .user, .cart{
         position: absolute;
     }
@@ -43,22 +43,40 @@ header{
         margin-left: -32px;
         top: ($headerHeight - 37px)/2;
     }
+    .navMenu, .user, .cart{
+        width: 22px; height: 22px;
+        background: {
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            size: 761px 809px;
+        }
+    }
     .navMenu{
-        width: 23px; height: 30px;
-        background-color: red;
         left: 10px; top: ($headerHeight - 30px)/2;
+        background-position: -14px -15px;
     }
     .user{
-        width: 18px; height: 21px;
         right: 70px;
-        background-color: red;
         top: ($headerHeight - 21px)/2;
+        background-position: -14px -47px;
     }
     .cart{
-        width: 23px; height: 21px;
         right: 16px;
-        background-color: red;
         top: ($headerHeight - 21px)/2;
+        background-position: -14px -79px;
+        span{
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            display: block;
+            font-size: 8px;
+            position: absolute;
+            right: -6px;
+            top: -2px;
+        }
     }
     >nav{
         position: fixed;

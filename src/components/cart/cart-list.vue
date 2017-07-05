@@ -1,14 +1,14 @@
 <template>
-    <section class="cartList" v-if="list">
+    <section class="cartList" v-if="list.length">
         <div v-for="(item,index) in list">
             <i class="checkbox" :class="{checked: order[index][3]}" @click="switchCheck(index)">√</i>
             <img :src="item.thumbnail" :alt="item.name" />
             <p class="name">{{item.name}}</p>
             <p class="spec">规格: {{item.spec}}</p>
-            <p class="price">{{item.price}}×{{amount[index]}}</p>
+            <p class="price">{{item.price}}×{{order[index][2]}}</p>
             <div class="amount">
                 <i class="sub" @click="amountSub(index)">-</i>
-                <span class="num">{{amount[index]}}</span>
+                <span class="num">{{order[index][2]}}</span>
                 <i class="add" @click="amountAdd(index)">+</i>
             </div>
         </div>
@@ -18,25 +18,20 @@
 <script>
 
     export default {
-        props: ["list"],
+        props: ["list", "order"],
         data() {
             return {
-                amount: [], // 每款商品的数量。取回购物车数据后，根据数据更新
-                order: [
-                    ["id1", "1磅", 2, false],
-                    ["id2", "2磅", 1, true],
-                ],
-            }
+            };
         },
         methods: {
             switchCheck(index){
-                this.order[index].splice(3, 1, this.order[index][3] ? false : true);
+                this.$parent.order[index].splice(3, 1, this.$parent.order[index][3] ? false : true);
             },
             amountSub(index){
-                this.amount.splice(index, 1, (--this.amount[index] || 1));
+                this.$parent.order[index].splice(2, 1, (--this.$parent.order[index][2] || 1));
             },
             amountAdd(index){
-                this.amount.splice(index, 1, ++this.amount[index]);
+                this.$parent.order[index].splice(2, 1, ++this.$parent.order[index][2]);
             },
         },
     };

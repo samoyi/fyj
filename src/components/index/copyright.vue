@@ -6,7 +6,7 @@
 <style lang="scss" scoped>
 .copyright
 {
-    height: 63px; list-style-position: 63px;
+    height: 63px; line-height: 63px;
     text-align: center;
     font-size: 12px;
     color: #9b9b9b;

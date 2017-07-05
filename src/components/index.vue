@@ -1,5 +1,6 @@
 <template>
     <section id="indexPage">
+        <app-header></app-header>
         <awesome-swiper :list="carouselList"></awesome-swiper>
         <new-products :list="newProducts"></new-products>
         <hot-products :list="hotProducts"></hot-products>
@@ -9,6 +10,7 @@
 </template>
 
 <script>
+    import header from "./common/header.vue";
     import awesomeSwiper from "./index/awesome-swiper.vue";
     import newProducts from "./index/newProducts.vue";
     import hotProducts from "./index/hotProducts.vue";
@@ -26,6 +28,7 @@
             }
         },
         components: {
+          "app-header": header,
           "awesome-swiper": awesomeSwiper,
           "new-products": newProducts,
           "hot-products": hotProducts,
