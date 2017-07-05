@@ -1,0 +1,24 @@
+{
+    "summary":{
+        "image": [
+            "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg"
+        ],
+        "name": "一抹茶的温柔治愈 / Motcha Lovers",
+        "des": "好久不见，是该相见<br />将岁月里的好久不见，化成抹茶的一抹清香<br />致永远不老的你们，致你们心里没有唱出的情歌",
+        "price": [188, 288],
+        "spec": ["1.0磅", "2.0磅"],
+        "icon": "cake",
+        "tag": ["精选小蜜红豆", "日本西尾抹茶", "意大利马斯卡纳邦奶酪"]
+    },
+    "yongxin": "抹茶品牌的选用在历经数百次的品尝测试中<br />日本爱知县的西尾抹茶脱颖而出 它可称为低调的奢华<br />只因它上等的清香、微微的甘甜",
+    "spec": {
+        "des": "纯手工制作，尺寸仅供参考，以重量为准",
+        "icon": "fork",
+        "list": [
+            "1磅 15cm×15cm 适合3~4人食用 免费配送5套餐具",
+            "2磅 20cm×20cm 适合7~8人食用 免费配送10套餐具"
+        ]
+    }
+}

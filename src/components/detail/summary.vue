@@ -59,11 +59,20 @@ export default {
     .icon{
         width: 22px; height: 22px;
         position: absolute;
-        left: 5px; top: 50px;
+        left: 5px; bottom: 10px;
         background:{
             image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
             size: 761px 809px;
         }
+    }
+    .tags{
+        font-size: 10px;
+        color: #9b9b9b;
+        position: absolute;
+        left: 36px; bottom: 10px;
+        width: 80%;
+        line-height: 14px;
+        font-size: 10px;
     }
 }
 </style>

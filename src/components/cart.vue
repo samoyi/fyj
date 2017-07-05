@@ -2,7 +2,7 @@
     <section id="cartPage">
         <header>点击返回要更新购物车状态 购物车</header>
         <div class="card">券</div>
-        <cart-list ref="cartList" :list="cartList"></cart-list>
+        <cart-list class="cartList" ref="cartList" :list="cartList"></cart-list>
         <add-on class="add-on" :list="addOnList"></add-on>
         <recommendation-products class="recommendation" :list="recommendation"></recommendation-products>
         <place-order></place-order>
@@ -39,14 +39,10 @@
                 let sURL = "../data/cart-list.json",
                 fnSuccessCallback = (res)=>{
                     this.cartList = JSON.parse(res);
-                    // console.log(this);
                     let self = this;
                     this.cartList.forEach((item, index)=>{
-                        // console.log(this);
                         self.$refs.cartList.amount[index] = item.amount;
                     });
-                    // this.$refs.cartList.amount = this.cartList.amount;
-                    // console.log(this.$refs.cartList.amount,this.cartList.amount);
                 };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
@@ -82,13 +78,16 @@
         font-size: 17px; text-align: center;
         background: white;
     }
-    .card{
+    .card, .cartList, .add-on, .recommendation{
         margin-top: 10px;
+    }
+    .card{
         height: 56px;
         background: white;
     }
+    .cartList{
+    }
     .add-on{
-        margin-top: 10px;
     }
     .recommendation{
 
