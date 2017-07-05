@@ -1,0 +1,26 @@
+[
+    {
+        "id": 10,
+        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+        "name": "千层里的福升四级",
+        "des": "crespe at seans",
+        "price": 188,
+        "spec": "1.0磅"
+    },
+    {
+        "id": 10,
+        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+        "name": "肆意",
+        "des": "fours fairy tale",
+        "price": 188,
+        "spec": "1.0磅"
+    },
+    {
+        "id": 10,
+        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+        "name": "香蕉先生的",
+        "des": "chocolate w",
+        "price": 188,
+        "spec": "1.0磅"
+    }
+]

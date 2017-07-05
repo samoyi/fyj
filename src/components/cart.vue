@@ -24,6 +24,10 @@
                 cartList: [],
                 addOnList: [],
                 recommendation: [],
+                order: [
+                    ["id1", "1磅", 2, false],
+                    ["id2", "2磅", 1, true],
+                ],
             }
         },
         components: {

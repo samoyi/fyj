@@ -25,10 +25,11 @@
     export default {
         data: function () {
             return {
+                id: null,
                 productInfo: null,
-                productSummary: [],
-                yongxin: "",
-                productSpec: [],
+                productSummary: null,
+                yongxin: null,
+                productSpec: null,
                 // bDispalyChooseBox 是否显示加入购物车的规格数量选择框。
                 // 显示选择框的同时也显示半透明遮罩
                 bDispalyChooseBox: false,
@@ -48,11 +49,11 @@
                 let sURL = "http://www.fuyj.com.cn/goods_detail.php?id",
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{
-                        let oParsed = JSON.parse(res).data;
+                        let oParsed = JSON.parse(res);
                         this.productSummary = {
                             "image": oParsed.image,
                             "name": oParsed.name.trim(),
-                            "des": oParsed.des,
+                            "des": oParsed.des.trim(),
                             "price": oParsed.price,
                             "spec": ["1.0磅", "2.0磅"],
                             "icon": oParsed.icon,
@@ -60,10 +61,11 @@
                         };
                         this.yongxin = oParsed.field1[1];
                         this.productSpec = {
-                            "des": oParsed.field2[1],
+                            "des": oParsed.field2[0],
                             "icon": "刀叉",
                             "list": oParsed.field2.slice(1),
                         };
+                        this.id = oParsed.id;
                     };
                 AJAX_GET(sURL, fnSuccessCallback);
             }

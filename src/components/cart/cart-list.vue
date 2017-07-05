@@ -87,6 +87,7 @@
             position: absolute;
             top: 70px; left: 133px;
             font-size: 12px;
+            color: #17919f;
         }
         .amount{
             font-size: 12px;

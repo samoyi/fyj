@@ -1,0 +1,80 @@
+{
+    "carousel": [
+        {
+            "id": "10",
+            "url": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+            "title": "title1",
+            "des": "des1",
+            "price": 188,
+            "spec": "磅"
+        },
+        {
+            "id": "10",
+            "url": "http://www.fuyj.com.cn/images/201704/thumb_img/59_thumb_G_1491948406750.jpg",
+            "title": "title2",
+            "des": "des2",
+            "price": 188,
+            "spec": "磅"
+        },
+        {
+            "id": "10",
+            "url": "http://www.fuyj.com.cn/images/201703/thumb_img/58_thumb_G_1489687595724.jpg",
+            "title": "title3",
+            "des": "des3",
+            "price": 188,
+            "spec": "磅"
+        }
+    ],
+    "new": [
+        {
+            "id": 10,
+            "url": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "name": "榛的好难娶/榛的不想嫁 Luscious",
+            "des": "其实我很实在，只是你不懂爱<br />你只是坚定不移的把我吃掉，留下一句：嗯，味道不错",
+            "price": 188,
+            "spec": "1.0磅"
+        },
+        {
+            "id": 10,
+            "url": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "name": "草莓扑倒覆盆子 / Wild Berries",
+            "des": "浓郁覆盆子与红颊草莓的狂野之恋<br />它们是彼此注定的红玫瑰，谁扑倒谁不重要<br />谁说水火不可相恋",
+            "price": 188,
+            "spec": "1.0磅"
+        },
+        {
+            "id": 10,
+            "url": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "带我走的提拉米苏 / Tiramisu",
+            "des": "只愿做最安静纯正的提拉米苏<br />以意大利传统极致的香醇浓郁与你相见",
+            "price": 188,
+            "spec": "1.0磅"
+        }
+    ],
+    "hot": [
+        {
+            "id": 10,
+            "url": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+            "name": "千层里的福升四级",
+            "des": "crespe at seans",
+            "price": 188,
+            "spec": "1.0磅"
+        },
+        {
+            "id": 10,
+            "url": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+            "name": "肆意",
+            "des": "fours fairy tale",
+            "price": 188,
+            "spec": "1.0磅"
+        },
+        {
+            "id": 10,
+            "url": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+            "name": "香蕉先生的",
+            "des": "chocolate w",
+            "price": 188,
+            "spec": "1.0磅"
+        }
+    ]
+}

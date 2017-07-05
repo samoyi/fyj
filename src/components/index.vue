@@ -1,6 +1,6 @@
 <template>
     <section id="indexPage">
-        <awesome-swiper></awesome-swiper>
+        <awesome-swiper :list="carouselList"></awesome-swiper>
         <new-products :list="newProducts"></new-products>
         <hot-products :list="hotProducts"></hot-products>
         <buttom-list></buttom-list>
@@ -20,8 +20,9 @@
     export default {
         data: function () {
             return {
-                newProducts: [],
-                hotProducts: [],
+                carouselList: null,
+                newProducts: null,
+                hotProducts: null,
             }
         },
         components: {
@@ -32,26 +33,38 @@
           "buttom-copyright": copyright,
         },
         mounted: function(){
-            // 加载 carousel 组件中的数据
+            // 加载 数据
+            {
+                let sURL = "../data/index.json",
+                fnSuccessCallback = (res)=>{
+                    let parsed = JSON.parse(res);
+                    this.carouselList = parsed.carousel;
+                    this.newProducts = parsed.new;
+                    this.hotProducts = parsed.hot;
+                };
+                AJAX_GET(sURL, fnSuccessCallback);
+            }
+
+            // // 加载 carousel 组件中的数据
             // {
             //     let sURL = "../data/indexCarousel.json",
             //     fnSuccessCallback = (res)=>{this.carouselList = JSON.parse(res);};
             //     AJAX_GET(sURL, fnSuccessCallback);
             // }
-
-            // 加载 新产品的数据
-            {
-                let sURL = "../data/newProducts.json",
-                fnSuccessCallback = (res)=>{this.newProducts = JSON.parse(res);};
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
-
-            // 加载 热卖产品的数据
-            {
-                let sURL = "../data/hotProducts.json",
-                fnSuccessCallback = (res)=>{this.hotProducts = JSON.parse(res);};
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
+            //
+            // // 加载 新产品的数据
+            // {
+            //     let sURL = "../data/newProducts.json",
+            //     fnSuccessCallback = (res)=>{this.newProducts = JSON.parse(res);};
+            //     AJAX_GET(sURL, fnSuccessCallback);
+            // }
+            //
+            // // 加载 热卖产品的数据
+            // {
+            //     let sURL = "../data/hotProducts.json",
+            //     fnSuccessCallback = (res)=>{this.hotProducts = JSON.parse(res);};
+            //     AJAX_GET(sURL, fnSuccessCallback);
+            // }
         },
     };
 

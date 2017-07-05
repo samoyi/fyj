@@ -69,7 +69,7 @@ export default {
         font-size: 10px;
         color: #9b9b9b;
         position: absolute;
-        left: 36px; bottom: 10px;
+        left: 20px; bottom: 10px;
         width: 80%;
         line-height: 14px;
         font-size: 10px;

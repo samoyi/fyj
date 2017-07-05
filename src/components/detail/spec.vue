@@ -7,7 +7,7 @@
         <p v-html="productSpec.des"></p>
         <i :style="{backgroundPosition:oSpriteMap[productSpec.icon]}"></i><!--现在的图标是刀叉，以后可能还会变成其他的-->
         <ul>
-            <li v-for="item in productSpec.list">{{item}}</li>
+            <li v-for="item in productSpec.list" v-html="item"></li>
         </ul>
     </div>
 </template>

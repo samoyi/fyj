@@ -1,12 +1,12 @@
 <template>
     <div class="addToCart" v-if="productSummary">
         <div class="chooseBox" v-show="displayBox">
-            <img v-if="productSummary[0]" class="thumbnail" :src="productSummary[0][0]" />
-            <p class="name">{{productSummary[1]}}</p>
-            <p class="price" v-if="productSummary[3]">¥{{productSummary[3][selectedSpecIndex]}}</p>
-            <div class="spec" v-if="productSummary[4]">
+            <img class="thumbnail" :src="productSummary.image[0]" />
+            <p class="name">{{productSummary.name}}</p>
+            <p class="price">¥{{productSummary.price[selectedSpecIndex]}}</p>
+            <div class="spec">
                 <span>规格</span>
-                <i v-for="(item,index) in productSummary[4]" :class="{selected: selectedSpecIndex===index}" @click="changeSpec(index)">{{item}}</i>
+                <i v-for="(item,index) in productSummary.spec" :class="{selected: selectedSpecIndex===index}" @click="changeSpec(index)">{{item}}</i>
             </div>
             <div class="amount">
                 <span>数量</span>
@@ -37,9 +37,9 @@ export default {
         switchChooseBox(){
             // 如果在已显示的状态下点击 加入购物车，则说明确实要将商品加入购物车
             if(this.$parent.bDispalyChooseBox){
+                console.log(this.$parent.id, this.selectedSpecIndex, this.amount);
                 this.selectedSpecIndex = 0;
                 this.amount = 1;
-                alert("已经加入购物车");
             }
 
             // 显示或隐藏半透明遮罩

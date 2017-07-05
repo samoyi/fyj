@@ -1,17 +1,26 @@
 [
     {
+        "id": "10",
         "url": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
         "name": "name1",
-        "des": "des1"
+        "des": "des1",
+        "price": 188,
+        "spec": "磅"
     },
     {
+        "id": "10",
         "url": "http://www.fuyj.com.cn/images/201704/thumb_img/59_thumb_G_1491948406750.jpg",
         "name": "name2",
-        "des": "des2"
+        "des": "des2",
+        "price": 188,
+        "spec": "磅"
     },
     {
+        "id": "10",
         "url": "http://www.fuyj.com.cn/images/201703/thumb_img/58_thumb_G_1489687595724.jpg",
         "name": "name3",
-        "des": "des3"
+        "des": "des3",
+        "price": 188,
+        "spec": "磅"
     }
 ]
