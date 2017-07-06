@@ -1,18 +1,18 @@
 <template>
     <menu>
-        <div class="order" :class="{curIndex: (curIndex===0)}" @click="setCurItem(0)">
+        <div class="order" :class="{orderCur: (curIndex===0)}" @click="setCurItem(0)">
             <i></i>
-            <span>我的订单</span>
+            <span style="{}">我的订单</span>
         </div>
-        <div class="card" :class="{curIndex: (curIndex===1)}" @click="setCurItem(1)">
+        <div class="card" :class="{cardCur: (curIndex===1)}" @click="setCurItem(1)">
             <i></i>
             <span>我的优惠券</span>
         </div>
-        <div class="add" :class="{curIndex: (curIndex===2)}" @click="setCurItem(2)">
+        <div class="addr" :class="{addrCur: (curIndex===2)}" @click="setCurItem(2)">
             <i></i>
             <span>管理地址</span>
         </div>
-        <div class="message" :class="{curIndex: (curIndex===3)}" @click="setCurItem(3)">
+        <div class="message" :class="{messageCur: (curIndex===3)}" @click="setCurItem(3)">
             <i></i>
             <span>系统消息</span>
         </div>
@@ -70,14 +70,38 @@ menu{
             background-position: -155px -15px;
         }
     }
+    .orderCur{
+        i{
+            background-position: -155px -47px;
+        }
+        span{
+            color: #17919f;
+        }
+    }
     .card{
         i{
             background-position: -155px -79px;
         }
     }
-    .add{
+    .cardCur{
+        i{
+            background-position: -155px -111px;
+        }
+        span{
+            color: #17919f;
+        }
+    }
+    .addr{
         i{
             background-position: -155px -143px;
+        }
+    }
+    .addrCur{
+        i{
+            background-position: -155px -175px;
+        }
+        span{
+            color: #17919f;
         }
     }
     .message{
@@ -85,9 +109,13 @@ menu{
             background-position: -155px -207px;
         }
     }
-    .orderCur{
-        color: #17919f;
-        background-position: -155px -47px;
+    .messageCur{
+        i{
+            background-position: -155px -239px;
+        }
+        span{
+            color: #17919f;
+        }
     }
 }
 </style>

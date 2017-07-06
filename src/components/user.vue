@@ -1,9 +1,8 @@
 <template>
     <section id="userPage">
         <user-header class="header"></user-header>
-        <user-menu class="menu"></user-menu>
-        <section>
-        </section>
+        <user-menu class="menu" :cur-index="curIndex"></user-menu>
+        <user-order class="order" v-if="0===curIndex" :list="orderList"></user-order>
     </section>
 </template>
 
@@ -11,19 +10,30 @@
 
     import header from "./user/header.vue";
     import menu from "./user/menu.vue";
+    import order from "./user/order.vue";
     import {AJAX_GET} from "../js/common.js";
 
 
     export default {
         data: function () {
             return {
+                curIndex: 0,
+                orderList: null,
             }
         },
         components: {
           "user-header" : header,
           "user-menu" : menu,
+          "user-order" : order,
         },
         mounted: function(){
+
+            // // 加载 订单的数据
+            {
+                let sURL = "../data/order.json",
+                    fnSuccessCallback = (res)=>{this.orderList = JSON.parse(res);};
+                AJAX_GET(sURL, fnSuccessCallback);
+            }
 
             // // 加载 购物车的数据
             // {
@@ -43,12 +53,7 @@
             //     AJAX_GET(sURL, fnSuccessCallback);
             // }
             //
-            // // 加载 加价购的数据
-            // {
-            //     let sURL = "../data/add-on.json",
-            //     fnSuccessCallback = (res)=>{this.addOnList = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
+
             //
             // // 加载 加价购的数据
             // {
