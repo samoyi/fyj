@@ -42,11 +42,6 @@ export default {
 }
 .swiper-item {
     height: 100%;
-    // background:{
-    //     size: cover;
-    //     position: center;
-    //     repeat: no-repeat;
-    // }
     img{
         width: 100%; height: 100%;
     }

@@ -1,22 +1,29 @@
 <template>
     <section class="order">
         <div class="noOrder" v-if="!list">
-            <img src="" />
+            <div></div>
             <p>
                 您当前还没有订单<br />快去购物吧
             </p>
         </div>
-        <ul v-if="list">
+        <ul class="orderList" v-if="list">
             <li v-for="item in list">
-                <span>订单编号： {{item.number}}</span>
-                <span >{{orderState(item.state)}}</span>
-                <img :src="item.thumbnail" alt="item.name" />
-                <span>{{item.spec}}</span>
-                <span>¥{{item.price}}×{{item.amount}}</span>
-                <span>共{{item.amount}}件商品 合计：¥{{item.price*item.amount}}</span>
-                <div>
-                    <span v-if="item.state<3">取消订单</span>
-                    <span>{{orderHandle(item.state)}}</span>
+                <div class="top">
+                    <span>订单编号： {{item.number}}</span>
+                    <span >{{orderState(item.state)}}</span>
+                </div>
+                <div class="middle">
+                    <img :src="item.thumbnail" alt="item.name" />
+                    <span class="name">{{item.name}}</span>
+                    <span class="spec">{{item.spec}}</span>
+                    <span class="price">¥{{item.price}}×{{item.amount}}</span>
+                </div>
+                <div class="bottom">
+                    <span>共{{item.amount}}件商品 合计：¥{{item.price*item.amount}}</span>
+                    <div>
+                        <span v-if="item.state<3">取消订单</span>
+                        <span v-if="orderHandle(item.state)">{{orderHandle(item.state)}}</span>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -45,6 +52,9 @@
                     case 4:{
                         return "已收货";
                     }
+                    case 5:{
+                        return "已取消";
+                    }
                 }
             },
             orderHandle(state){
@@ -61,6 +71,9 @@
                     case 4:{
                         return "";
                     }
+                    case 5:{
+                        return "";
+                    }
                 }
             },
         },
@@ -72,8 +85,8 @@
 .order{
     .noOrder{
         text-align: center;
-        img{
-            position: relative; top: 64px;
+        div{
+            margin: 64px auto auto auto;
             width: 87px; height: 87px;
             border: none;
             background:{
@@ -83,11 +96,84 @@
             }
         }
         p{
-            top: 78px;
+            margin-top: 18px;
             color: #9b9b9b;
             font-size: 12px;
             line-height: 16px;
-            position: relative;
+        }
+    }
+    .orderList{
+        width: 100%; height: 156px;
+        background-color: #f6f6f6;
+        margin-top: 10px;
+        >li{
+            margin-bottom: 10px;
+            .top, .bottom{
+                height: 42px;
+                background-color: white;
+                line-height: 42px;
+                color: #9b9b9b;
+                font-size: 12px;
+            }
+            .top{
+                span:nth-child(1){
+                    margin-left: 14px;
+                }
+                span:nth-child(2){
+                    margin-right: 14px;
+                    color: #17919f;
+                    display: inline-block;
+                    float: right;
+                }
+            }
+            .middle{
+                height: 72px;
+                background-color: #f8f8f8;
+                position: relative;
+                img{
+                    width: 56px; height: 56px;
+                    position: absolute; left: 14px; top: 8px;
+                }
+                .name{
+                    position: absolute;
+                    top: 10px;
+                    left: 92px;
+                }
+                .spec{
+                    position: absolute;
+                    top: 42px;
+                    left: 92px;
+                    color: #9b9b9b;
+                    font-size: 12px;
+                }
+                .price{
+                    position: absolute;
+                    top: 10px;
+                    right: 14px;
+                    font-size: 12px;
+                }
+            }
+            .bottom{
+                position: relative;
+                >span{
+                    margin-left: 14px;
+                }
+                div{
+                    height: 100%;
+                    position: absolute;
+                    right: 14px;
+                    top: 0;
+                    color: #17919f;
+                    span{
+                        border-radius: 50px/50px;
+                        border: 1px solid;
+                            padding: 2px 6px;
+                    }
+                    span:first-child{
+                        margin-right: 10px;
+                    }
+                }
+            }
         }
     }
 }

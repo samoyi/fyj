@@ -3,6 +3,8 @@
         <user-header class="header"></user-header>
         <user-menu class="menu" :cur-index="curIndex"></user-menu>
         <user-order class="order" v-if="0===curIndex" :list="orderList"></user-order>
+        <user-card class="card" v-if="1===curIndex" :list="cardList"></user-card>
+        <user-addr class="addr" v-if="2===curIndex" :list="addrList"></user-addr>
     </section>
 </template>
 
@@ -11,6 +13,8 @@
     import header from "./user/header.vue";
     import menu from "./user/menu.vue";
     import order from "./user/order.vue";
+    import card from "./user/card.vue";
+    import addr from "./user/addr.vue";
     import {AJAX_GET} from "../js/common.js";
 
 
@@ -19,19 +23,37 @@
             return {
                 curIndex: 0,
                 orderList: null,
+                cardList: null,
+                addrList: null,
             }
         },
         components: {
           "user-header" : header,
           "user-menu" : menu,
           "user-order" : order,
+          "user-card" : card,
+          "user-addr" : addr,
         },
         mounted: function(){
 
-            // // 加载 订单的数据
+            // 加载 订单的数据
             {
                 let sURL = "../data/order.json",
                     fnSuccessCallback = (res)=>{this.orderList = JSON.parse(res);};
+                AJAX_GET(sURL, fnSuccessCallback);
+            }
+
+            // 加载 卡券的数据
+            {
+                let sURL = "../data/card.json",
+                    fnSuccessCallback = (res)=>{this.cardList = JSON.parse(res);};
+                AJAX_GET(sURL, fnSuccessCallback);
+            }
+
+            // 加载 地址的数据
+            {
+                let sURL = "../data/addr.json",
+                    fnSuccessCallback = (res)=>{this.addrList = JSON.parse(res);};
                 AJAX_GET(sURL, fnSuccessCallback);
             }
 

@@ -37,6 +37,7 @@
 <style lang="scss" scoped>
 menu{
     width: 100%; height: 61px;
+    background: white;
     >div{
         color: #9b9b9b;
         width: 25%; height: 100%;
@@ -80,7 +81,7 @@ menu{
     }
     .card{
         i{
-            background-position: -155px -79px;
+            background-position: -155px -80px;
         }
     }
     .cardCur{

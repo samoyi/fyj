@@ -2,6 +2,7 @@ import cIndexPage from "./components/index.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
 import cUserPage from "./components/user.vue";
+import cAddAddr from "./components/user/addAddr.vue";
 
 const questionsComponent = {
 template:`<section id="questions">
@@ -67,6 +68,10 @@ const router = new VueRouter({
       {
           path: "/contact",
           component: contactComponent
+      },
+      {
+          path: "/addAddr",
+          component: cAddAddr
       },
       { // 默认
           path: "*",
