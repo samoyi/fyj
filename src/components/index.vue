@@ -47,27 +47,6 @@
                 };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
-
-            // // 加载 carousel 组件中的数据
-            // {
-            //     let sURL = "../data/indexCarousel.json",
-            //     fnSuccessCallback = (res)=>{this.carouselList = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-            //
-            // // 加载 新产品的数据
-            // {
-            //     let sURL = "../data/newProducts.json",
-            //     fnSuccessCallback = (res)=>{this.newProducts = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-            //
-            // // 加载 热卖产品的数据
-            // {
-            //     let sURL = "../data/hotProducts.json",
-            //     fnSuccessCallback = (res)=>{this.hotProducts = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
         },
     };
 

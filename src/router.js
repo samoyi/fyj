@@ -1,6 +1,7 @@
 import cIndexPage from "./components/index.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
+import cUserPage from "./components/user.vue";
 
 const questionsComponent = {
 template:`<section id="questions">
@@ -37,7 +38,7 @@ const router = new VueRouter({
   routes:[
       {
           path: "/",
-          component: cIndexPage,
+          component: cUserPage,
       },
       {
           path: "/detail",
@@ -46,6 +47,10 @@ const router = new VueRouter({
       {
           path: "/cart",
           component: cCartPage,
+      },
+      {
+          path: "/user",
+          component: cUserPage,
       },
       {
           path: "/questions",
@@ -65,7 +70,7 @@ const router = new VueRouter({
       },
       { // 默认
           path: "*",
-          redirect: "/detail"
+          redirect: "/user"
       },
   ]
 });
