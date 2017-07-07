@@ -15,6 +15,8 @@
     import order from "./user/order.vue";
     import card from "./user/card.vue";
     import addr from "./user/addr.vue";
+    // import addAddr from "./user/addAddr.vue";
+
     import {AJAX_GET} from "../js/common.js";
 
 

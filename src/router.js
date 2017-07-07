@@ -2,7 +2,7 @@ import cIndexPage from "./components/index.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
 import cUserPage from "./components/user.vue";
-import cAddAddr from "./components/user/addAddr.vue";
+import addAddr0 from "./components/user/addAddr0.vue";
 
 const questionsComponent = {
 template:`<section id="questions">
@@ -39,7 +39,7 @@ const router = new VueRouter({
   routes:[
       {
           path: "/",
-          component: cUserPage,
+          component: cIndexPage,
       },
       {
           path: "/detail",
@@ -52,6 +52,12 @@ const router = new VueRouter({
       {
           path: "/user",
           component: cUserPage,
+          children: [
+              {
+                  path: "addAddr0",
+                  component: addAddr0,
+              },
+          ],
       },
       {
           path: "/questions",
@@ -68,14 +74,6 @@ const router = new VueRouter({
       {
           path: "/contact",
           component: contactComponent
-      },
-      {
-          path: "/addAddr",
-          component: cAddAddr
-      },
-      { // 默认
-          path: "*",
-          redirect: "/user"
       },
   ]
 });

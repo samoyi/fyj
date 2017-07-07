@@ -2,7 +2,7 @@
     <section class="addAddr">
         <header>
             <span class="back">&lt; 返回</span>
-            <h3>添加配送地址</h3>
+            <h3>添加配送地址000</h3>
             <span class="save" @click="save">保存</span>
         </header>
         <section>
@@ -53,7 +53,7 @@
                 this[err] = false;
             },
             save(){
-                console.log(this.$parent.curIndex);
+                console.log(this.$parent.curIndex + "ssssss");
                 if(false===this.nameErr && false===this.telErr && false===this.addrErr){
                     // let oNewAddr = {
                     //     "tel": this.tel,

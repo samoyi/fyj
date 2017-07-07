@@ -38,7 +38,8 @@
         mounted: function(){
             // 加载 数据
             {
-                let sURL = "../data/index.json",
+                let sURL = "http://www.fuyj.com.cn/ajax/home.php",
+                // let sURL = "../data/index.json",
                 fnSuccessCallback = (res)=>{
                     let parsed = JSON.parse(res);
                     this.carouselList = parsed.carousel;

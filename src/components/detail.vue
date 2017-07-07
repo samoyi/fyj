@@ -46,7 +46,7 @@
         mounted: function(){
 
             {
-                let sURL = "http://www.fuyj.com.cn/goods_detail.php?id",
+                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id",
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);
