@@ -38,6 +38,7 @@
     overflow: hidden;
     width: 96%; height: 1155px;
     position: relative; left: 2%;
+    background: white;
     h2{
         font-size: $h2FontSize;
         height: 95px; line-height: 95px;

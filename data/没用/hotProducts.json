@@ -1,26 +1,80 @@
-[
-    {
-        "id": 10,
-        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
-        "name": "千层里的福升四级",
-        "des": "crespe at seans",
-        "price": 188,
-        "spec": "1.0磅"
-    },
-    {
-        "id": 10,
-        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
-        "name": "肆意",
-        "des": "fours fairy tale",
-        "price": 188,
-        "spec": "1.0磅"
-    },
-    {
-        "id": 10,
-        "image": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
-        "name": "香蕉先生的",
-        "des": "chocolate w",
-        "price": 188,
-        "spec": "1.0磅"
-    }
-]
+{
+    "carousel": [
+        {
+            "id": "5",
+            "title": "浮生六记",
+            "des": "相遇、相识、相知、相许、相守、相伴",
+            "url": "http://fuyj.com.cn/images/carousel/595f631b58a02.jpg",
+            "price": "188.00",
+            "spec": "磅"
+        },
+        {
+            "id": "6",
+            "title": "奶茶的忧伤",
+            "des": "才话别的一场梦",
+            "url": "http://fuyj.com.cn/images/carousel/595f6383a5689.jpg",
+            "price": "188.00",
+            "spec": "磅"
+        },
+        {
+            "id": "7",
+            "title": "初心 / Original Will",
+            "des": "那年夏天，那个你",
+            "url": "http://fuyj.com.cn/images/carousel/595f63c2c8096.jpg",
+            "price": "288.00",
+            "spec": "磅"
+        }
+    ],
+    "new": [
+        {
+            "id": "48",
+            "url": "http://fuyj.com.cn/images/carousel/48_thumb_G_1472075915799.jpg",
+            "name": "完月／One Moon",
+            "des": "&nbsp;&nbsp;｜明亮温暖的橙色，如八月十五耀眼的月光&nbsp;｜<br />&nbsp;｜淡淡桂花香&nbsp;，浓浓芒果味&nbsp;｜<br />&nbsp;｜演绎完美的花样青春&nbsp;｜<br />&nbsp;",
+            "price": "198",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "51",
+            "url": "http://fuyj.com.cn/images/carousel/51_thumb_G_1478653743518.jpg",
+            "name": "肆·臆／Fours Fairy Tale",
+            "des": "&nbsp;｜一颗橙、 一抹绿、一粒榛、一蕉巧&nbsp;｜<br />｜多多加餐勿念君｜<br />&nbsp;<br />",
+            "price": "218",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "57",
+            "url": "http://fuyj.com.cn/images/carousel/57_thumb_G_1490750722984.jpg",
+            "name": "初心 / Original Will",
+            "des": "&nbsp;               <br />| 不忘初心 |<br />| 拥抱最初的那个自己 |<br />",
+            "price": "229",
+            "spec": "1.0磅"
+        }
+    ],
+    "hot": [
+        {
+            "id": "27",
+            "url": "http://fuyj.com.cn/images/carousel/27_thumb_G_1450202969897.jpg",
+            "name": "点亮圣诞季",
+            "des": "&nbsp;｜冰与火之恋｜<br />这个冬天最浪漫温馨的节日，草莓和覆盆子相恋了。<br />当覆盆子淋酱的火焰遇上红颊草莓冻布丁的清凉<br />将一场完美邂逅演绎到了极致<br />&nbsp;",
+            "price": "228",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "31",
+            "url": "http://fuyj.com.cn/images/carousel/31_thumb_G_1454539173485.jpg",
+            "name": "肯尼亚玫瑰",
+            "des": "",
+            "price": "29",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "39",
+            "url": "http://fuyj.com.cn/images/carousel/39_thumb_G_1463550118090.jpg",
+            "name": "苹等／Waiting For You ",
+            "des": "｜粉色让人心情变得柔软｜<br />｜青绿是小清新的气质｜<br />｜青苹果与番石榴｜<br />｜微酸与清甜的相遇｜<br />｜是青春的味道｜<br />&nbsp;",
+            "price": "188",
+            "spec": "1.0磅"
+        }
+    ]
+}

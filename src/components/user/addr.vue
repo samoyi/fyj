@@ -13,21 +13,19 @@
                 <div class="default">
                     <input type="radio" :checked="item.isDefault" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
                 </div>
-                <span class="delete" @click="deleteAddr">删除地址</span>
+                <span class="delete" @click="deleteAddr(index)">删除地址</span>
             </li>
         </ul>
         <div class="add">
-            <!-- <span @click="addAddr">+ 新增收货地址</span> -->
-            <!-- <router-link class="addAddr" to="/addAddr">+ 新增收货地址</router-link> -->
-            <router-link class="addAddr" to="/user/addAddr0">+ 新增收货地址u00</router-link>
-            <router-view></router-view>
+            <router-link v-if="list.length<3" class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
         </div>
+        <router-view></router-view>
     </section>
 </template>
 
 <script>
 
-    import addAddr0 from "./addAddr0.vue";
+    import addAddr from "./addAddr.vue";
     import Vue from 'vue/dist/vue.js';
     import VueRouter from 'vue-router';
     Vue.use(VueRouter);
@@ -36,8 +34,8 @@
       //配置routes
       routes:[
           {
-              path: "/addAddr0",
-              component: addAddr0,
+              path: "/addAddr",
+              component: addAddr,
           },
       ]
     });
@@ -46,11 +44,13 @@
     export default {
         props: ["list"],
         data: function () {
-            return {};
+            return {
+            };
         },
         methods: {
-            deleteAddr(){
-                console.log(this.$parent.curIndex);
+            deleteAddr(index){
+                console.log(this.$parent.addrList.splice(index, 1));
+                alert("提交收货地址");
             },
         },
     };

@@ -2,12 +2,12 @@
     <section class="recommendation" v-if="list">
         <h2>推荐商品</h2>
         <div>
-            <div class="product-card" v-for="item in list" :key="item[1]">
-                <img :src="item[0]" :alt="item[1]" />
-                <p class="name">{{item[1]}}</p>
+            <div class="product-card" v-for="item in list" :key="item.goods_name">
+                <img :src="item.goods_thumb" :alt="item.goods_name" />
+                <p class="name">{{item.goods_name}}</p>
                 <p class="price">
                     <span>¥</span>
-                    <span class="num">{{item[2]}}</span>
+                    <span class="num">{{item.attr_price}}</span>
                 </p>
                 <i></i>
             </div>

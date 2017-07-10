@@ -1,20 +1,14 @@
 import cIndexPage from "./components/index.vue";
+import cProducts from "./components/products.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
 import cUserPage from "./components/user.vue";
-import addAddr0 from "./components/user/addAddr0.vue";
+import cAboutus from "./components/aboutus.vue";
+import cQuestions from "./components/questions.vue";
+import cContact from "./components/contact.vue";
+import addAddr from "./components/user/addAddr.vue";
 
-const questionsComponent = {
-template:`<section id="questions">
-            <h2>常见问题</h2>
-        </section>`,
-};
 
-const cooperationComponent = {
-template:`<section id="cooperation">
-            <h2>合作联系</h2>
-        </section>`
-};
 
 const privacyComponent = {
 template:`<section id="privacy">
@@ -22,11 +16,7 @@ template:`<section id="privacy">
         </section>`
 };
 
-const contactComponent = {
-template:`<section id="contact">
-            <h2>联系我们</h2>
-        </section>`
-};
+
 
 
 import Vue from 'vue/dist/vue.js';
@@ -46,6 +36,10 @@ const router = new VueRouter({
           component: cDetailPage,
       },
       {
+          path: "/product",
+          component: cProducts,
+      },
+      {
           path: "/cart",
           component: cCartPage,
       },
@@ -54,18 +48,18 @@ const router = new VueRouter({
           component: cUserPage,
           children: [
               {
-                  path: "addAddr0",
-                  component: addAddr0,
+                  path: "addAddr",
+                  component: addAddr,
               },
           ],
       },
       {
-          path: "/questions",
-          component: questionsComponent
+          path: "/aboutus",
+          component: cAboutus,
       },
       {
-          path: "/cooperation",
-          component: cooperationComponent
+          path: "/questions",
+          component: cQuestions
       },
       {
           path: "/privacy",
@@ -73,7 +67,7 @@ const router = new VueRouter({
       },
       {
           path: "/contact",
-          component: contactComponent
+          component: cContact
       },
   ]
 });

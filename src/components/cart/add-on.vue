@@ -2,12 +2,12 @@
     <section class="add-on" v-if="list">
         <h2>加价购</h2>
         <swiper :options="swiperOption" class="swiper-box">
-            <swiper-slide class="swiper-item" v-for="item in list" :key="item[1]">
-                <img :src="item[0]" :alt="item[1]" />
-                <p class="name">{{item[1]}}</p>
+            <swiper-slide class="swiper-item" v-for="item in list" :key="item.add_name">
+                <img :src="item.add_img" :alt="item.add_name" />
+                <p class="name">{{item.add_name}}</p>
                 <p class="price">
                     <span>¥</span>
-                    <span class="num">{{item[2]}}</span>
+                    <span class="num">{{item.add_price}}</span>
                 </p>
                 <i></i>
             </swiper-slide>

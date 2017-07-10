@@ -1,7 +1,7 @@
 <template>
     <section id="indexButtomlList">
          <router-link to="/questions">常见问题</router-link>
-         <router-link to="/cooperation">合作联系</router-link>
+         <router-link to="/contact">合作联系</router-link>
          <router-link to="/privacy">隐私权申明</router-link>
          <router-link to="/contact">联系方式</router-link>
     </section>

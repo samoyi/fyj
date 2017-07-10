@@ -1,7 +1,7 @@
 <template>
     <section class="addAddr">
         <header>
-            <span class="back">&lt; 返回</span>
+            <span class="back" @click="back">返回</span>
             <h3>添加配送地址</h3>
             <span class="save" @click="save">保存</span>
         </header>
@@ -52,23 +52,28 @@
             getFocus(err){
                 this[err] = false;
             },
+            back(){
+                history.back();
+            },
             save(){
-                console.log(this.$parent.curIndex);
                 if(false===this.nameErr && false===this.telErr && false===this.addrErr){
-                    // let oNewAddr = {
-                    //     "tel": this.tel,
-                    //     "name": this.name,
-                    //     "addr": this.addr,
-                    //     "isDefault": this.isDefult,
-                    // };
-                    // let addrList = this.$parent.addrList; // 现有的地址
-                    // console.log(this.$parent);
-                    // console.log(addrList);
-                    // if(this.isDefult){
-                    //     let defaultAddrIndex = addrList.findIndex((item)=>{item.isDefault});
-                    //     this.$parent.addrList[defaultAddrIndex].isDefault = false;
-                    // }
-                    // this.$parent.addrList.push(oNewAddr);
+                    let oNewAddr = {
+                        "tel": this.tel,
+                        "name": this.name,
+                        "addr": this.addr,
+                        "isDefault": this.isDefult,
+                    };
+                    let addrList = this.$parent.$parent.addrList; // 现有的地址
+                    console.log(addrList);
+                    if(this.isDefult){ // 新添加的设为默认地址
+                        let defaultAddrIndex = addrList.findIndex(item=>item.isDefault);
+                        if(defaultAddrIndex>-1){
+                            this.$parent.$parent.addrList[defaultAddrIndex].isDefault = false;
+                        }
+                    }
+                    this.$parent.$parent.addrList.push(oNewAddr);
+                    alert("提交地址列表")
+                    history.back();
                 }
             },
         },
@@ -80,6 +85,10 @@
 @import "../../scss/common.scss";
 .addAddr{
     background-color: #f6f6f6;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
     header{
         width: 100%;
         height: $headerHeight;

@@ -1,11 +1,12 @@
 <template>
     <section id="indexPage">
-        <app-header></app-header>
+        <app-header :index="0"></app-header>
         <awesome-swiper :list="carouselList"></awesome-swiper>
         <new-products :list="newProducts"></new-products>
         <hot-products :list="hotProducts"></hot-products>
         <buttom-list></buttom-list>
         <buttom-copyright></buttom-copyright>
+        <a class="tel" href="tel:13030303030" />
     </section>
 </template>
 
@@ -60,11 +61,10 @@
 #indexPage{
     width: 100%;
     position: absolute; top: $headerHeight;
-    .threeCard{
-        height: 2300px; overflow: hidden;
-        >div{
-            height: 690px;
-        }
+    .tel{
+        position: fixed; left: 0; top: 210px;
+        background-color: black; width: 22px; height: 22px;
+        z-index: 1;
     }
 }
 

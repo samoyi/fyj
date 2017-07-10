@@ -11,7 +11,7 @@
                     <p class="price">
                         <span>¥</span>
                         <span class="num">{{item.price}}</span>
-                        <span>{{item.des}}</span>
+                        <span>/{{item.spec}}</span>
                     </p>
                     <slot></slot>
                 </div>
@@ -47,7 +47,6 @@ export default {
     height: 390px;
     background-color: #d7ecf1;
     position: relative;
-    margin-top: 22px;
     h2{
         font-size: $h2FontSize;
         text-align: center;
@@ -62,32 +61,32 @@ export default {
         >div{
             text-align: center;
             overflow: hidden;
+            background: white;
+            height: 240px;
             >img{
-                height: 163px;
+                width: 133px; height: 133px;
             }
             >p{
                 text-align: left;
                 margin-left: 14px;
             }
             .name{
-                font-size: 20px;
-                line-height: 28px;
+                font-size: 14px;
+                line-height: 12px;
                 color: #1e1e1e;
-                margin-top: 18px;
+                margin-top: 14px;
             }
             .des{
                 font-size: 11px;
-                line-height: 16px;
+                line-height: 16px; height: 16px;
                 color: #9b9b9b;
-                margin-top: 10px;
+                margin-top: 6px;
+                overflow: hidden;
             }
             .price{
                 font-size: 11px;
                 color: #17919f;
-                margin-top: 32px;
-                .num{
-                    font-size: 18px;
-                }
+                margin-top: 16px;
             }
         }
     }
