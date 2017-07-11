@@ -3,6 +3,7 @@ import cProducts from "./components/products.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
 import cUserPage from "./components/user.vue";
+import cBindTel from "./components/bindTel.vue";
 import cAboutus from "./components/aboutus.vue";
 import cQuestions from "./components/questions.vue";
 import cContact from "./components/contact.vue";
@@ -52,6 +53,10 @@ const router = new VueRouter({
                   component: addAddr,
               },
           ],
+      },
+      {
+          path: "/bindTel",
+          component: cBindTel,
       },
       {
           path: "/aboutus",

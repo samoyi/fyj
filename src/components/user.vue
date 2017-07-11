@@ -22,6 +22,7 @@
     export default {
         data: function () {
             return {
+                tel: null,
                 curIndex: 0,
                 orderList: null,
                 cardList: null,
@@ -36,7 +37,7 @@
           "user-addr" : addr,
         },
         mounted: function(){
-
+    
             // 加载 订单的数据
             {
                 let sURL = "../data/order.json",

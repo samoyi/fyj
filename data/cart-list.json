@@ -1,18 +1,59 @@
-[
-    {
-        "id": 10,
-        "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
-        "name": "一抹茶的温柔治愈",
-        "spec": "2磅",
-        "price": 198,
-        "amount": 1
-    },
-    {
-        "id": 10,
-        "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
-        "name": "一抹茶的温柔治愈",
-        "spec": "3磅",
-        "price": 298,
-        "amount": 2
-    }
-]
+{
+    "cart": [
+        {
+            "id": 10,
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "2磅",
+            "price": 198,
+            "amount": 1
+        },
+        {
+            "id": 10,
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2
+        }
+    ],
+    "recommend": [
+        {
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "兩伴／Double Life",
+            "attr_price": "198"
+        },
+        {
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "蔚蓝之星",
+            "attr_price": "399"
+        },
+        {
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "点亮圣诞季",
+            "attr_price": "228"
+        },
+        {
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "点亮圣诞季",
+            "attr_price": "228"
+        }
+    ],
+    "add_on": [
+        {
+            "add_name": "С",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "add_price": "5.00"
+        },
+        {
+            "add_name": "",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315205.jpg",
+            "add_price": "5.00"
+        },
+        {
+            "add_name": "",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463589833933.jpg",
+            "add_price": "25.00"
+        }
+    ]
+}

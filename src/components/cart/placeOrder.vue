@@ -20,7 +20,7 @@ export default {
             let aSelected = this.$parent.order.filter((item)=>{
                 return item[3];
             });
-            alert("清除已经下订单的商品");
+            alert("跳转到微信授权页\n下单成功后清除已经下订单的商品");
             console.log(aSelected);
         },
     },
