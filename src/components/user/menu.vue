@@ -42,7 +42,7 @@ menu{
         color: #9b9b9b;
         width: 25%; height: 100%;
         box-sizing: border-box;
-        border-right: 1px solid;
+        border-right: 1px solid #dddddd;
         float: left;
         position: relative;
         i{

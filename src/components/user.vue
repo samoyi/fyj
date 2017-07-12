@@ -1,10 +1,11 @@
 <template>
     <section id="userPage">
-        <user-header class="header"></user-header>
+        <user-header class="header" :cart-amount="cartAmount"></user-header>
         <user-menu class="menu" :cur-index="curIndex"></user-menu>
         <user-order class="order" v-if="0===curIndex" :list="orderList"></user-order>
         <user-card class="card" v-if="1===curIndex" :list="cardList"></user-card>
-        <user-addr class="addr" v-if="2===curIndex" :list="addrList"></user-addr>
+        <user-addr class="addr" v-if="2===curIndex" :list="addrList" :default-index="defaultAddrIndex"></user-addr>
+        <user-message class="message" v-if="3===curIndex" :list="messageList"></user-message>
     </section>
 </template>
 
@@ -15,11 +16,13 @@
     import order from "./user/order.vue";
     import card from "./user/card.vue";
     import addr from "./user/addr.vue";
+    import message from "./user/message.vue";
 
     import {AJAX_GET} from "../js/common.js";
 
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 tel: null,
@@ -27,6 +30,8 @@
                 orderList: null,
                 cardList: null,
                 addrList: null,
+                defaultAddrIndex: null,
+                messageList: null,
             }
         },
         components: {
@@ -35,57 +40,32 @@
           "user-order" : order,
           "user-card" : card,
           "user-addr" : addr,
+          "user-message": message,
         },
         mounted: function(){
-    
-            // 加载 订单的数据
+            if( this.$parent.userData ) // 已经自动登录
             {
-                let sURL = "../data/order.json",
-                    fnSuccessCallback = (res)=>{this.orderList = JSON.parse(res);};
+                let oUserData = this.$parent.userData;
+                this.orderList = oUserData.order;
+                this.cardList = oUserData.card;
+                this.addrList = oUserData.addr;
+                this.defaultAddrIndex = oUserData.addr.findIndex((item)=>item.isDefault);
+                this.messageList = oUserData.message;
+            }
+            else{
+                let sURL = "../data/user.json",
+                    fnSuccessCallback = (res)=>{
+                        let oParsed = JSON.parse(res);
+                        this.orderList = oParsed.order;
+                        this.cardList = oParsed.card;
+                        this.addrList = oParsed.addr;
+                        this.defaultAddrIndex = oParsed.addr.findIndex((item)=>item.isDefault);
+                        this.messageList = oParsed.message;
+
+                        this.$parent.cartList = oParsed.cart.length;
+                    };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
-
-            // 加载 卡券的数据
-            {
-                let sURL = "../data/card.json",
-                    fnSuccessCallback = (res)=>{this.cardList = JSON.parse(res);};
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
-
-            // 加载 地址的数据
-            {
-                let sURL = "../data/addr.json",
-                    fnSuccessCallback = (res)=>{this.addrList = JSON.parse(res);};
-                AJAX_GET(sURL, fnSuccessCallback);
-            }
-
-            // // 加载 购物车的数据
-            // {
-            //     let sURL = "../data/cart-list.json",
-            //     fnSuccessCallback = (res)=>{
-            //         let oParsed = JSON.parse(res);
-            //         this.cartList = oParsed;
-            //         let self = this;
-            //         oParsed.forEach((item, index)=>{
-            //             // self.$refs.cartList.amount[index] = item.amount;
-            //             // 记录购物车数据
-            //             // 每条数据搜一个四项数组，分别为：产品id、规格、数量、选中状态
-            //             // 提交订单时只需要这四项数据
-            //             this.order.push([item.id, item.spec, item.amount, true]);
-            //         });
-            //     };
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-            //
-
-            //
-            // // 加载 加价购的数据
-            // {
-            //     let sURL = "../data/recommendation.json",
-            //     fnSuccessCallback = (res)=>{this.recommendation = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-
         },
     };
 

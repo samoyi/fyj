@@ -1,6 +1,6 @@
 <template>
     <section :style="{height:height+'px'}" id="contactPage">
-        <app-header></app-header>
+        <app-header :cart-amount="cartAmount"></app-header>
         <div class="logoArea">
             <i class="logo"></i>
         </div>
@@ -22,6 +22,7 @@
     import {nWindowHeight, nHeaderHeight} from "../js/common.js";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 height: nWindowHeight-nHeaderHeight,

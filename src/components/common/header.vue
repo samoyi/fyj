@@ -5,9 +5,9 @@
         <!-- <span class="user"></span> -->
         <router-link class="user" to="/user"></router-link>
         <router-link class="cart" to="/cart">
-            <!-- <span>1</span> -->
+            <span v-if="cartAmount">{{cartAmount}}</span>
         </router-link>
-        <nav v-show="bNavDisplay" :style="{height:height+'px'}">
+        <nav @click="switchDisplayNav" v-show="bNavDisplay" :style="{height:height+'px'}">
             <i @click="switchDisplayNav">╳</i>
             <ul>
                 <li><router-link :class="{curColor: 0===index}" to="/">首 页 INDEX</router-link></li>
@@ -24,7 +24,7 @@
 import {nWindowHeight} from "../../js/common.js";
 
     export default {
-        props: ["index"],
+        props: ["index", "cartAmount"],
         data: function () {
             return {
                 bNavDisplay: false,
@@ -76,20 +76,20 @@ header{
         right: 16px;
         top: ($headerHeight - 21px)/2;
         background-position: -14px -79px;
-        // span{
-        //     width: 14px;
-        //     height: 14px;
-        //     line-height: 14px;
-        //     background-color: red;
-        //     color: white;
-        //     border-radius: 50%;
-        //     text-align: center;
-        //     display: block;
-        //     font-size: 8px;
-        //     position: absolute;
-        //     right: -6px;
-        //     top: -2px;
-        // }
+        span{
+            width: 14px;
+            height: 14px;
+            line-height: 14px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            display: block;
+            font-size: 8px;
+            position: absolute;
+            right: -6px;
+            top: -2px;
+        }
     }
     >nav{
         position: fixed;

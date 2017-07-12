@@ -1,6 +1,6 @@
 <template>
     <section id="productPage">
-        <app-header :index="2"></app-header>
+        <app-header :index="2" :cart-amount="cartAmount"></app-header>
         <h2>| 遇见心  方知味 |<br />PRODUCTS</h2>
         <section class="list">
             <div class="product" v-for="item in list">
@@ -27,6 +27,7 @@
     import {AJAX_GET} from "../js/common.js";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 list: null,

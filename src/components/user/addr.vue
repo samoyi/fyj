@@ -11,7 +11,7 @@
                 <span class="name-tel">{{item.name}}  {{item.tel}}</span>
                 <span class="addr">{{item.addr}}</span>
                 <div class="default">
-                    <input type="radio" :checked="item.isDefault" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
+                    <input type="radio" :checked="defaultIndex===index" @click="setDefault(index)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
                 </div>
                 <span class="delete" @click="deleteAddr(index)">删除地址</span>
             </li>
@@ -42,15 +42,19 @@
 
 
     export default {
-        props: ["list"],
+        props: ["list", "defaultIndex"],
         data: function () {
             return {
             };
         },
         methods: {
             deleteAddr(index){
-                console.log(this.$parent.addrList.splice(index, 1));
-                alert("提交收货地址");
+                this.$parent.addrList.splice(index, 1);
+                alert("发送数据");
+            },
+            setDefault(index){
+                this.$parent.defaultAddrIndex = index;
+                alert("发送数据");
             },
         },
     };

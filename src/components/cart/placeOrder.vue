@@ -34,6 +34,7 @@ export default {
             this.$parent.order.forEach((item, index)=>{
                 if(item[3]){ // 只计算选中的
                     nSelected += item[2];
+                    console.log(item[2] , this.$parent.cartList[index].price);
                     nSum += item[2] * this.$parent.cartList[index].price;
                 }
             });

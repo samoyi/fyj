@@ -1,6 +1,6 @@
 <template>
     <section id="questionsPage">
-        <app-header></app-header>
+        <app-header :cart-amount="cartAmount"></app-header>
         <div class="logoArea">
             <i class="logo"></i>
         </div>
@@ -83,6 +83,7 @@
     import bottom from "./common/bottom.vue";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 nQuestionIndex: null,

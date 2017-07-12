@@ -1,6 +1,6 @@
 <template>
     <section id="indexPage">
-        <app-header :index="0"></app-header>
+        <app-header :index="0" :cart-amount="cartAmount"></app-header>
         <awesome-swiper :list="carouselList"></awesome-swiper>
         <new-products :list="newProducts"></new-products>
         <hot-products :list="hotProducts"></hot-products>
@@ -21,6 +21,7 @@
     import {AJAX_GET} from "../js/common.js";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 carouselList: null,

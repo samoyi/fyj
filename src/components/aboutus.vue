@@ -1,6 +1,6 @@
 <template>
     <section id="aboutusPage">
-        <app-header :index="4"></app-header>
+        <app-header :index="4" :cart-amount="cartAmount"></app-header>
         <section class="aboutus">
             <div>
                 <h3>浮.生六记</h3>
@@ -52,6 +52,7 @@
     import bottom from "./common/bottom.vue";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
             }

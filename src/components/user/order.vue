@@ -7,7 +7,7 @@
             </p>
         </div>
         <ul class="orderList" v-if="list">
-            <li v-for="item in list">
+            <li v-for="(item, index) in list">
                 <div class="top">
                     <span>订单编号： {{item.number}}</span>
                     <span >{{orderState(item.state)}}</span>
@@ -21,8 +21,9 @@
                 <div class="bottom">
                     <span>共{{item.amount}}件商品 合计：¥{{item.price*item.amount}}</span>
                     <div>
-                        <span v-if="item.state<3">取消订单</span>
-                        <span v-if="orderHandle(item.state)">{{orderHandle(item.state)}}</span>
+                        <!-- <span v-if="item.state<3">联系客服取消订单</span> -->
+                        <a v-if="item.state<3" href="tel:4006633677">联系客服取消订单</a>
+                        <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, index)">{{getOrderState(item.state)}}</span>
                     </div>
                 </div>
             </li>
@@ -57,7 +58,7 @@
                     }
                 }
             },
-            orderHandle(state){
+            getOrderState(state){
                 switch (state){
                     case 1:{
                         return "马上付款";
@@ -74,6 +75,16 @@
                     case 5:{
                         return "";
                     }
+                }
+            },
+            handleOrder(state, index){
+                if( 3===state ){
+                    alert("发送确认收货信息");
+                    this.$parent.orderList[index].state = 4;
+                }
+                if( 1===state ){
+                    alert("进入支付页面支付 支付成功后怎么刷新这里的状态");
+                    this.$parent.orderList[index].state = 2;
                 }
             },
         },
@@ -161,15 +172,15 @@
                 div{
                     height: 100%;
                     position: absolute;
-                    right: 14px;
+                    right: 0;
                     top: 0;
                     color: #17919f;
-                    span{
+                    a, span{
                         border-radius: 50px/50px;
                         border: 1px solid;
-                            padding: 2px 6px;
-                    }
-                    span:first-child{
+                        padding: 2px 6px;
+                        color: #17919f;
+                        text-decoration: none;
                         margin-right: 10px;
                     }
                 }

@@ -38,6 +38,15 @@ export default {
             // 如果在已显示的状态下点击 加入购物车，则说明确实要将商品加入购物车
             if(this.$parent.bDispalyChooseBox){
                 console.log(this.$parent.id, this.selectedSpecIndex, this.amount);
+                let productInfo = {
+                    "id": this.$parent.id,
+                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+                    "name": this.$parent.productSummary.name,
+                    "spec": this.$parent.productSummary.spec[this.selectedSpecIndex],
+                    "price": this.$parent.productSummary.price[this.selectedSpecIndex],
+                    "amount": this.amount,
+                };
+                this.$parent.$parent.cartList.unshift(productInfo);
                 this.selectedSpecIndex = 0;
                 this.amount = 1;
             }

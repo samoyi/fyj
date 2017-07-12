@@ -3,12 +3,12 @@
         "tel": 133039403940,
         "name": "王富贵",
         "addr": "北纬路甲一号",
-        "isDefault": true
+        "isDefault": false
     },
     {
         "tel": 158039403940,
-        "name": "王富贵",
+        "name": "赵小美",
         "addr": "北纬路甲一号",
-        "isDefault": false
+        "isDefault": true
     }
 ]
