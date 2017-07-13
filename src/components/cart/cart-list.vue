@@ -26,12 +26,16 @@
         methods: {
             switchCheck(index){
                 this.$parent.order[index].splice(3, 1, this.$parent.order[index][3] ? false : true);
+                this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
+
             },
             amountSub(index){
-                this.$parent.order[index].splice(2, 1, (--this.$parent.order[index][2] || 1));
+                // this.$parent.order[index].splice(2, 1, (--this.$parent.order[index][2] || 1));
+                this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
             },
             amountAdd(index){
-                this.$parent.order[index].splice(2, 1, ++this.$parent.order[index][2]);
+                // this.$parent.order[index].splice(2, 1, ++this.$parent.order[index][2]);
+                ++this.$parent.$parent.cartList[index].amount;
             },
         },
     };

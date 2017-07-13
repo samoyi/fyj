@@ -45,6 +45,7 @@ export default {
                     "spec": this.$parent.productSummary.spec[this.selectedSpecIndex],
                     "price": this.$parent.productSummary.price[this.selectedSpecIndex],
                     "amount": this.amount,
+                    "checked": true,
                 };
                 this.$parent.$parent.cartList.unshift(productInfo);
                 this.selectedSpecIndex = 0;

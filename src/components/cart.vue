@@ -54,7 +54,7 @@
                 // 记录购物车数据
                 // 每条数据搜一个四项数组，分别为：产品id、规格、数量、选中状态
                 // 提交订单时只需要这四项数据
-                this.order.push([item.id, item.spec, item.amount, true]);
+                this.order.push([item.id, item.spec, item.amount, item.checked]);
             });
 
             {

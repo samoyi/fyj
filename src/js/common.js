@@ -65,4 +65,12 @@ function getCookies()
 	return cookies;
 }
 
-export {nWindowHeight, nHeaderHeight, AJAX_GET, AJAX_POST, getCookies};
+
+// 根据ID跳转到具体的某个详情页
+function toDetail(id){
+    this.$parent.$parent.detailID = id;
+    alert(this.$parent.$parent.detailID);
+    location.hash = "#/detail";
+}
+
+export {nWindowHeight, nHeaderHeight, AJAX_GET, AJAX_POST, getCookies, toDetail};

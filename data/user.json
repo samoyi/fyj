@@ -6,7 +6,8 @@
             "name": "一抹茶的温柔治愈",
             "spec": "2磅",
             "price": 198,
-            "amount": 1
+            "amount": 1,
+            "checked": true,
         },
         {
             "id": 10,
@@ -14,7 +15,8 @@
             "name": "一抹茶的温柔治愈",
             "spec": "3磅",
             "price": 298,
-            "amount": 2
+            "amount": 2,
+            "checked": true,
         }
     ],
     "order": [

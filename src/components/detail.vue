@@ -44,9 +44,9 @@
           "add-cart": addToCart,
         },
         mounted: function(){
-
             {
-                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id",
+                alert(this.$parent.detailID);
+                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + this.$parent.detailID,
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);

@@ -3,7 +3,7 @@
         <swiper-slide class="swiper-item" v-for="(item, index) in list" :key="item.title">
             <h3 v-if="item.title">{{item.title}}</h3>
             <p class="des" v-if="item.des" v-html="item.des"></p>
-            <img :src="item.url" />
+            <img :src="item.url"  @click="toDetail(item.id)"/>
             <div class="price">
                 <span v-if="item.price">¥</span>
                 <span class="num" v-if="item.price">{{item.price}}</span>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import {nWindowHeight, nHeaderHeight} from "../../js/common.js";
+import {nWindowHeight, nHeaderHeight, toDetail} from "../../js/common.js";
 
 export default {
     props: ["list"],
@@ -30,6 +30,9 @@ export default {
             height: nWindowHeight-nHeaderHeight,
             ids: [],
         }
+    },
+    methods: {
+        toDetail,
     },
 }
 </script>
