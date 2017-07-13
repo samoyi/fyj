@@ -2,7 +2,7 @@
     <section id="cartPage">
         <header>点击返回要更新购物车状态 购物车</header>
         <div class="card">券</div>
-        <cart-list class="cartList" ref="cartList" :list="cartList" :order ="order"></cart-list>
+        <cart-list class="cartList" ref="cartList" :list="cartList"></cart-list>
         <add-on class="add-on" :list="addOnList"></add-on>
         <recommendation-products class="recommendation" :list="recommendation"></recommendation-products>
         <place-order></place-order>
@@ -18,12 +18,13 @@
     import {AJAX_GET, AJAX_POST} from "../js/common.js";
 
     export default {
+        props: ["cartList"],
         data: function () {
             return {
-                cartList: [],
+                // cartList: [],
                 addOnList: [],
                 recommendation: [],
-                order: [],
+                // order: [],
             }
         },
         components: {
@@ -48,14 +49,14 @@
             //     AJAX_GET(sURL, fnSuccessCallback);
             // }
             //
-            this.cartList = this.$parent.cartList;
-            this.cartList.forEach((item, index)=>{
-                // self.$refs.cartList.amount[index] = item.amount;
-                // 记录购物车数据
-                // 每条数据搜一个四项数组，分别为：产品id、规格、数量、选中状态
-                // 提交订单时只需要这四项数据
-                this.order.push([item.id, item.spec, item.amount, item.checked]);
-            });
+            // this.cartList = this.$parent.cartList;
+            // this.cartList.forEach((item, index)=>{
+            //     // self.$refs.cartList.amount[index] = item.amount;
+            //     // 记录购物车数据
+            //     // 每条数据搜一个四项数组，分别为：产品id、规格、数量、选中状态
+            //     // 提交订单时只需要这四项数据
+            //     this.order.push([item.id, item.spec, item.amount, item.checked]);
+            // });
 
             {
                 // let sURL = "http://www.fuyj.com.cn/ajax/cart_list.php",

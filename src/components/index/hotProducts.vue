@@ -3,8 +3,7 @@
         <h2>热卖产品</h2>
         <swiper :options="swiperOption" class="swiper-box">
             <swiper-slide class="swiper-item" v-for="item in list" :key="item.name">
-                <!-- <product-card :cur-card-info="item"></product-card> -->
-                <div>
+                <div @click="toDetail(item.id)">
                     <img :src="item.url" :alt="item.name" />
                     <p class="name">{{item.name}}</p>
                     <p class="des" v-html="item.des"></p>
@@ -21,7 +20,9 @@
 </template>
 
 <script>
-// import productCard from "../common/productCard_middle.vue";
+
+import {toDetail} from "../../js/common.js";
+
 export default {
     data() {
         return {
@@ -32,9 +33,9 @@ export default {
         }
     },
     props: ["list"],
-    // components: {
-    //     "product-card": productCard,
-    // },
+    methods: {
+        toDetail,
+    },
 }
 
 </script>

@@ -1,14 +1,14 @@
 <template>
     <section class="cartList" v-if="list.length">
         <div v-for="(item,index) in list">
-            <i class="checkbox" :class="{checked: order[index][3]}" @click="switchCheck(index)">√</i>
+            <i class="checkbox" :class="{checked: item.checked}" @click="switchCheck(index)">√</i>
             <img :src="item.thumbnail" :alt="item.name" />
             <p class="name">{{item.name}}</p>
             <p class="spec">规格: {{item.spec}}</p>
-            <p class="price">{{item.price}}×{{order[index][2]}}</p>
+            <p class="price">{{item.price}}×{{item.amount}}</p>
             <div class="amount">
                 <i class="sub" @click="amountSub(index)">-</i>
-                <span class="num">{{order[index][2]}}</span>
+                <span class="num">{{item.amount}}</span>
                 <i class="add" @click="amountAdd(index)">+</i>
             </div>
         </div>
@@ -18,23 +18,19 @@
 <script>
 
     export default {
-        props: ["list", "order"],
+        props: ["list"],
         data() {
             return {
             };
         },
         methods: {
             switchCheck(index){
-                this.$parent.order[index].splice(3, 1, this.$parent.order[index][3] ? false : true);
                 this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
-
             },
             amountSub(index){
-                // this.$parent.order[index].splice(2, 1, (--this.$parent.order[index][2] || 1));
                 this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
             },
             amountAdd(index){
-                // this.$parent.order[index].splice(2, 1, ++this.$parent.order[index][2]);
                 ++this.$parent.$parent.cartList[index].amount;
             },
         },

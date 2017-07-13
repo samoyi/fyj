@@ -1,9 +1,7 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-        <!-- <keep-alive> -->
             <router-view :cart-amount="cartAmount" :cart-list="cartList"></router-view>
-        <!-- </keep-alive> -->
     </section>
 </template>
 
@@ -30,21 +28,21 @@ export default {
   },
   router,
   mounted: function(){
-    //   if( "openid" in getCookies() ){
-    //       alert("可以自动登录");
-    //       {
-    //           // 加载用户数据
-    //           // 包括购物车、订单、优惠券、地址、消息
-    //           let sURL = "../data/user.json",
-    //               fnSuccessCallback = (res)=>{
-    //                   let oParsed = JSON.parse(res);
-    //                   this.userData = oParsed;
-    //                   this.cartList = oParsed.cart;
-    //               };
-    //           AJAX_GET(sURL, fnSuccessCallback);
-    //       }
-      //
-    //   }
+      if( "openid" in getCookies() ){
+          alert("可以自动登录");
+          {
+              // 加载用户数据
+              // 包括购物车、订单、优惠券、地址、消息
+              let sURL = "../data/user.json",
+                  fnSuccessCallback = (res)=>{
+                      let oParsed = JSON.parse(res);
+                      this.userData = oParsed;
+                      this.cartList = oParsed.cart;
+                  };
+              AJAX_GET(sURL, fnSuccessCallback);
+          }
+
+      }
       document.cookie = "openid=myopenid;max-age=3600";
   },
   computed: {

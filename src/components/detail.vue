@@ -45,7 +45,6 @@
         },
         mounted: function(){
             {
-                alert(this.$parent.detailID);
                 let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + this.$parent.detailID,
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{

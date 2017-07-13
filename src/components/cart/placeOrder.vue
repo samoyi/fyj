@@ -17,8 +17,8 @@ export default {
     },
     methods: {
         placeOrder(){
-            let aSelected = this.$parent.order.filter((item)=>{
-                return item[3];
+            let aSelected = this.$parent.$parent.cartList.filter((item)=>{
+                return item.checked;
             });
             alert("跳转到微信授权页\n下单成功后清除已经下订单的商品");
             console.log(aSelected);
@@ -26,16 +26,12 @@ export default {
     },
     computed: {
         orderInfo(){
-            // let aSelected = this.$parent.order.filter((item)=>{
-            //     return item[3];
-            // });
             let nSum = 0,
                 nSelected = 0;
-            this.$parent.order.forEach((item, index)=>{
-                if(item[3]){ // 只计算选中的
-                    nSelected += item[2];
-                    console.log(item[2] , this.$parent.cartList[index].price);
-                    nSum += item[2] * this.$parent.cartList[index].price;
+            this.$parent.$parent.cartList.forEach((item, index)=>{
+                if(item.checked){ // 只计算选中的
+                    nSelected += item.amount;
+                    nSum += item.amount *item.price;
                 }
             });
             return [nSelected, nSum];

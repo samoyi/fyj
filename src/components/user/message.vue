@@ -40,7 +40,7 @@
             .content{
                 background-color: white;
                 color: #1e1e1e;
-                width: 100%; height: 48px; line-height: 18px;
+                width: 100%; line-height: 18px;
                 position: absolute;
                 top: 38px;
                 left: 0;

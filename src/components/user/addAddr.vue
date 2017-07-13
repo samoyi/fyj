@@ -66,13 +66,15 @@
                     let addrList = this.$parent.$parent.addrList; // 现有的地址
                     console.log(addrList);
                     if(this.isDefult){ // 新添加的设为默认地址
+                        console.log("默认");
                         let defaultAddrIndex = addrList.findIndex(item=>item.isDefault);
+                        console.log(defaultAddrIndex);
                         if(defaultAddrIndex>-1){
                             this.$parent.$parent.addrList[defaultAddrIndex].isDefault = false;
                         }
                     }
-                    this.$parent.$parent.addrList.push(oNewAddr);
-                    alert("提交地址列表")
+                    // this.$parent.$parent.addrList.push(oNewAddr);
+                    console.log("提交地址列表")
                     history.back();
                 }
             },

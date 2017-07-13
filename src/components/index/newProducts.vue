@@ -1,8 +1,7 @@
 <template>
     <section id="indexNewProducts" v-if="list">
         <h2>新品推荐</h2>
-        <!-- <product-card v-for="item in list" :key="item[1]" :cur-card-info="item"></product-card> -->
-        <div v-for="item in list" :key="item.name">
+        <div v-for="item in list" :key="item.name" @click="toDetail(item.id)">
             <img :src="item.url" :alt="item.name" />
             <p class="title">{{item.name}}</p>
             <p class="des" v-html="item.des"></p>
@@ -20,13 +19,13 @@
 </template>
 
 <script>
-    // import productCard from "../common/productCard_big.vue";
+    import {toDetail} from "../../js/common.js";
 
     export default {
         props: ["list"],
-        // components: {
-        //     "product-card": productCard,
-        // },
+        methods: {
+            toDetail,
+        },
     };
 
 </script>

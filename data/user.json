@@ -7,7 +7,7 @@
             "spec": "2磅",
             "price": 198,
             "amount": 1,
-            "checked": true,
+            "checked": true
         },
         {
             "id": 10,
@@ -16,7 +16,7 @@
             "spec": "3磅",
             "price": 298,
             "amount": 2,
-            "checked": true,
+            "checked": true
         }
     ],
     "order": [
@@ -100,7 +100,7 @@
     "message":[
         {
             "date": "1997年7月1日",
-            "content": "香港回归"
+            "content": "香港回归香港回归香港回归香港回归香港回归香港回归香港回归香港回归"
         },
         {
             "date": "2017年7月1日",
