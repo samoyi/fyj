@@ -1,8 +1,8 @@
 <template>
     <div class="placeOrder" :order="order">
         <span class="btn" @click="placeOrder">立即下单</span>
-        <span>已选{{orderInfo[0]}}</span>
-        <span>应付{{orderInfo[1]}}</span>
+        <span class="seleted">已选 {{orderInfo[0]}} 件</span>
+        <span class="sum">应付总额：¥{{orderInfo[1]}}</span>
     </div>
 </template>
 
@@ -46,5 +46,23 @@ export default {
     position: fixed;
     bottom: 0; z-index: 9;
     background: yellow;
+    .btn{
+        color: white;
+        font-size: 14px;
+        width: 103px; text-align: center;
+        height: 31px; line-height: 31px;
+        position: absolute; right: 17px; top: 16px;
+        background:{
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            position: -341px -348px;
+            size: 761px 809px;
+        }
+    }
+    .seleted, .sum{
+        color: #17919f;
+        line-height: 64px;
+        font-size: 12px;
+        margin-left: 30px;
+    }
 }
 </style>

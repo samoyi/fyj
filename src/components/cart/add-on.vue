@@ -3,7 +3,7 @@
         <h2>加价购</h2>
         <swiper :options="swiperOption" class="swiper-box">
             <swiper-slide class="swiper-item" v-for="item in list" :key="item.add_name">
-                <img :src="item.add_img" :alt="item.add_name" />
+                <img :src="item.add_img" :alt="item.add_name" @click="toDetail(item.id)" />
                 <p class="name">{{item.add_name}}</p>
                 <p class="price">
                     <span>¥</span>
@@ -17,17 +17,22 @@
 
 <script>
 
-export default {
-    data() {
-        return {
-            swiperOption: {
-                slidesPerView: 2.5,
-                spaceBetween: 10
+    import {toDetail} from "../../js/common.js";
+
+    export default {
+        data() {
+            return {
+                swiperOption: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 10
+                }
             }
-        }
-    },
-    props: ["list"],
-}
+        },
+        props: ["list"],
+        methods: {
+            toDetail,
+        },
+    }
 
 </script>
 

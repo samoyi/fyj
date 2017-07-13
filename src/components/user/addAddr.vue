@@ -22,7 +22,7 @@
         data: function () {
             return {
                 name: "",
-                tel: "",
+                tel: "11111111111",
                 addr: "",
                 isDefult: true,
                 // 提交时要要验证这三个err都是false。所以这里不能一开始就是false
@@ -56,6 +56,7 @@
                 history.back();
             },
             save(){
+
                 if(false===this.nameErr && false===this.telErr && false===this.addrErr){
                     let oNewAddr = {
                         "tel": this.tel,
@@ -63,18 +64,24 @@
                         "addr": this.addr,
                         "isDefault": this.isDefult,
                     };
-                    let addrList = this.$parent.$parent.addrList; // 现有的地址
-                    console.log(addrList);
+
+                    // 过滤掉null之后，现有的有效地址
+                    let addrList = this.$parent.$parent.$parent.addrList.filter((item)=>item.name);
+
                     if(this.isDefult){ // 新添加的设为默认地址
-                        console.log("默认");
-                        let defaultAddrIndex = addrList.findIndex(item=>item.isDefault);
-                        console.log(defaultAddrIndex);
-                        if(defaultAddrIndex>-1){
-                            this.$parent.$parent.addrList[defaultAddrIndex].isDefault = false;
-                        }
+                        this.$parent.$parent.defaultAddrIndex = addrList.length;
                     }
-                    // this.$parent.$parent.addrList.push(oNewAddr);
-                    console.log("提交地址列表")
+                    addrList.push(oNewAddr);
+                    // 因为地址列表必须要有三个（空的用null补），所以这里在实际地址
+                    // 的数组上用null补全三项
+                    console.log(addrList);
+                    while(addrList.length<3){
+                        addrList.push({});
+                    }
+                    console.log(addrList);
+                    this.$parent.$parent.$parent.addrList = addrList;
+                    console.log(addrList[2]);
+                    alert("提交地址列表")
                     history.back();
                 }
             },
@@ -86,6 +93,7 @@
 <style lang="scss" scoped>
 @import "../../scss/common.scss";
 .addAddr{
+    opacity: 0.5;
     background-color: #f6f6f6;
     position: fixed;
     top: 0;

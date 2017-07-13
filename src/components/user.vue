@@ -22,15 +22,17 @@
 
 
     export default {
-        props: ["cartAmount"],
+        props: ["cartAmount", "addrList"],
         data: function () {
             return {
                 tel: null,
                 curIndex: 0,
                 orderList: null,
                 cardList: null,
-                addrList: null,
-                defaultAddrIndex: null,
+                // 收货地址最多添加三个。后台数据中的收货地址数组必须要有三项，没有
+                // 实际收货地址的就设为null。原因见 FIXME.md 表格第9项
+                // addrList: null,
+                defaultAddrIndex: null, // 默认地址的序号
                 messageList: null,
             }
         },
@@ -48,7 +50,7 @@
                 let oUserData = this.$parent.userData;
                 this.orderList = oUserData.order;
                 this.cardList = oUserData.card;
-                this.addrList = oUserData.addr;
+                // this.addrList = oUserData.addr;
                 this.defaultAddrIndex = oUserData.addr.findIndex((item)=>item.isDefault);
                 this.messageList = oUserData.message;
             }
@@ -58,7 +60,7 @@
                         let oParsed = JSON.parse(res);
                         this.orderList = oParsed.order;
                         this.cardList = oParsed.card;
-                        this.addrList = oParsed.addr;
+                        // this.addrList = oParsed.addr;
                         this.defaultAddrIndex = oParsed.addr.findIndex((item)=>item.isDefault);
                         this.messageList = oParsed.message;
 

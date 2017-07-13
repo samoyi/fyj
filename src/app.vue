@@ -1,7 +1,7 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-            <router-view :cart-amount="cartAmount" :cart-list="cartList"></router-view>
+            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList"></router-view>
     </section>
 </template>
 
@@ -20,6 +20,7 @@ export default {
       siteTitle: "浮遇纪",
       userData: null, // 如果自动登录，则一开始就取得用户数据，并全局可访问
       cartList: [], // userData中的购物车数据，在好几个组件的头部购物车图标都要显示数量
+      addrList: [],
       detailID: null,
     }
   },
@@ -38,6 +39,7 @@ export default {
                       let oParsed = JSON.parse(res);
                       this.userData = oParsed;
                       this.cartList = oParsed.cart;
+                      this.addrList = oParsed.addr;
                   };
               AJAX_GET(sURL, fnSuccessCallback);
           }

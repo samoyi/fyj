@@ -4,7 +4,7 @@
         <h2>| 遇见心  方知味 |<br />PRODUCTS</h2>
         <section class="list">
             <div class="product" v-for="item in list">
-                <img :src="item.url" :alt="item.name" />
+                <img :src="item.url" :alt="item.name" @click="toDetail(item.id)" />
                 <p class="name">{{item.name}}</p>
                 <p class="des" v-html="item.des"></p>
                 <p class="price">
@@ -21,10 +21,11 @@
 </template>
 
 <script>
+
     import header from "./common/header.vue";
     import bottom from "./common/bottom.vue";
 
-    import {AJAX_GET} from "../js/common.js";
+    import {AJAX_GET, toDetail} from "../js/common.js";
 
     export default {
         props: ["cartAmount"],
@@ -46,6 +47,9 @@
                 };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
+        },
+        methods: {
+            toDetail,
         },
     };
 

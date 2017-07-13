@@ -7,7 +7,7 @@
             </p>
         </div>
         <ul class="addrList" v-if="list">
-            <li v-for="(item,index) in list">
+            <li v-for="(item,index) in list" v-if="item.name">
                 <span class="name-tel">{{item.name}}  {{item.tel}}</span>
                 <span class="addr">{{item.addr}}</span>
                 <div class="default">
@@ -17,7 +17,7 @@
             </li>
         </ul>
         <div class="add">
-            <router-link v-if="list.length<3" class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
+            <router-link v-show="displayAddBtn(list)" class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
         </div>
         <router-view></router-view>
     </section>
@@ -49,12 +49,18 @@
         },
         methods: {
             deleteAddr(index){
-                this.$parent.addrList.splice(index, 1);
+                console.log( index );
+                this.$parent.$parent.addrList.splice(index, 1, {});
                 alert("发送数据");
             },
             setDefault(index){
                 this.$parent.defaultAddrIndex = index;
                 alert("发送数据");
+            },
+            displayAddBtn(list){ // 有效地址少于三个就显示添加地址按钮
+                return Array.prototype.filter.call(list, function(item){
+                    return item.name;
+                }).length < 3;
             },
         },
     };

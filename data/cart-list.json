@@ -1,22 +1,5 @@
 {
-    "cart": [
-        {
-            "id": 10,
-            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
-            "name": "一抹茶的温柔治愈",
-            "spec": "2磅",
-            "price": 198,
-            "amount": 1
-        },
-        {
-            "id": 10,
-            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
-            "name": "一抹茶的温柔治愈",
-            "spec": "3磅",
-            "price": 298,
-            "amount": 2
-        }
-    ],
+    
     "recommend": [
         {
             "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",

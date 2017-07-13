@@ -3,7 +3,7 @@
         <h2>推荐商品</h2>
         <div>
             <div class="product-card" v-for="item in list" :key="item.goods_name">
-                <img :src="item.goods_thumb" :alt="item.goods_name" />
+                <img :src="item.goods_thumb" :alt="item.goods_name" @click="toDetail(item.id)" />
                 <p class="name">{{item.goods_name}}</p>
                 <p class="price">
                     <span>¥</span>
@@ -18,17 +18,22 @@
 
 <script>
 
-export default {
-    data() {
-        return {
-            swiperOption: {
-                slidesPerView: 2.5,
-                spaceBetween: 10
+    import {toDetail} from "../../js/common.js";
+
+    export default {
+        data() {
+            return {
+                swiperOption: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 10
+                }
             }
-        }
-    },
-    props: ["list"],
-}
+        },
+        props: ["list"],
+        methods: {
+            toDetail,
+        },
+    }
 
 </script>
 

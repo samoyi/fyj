@@ -2,7 +2,7 @@
     <section class="cartList" v-if="list.length">
         <div v-for="(item,index) in list">
             <i class="checkbox" :class="{checked: item.checked}" @click="switchCheck(index)">√</i>
-            <img :src="item.thumbnail" :alt="item.name" />
+            <img :src="item.thumbnail" :alt="item.name" @click="toDetail(item.id)" />
             <p class="name">{{item.name}}</p>
             <p class="spec">规格: {{item.spec}}</p>
             <p class="price">{{item.price}}×{{item.amount}}</p>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+
+    import {toDetail} from "../../js/common.js";
 
     export default {
         props: ["list"],
@@ -33,6 +35,7 @@
             amountAdd(index){
                 ++this.$parent.$parent.cartList[index].amount;
             },
+            toDetail,
         },
     };
 
