@@ -1,11 +1,11 @@
 <template>
-    <section id="userPage">
+    <section id="userPage" v-if="userData">
         <user-header class="header" :cart-amount="cartAmount"></user-header>
         <user-menu class="menu" :cur-index="curIndex"></user-menu>
-        <user-order class="order" v-if="0===curIndex" :list="orderList"></user-order>
-        <user-card class="card" v-if="1===curIndex" :list="cardList"></user-card>
-        <user-addr class="addr" v-if="2===curIndex" :list="addrList" :default-index="defaultAddrIndex"></user-addr>
-        <user-message class="message" v-if="3===curIndex" :list="messageList"></user-message>
+        <user-order class="order" v-if="0===curIndex" :list="userData.order"></user-order>
+        <user-card class="card" v-if="1===curIndex" :list="userData.card"></user-card>
+        <user-addr class="addr" v-if="2===curIndex" :list="userData.addr" :default-index="defaultAddrIndex"></user-addr>
+        <user-message class="message" v-if="3===curIndex" :list="userData.message"></user-message>
     </section>
 </template>
 
@@ -22,7 +22,7 @@
 
 
     export default {
-        props: ["cartAmount", "addrList"],
+        props: ["cartAmount", "userData"],
         data: function () {
             return {
                 tel: null,
@@ -48,23 +48,25 @@
             if( this.$parent.userData ) // 已经自动登录
             {
                 let oUserData = this.$parent.userData;
-                this.orderList = oUserData.order;
-                this.cardList = oUserData.card;
+                // this.orderList = oUserData.order;
+                // this.cardList = oUserData.card;
                 // this.addrList = oUserData.addr;
                 this.defaultAddrIndex = oUserData.addr.findIndex((item)=>item.isDefault);
-                this.messageList = oUserData.message;
+                // this.messageList = oUserData.message;
             }
             else{
-                let sURL = "../data/user.json",
+                // let sURL = "../data/user.json",
+                let sURL = "http://www.fuyj.com.cn/ajax/user.php",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);
-                        this.orderList = oParsed.order;
-                        this.cardList = oParsed.card;
+                        this.$parent.userData = oParsed;
+                        // this.orderList = oParsed.order;
+                        // this.cardList = oParsed.card;
                         // this.addrList = oParsed.addr;
                         this.defaultAddrIndex = oParsed.addr.findIndex((item)=>item.isDefault);
-                        this.messageList = oParsed.message;
-
-                        this.$parent.cartList = oParsed.cart.length;
+                        // this.messageList = oParsed.message;
+                        //
+                        // this.$parent.cartList = oParsed.cart.length;
                     };
                 AJAX_GET(sURL, fnSuccessCallback);
             }

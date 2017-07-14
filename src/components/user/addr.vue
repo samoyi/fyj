@@ -7,8 +7,8 @@
             </p>
         </div>
         <ul class="addrList" v-if="list">
-            <li v-for="(item,index) in list" v-if="item.name">
-                <span class="name-tel">{{item.name}}  {{item.tel}}</span>
+            <li v-for="(item,index) in list" v-if="item.consignee">
+                <span class="name-tel">{{item.consignee}}  {{item.tel}}</span>
                 <span class="addr">{{item.addr}}</span>
                 <div class="default">
                     <input type="radio" :checked="defaultIndex===index" @click="setDefault(index)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>

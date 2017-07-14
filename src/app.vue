@@ -1,7 +1,7 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList"></router-view>
+            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData"></router-view>
     </section>
 </template>
 
@@ -29,12 +29,24 @@ export default {
   },
   router,
   mounted: function(){
-      if( "openid" in getCookies() ){
+
+    //   {
+    //       let sURL = "http://www.fuyj.com.cn/ajax/login.php/101?phone=18009226074&password=18009226074",
+    //             fnSuccessCallback = (res)=>{
+    //             };
+    //         AJAX_GET(sURL, fnSuccessCallback);
+    //   }
+
+
+
+    //   document.cookie = "user_id=10006255;max-age=3600";
+      if( "user_id" in getCookies() ){
           alert("可以自动登录");
           {
               // 加载用户数据
               // 包括购物车、订单、优惠券、地址、消息
-              let sURL = "../data/user.json",
+            //   let sURL = "../data/user.json",
+            let sURL = "http://www.fuyj.com.cn/ajax/user.php",
                   fnSuccessCallback = (res)=>{
                       let oParsed = JSON.parse(res);
                       this.userData = oParsed;
@@ -45,23 +57,18 @@ export default {
           }
 
       }
-      document.cookie = "openid=myopenid;max-age=3600";
+
   },
   computed: {
       // 计算购物车中商品数量
       cartAmount(){
-          if( !this.cartList ){
+          if( !this.cartList.length ){
               return 0;
           }
           return this.cartList.reduce((sum,item)=>sum+item.amount, 0);
       },
   }
 }
-
-
-
-
-
 
 </script>
 

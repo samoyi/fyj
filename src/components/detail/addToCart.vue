@@ -3,7 +3,7 @@
         <div class="chooseBox" v-show="displayBox">
             <img class="thumbnail" :src="productSummary.image[0]" />
             <p class="name">{{productSummary.name}}</p>
-            <p class="price">¥{{productSummary.price[selectedSpecIndex]}}</p>
+            <p class="price" v-if="productSummary.price">¥{{productSummary.price[selectedSpecIndex]}}</p>
             <div class="spec">
                 <span>规格</span>
                 <i v-for="(item,index) in productSummary.spec" :class="{selected: selectedSpecIndex===index}" @click="changeSpec(index)">{{item}}</i>
@@ -77,6 +77,18 @@ export default {
         width: 100%; height: 64px;
         background-color: royalblue;
         position: absolute; bottom: 0;
+        .btn{
+            width: 217px; height: 40px;
+            position: absolute; margin:auto; top: 0; right: 0; bottom: 0; left:0;
+            line-height: 40px;
+            text-align: center;
+            color: white;
+            background:{
+                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                position: -341px -298px;
+                size: 761px 809px;
+            }
+        }
     }
     .chooseBox{
         width: 100%; height: 214px;

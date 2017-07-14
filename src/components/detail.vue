@@ -58,6 +58,7 @@
                             "icon": oParsed.icon,
                             "tag": oParsed.field1[0].join(" / "),
                         };
+                        console.log(this.productSummary);
                         this.yongxin = oParsed.field1[1];
                         this.productSpec = {
                             "des": oParsed.field2[0],

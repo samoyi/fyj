@@ -1,7 +1,7 @@
 <template>
     <header>
-        <span class="back">返回</span>
-        <span class="logout">退出登录</span>
+        <span class="back" @click="back">返回</span>
+        <span class="logout" v-if="false">退出登录</span>
         <img alt="头像"/>
         <span class="nickname">昵称</span>
     </header>
@@ -15,6 +15,9 @@
             };
         },
         methods: {
+            back(){
+                history.back();
+            },
         },
     };
 
@@ -50,7 +53,7 @@ header{
         display: block;
         font-size: 12px;
         position: absolute;
-        top: 12px;
+        top: 122px;
         color: #9b9b9b;
     }
 }

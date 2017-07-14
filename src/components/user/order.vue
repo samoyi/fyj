@@ -21,7 +21,6 @@
                 <div class="bottom">
                     <span>共{{item.amount}}件商品 合计：¥{{item.price*item.amount}}</span>
                     <div>
-                        <!-- <span v-if="item.state<3">联系客服取消订单</span> -->
                         <a v-if="item.state<3" href="tel:4006633677">联系客服取消订单</a>
                         <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, index)">{{getOrderState(item.state)}}</span>
                     </div>
@@ -80,11 +79,11 @@
             handleOrder(state, index){
                 if( 3===state ){
                     alert("发送确认收货信息");
-                    this.$parent.orderList[index].state = 4;
+                    this.$parent.$parent.userData.order[index].state = 4;
                 }
                 if( 1===state ){
                     alert("进入支付页面支付 支付成功后怎么刷新这里的状态");
-                    this.$parent.orderList[index].state = 2;
+                    this.$parent.$parent.userData.order.state = 2;
                 }
             },
         },

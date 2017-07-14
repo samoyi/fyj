@@ -25,10 +25,11 @@
     export default {
         data: function () {
             return {
+                id: null,
                 productInfo: null,
-                productSummary: [],
-                yongxin: "",
-                productSpec: [],
+                productSummary: null,
+                yongxin: null,
+                productSpec: null,
                 // bDispalyChooseBox 是否显示加入购物车的规格数量选择框。
                 // 显示选择框的同时也显示半透明遮罩
                 bDispalyChooseBox: false,
@@ -43,38 +44,31 @@
           "add-cart": addToCart,
         },
         mounted: function(){
-
             {
-                let sURL = "http://www.fuyj.com.cn/goods_detail.php",
+                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + this.$parent.detailID,
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);
-                        this.productSummary = oParsed.summary;
-                        this.yongxin = oParsed.yongxin;
-                        this.productSpec = oParsed.spec;
+                        this.productSummary = {
+                            "image": oParsed.image,
+                            "name": oParsed.name.trim(),
+                            "des": oParsed.des.trim(),
+                            "price": oParsed.price,
+                            "spec": ["1.0磅", "2.0磅"],
+                            "icon": oParsed.icon,
+                            "tag": oParsed.field1[0].join(" / "),
+                        };
+                        console.log(this.productSummary);
+                        this.yongxin = oParsed.field1[1];
+                        this.productSpec = {
+                            "des": oParsed.field2[0],
+                            "icon": "刀叉",
+                            "list": oParsed.field2.slice(1),
+                        };
+                        this.id = oParsed.id;
                     };
                 AJAX_GET(sURL, fnSuccessCallback);
             }
-            // // 加载 产品概述的数据
-            // {
-            //     let sURL = "../data/productSummary.json",
-            //         fnSuccessCallback = (res)=>{this.productSummary = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-            //
-            // // 加载 产品用心的数据
-            // {
-            //     let sURL = "../data/productYongxin.json",
-            //         fnSuccessCallback = (res)=>{this.yongxin = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
-            //
-            // // 加载 产品规格的数据
-            // {
-            //     let sURL = "../data/productSpec.json",
-            //         fnSuccessCallback = (res)=>{this.productSpec = JSON.parse(res);};
-            //     AJAX_GET(sURL, fnSuccessCallback);
-            // }
         },
         methods: {
             switchChooseBox(){ // 隐藏半透明遮罩，同时隐藏购物车选择框

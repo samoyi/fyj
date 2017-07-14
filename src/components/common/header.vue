@@ -8,7 +8,7 @@
             <span v-if="cartAmount">{{cartAmount}}</span>
         </router-link>
         <nav @click="switchDisplayNav" v-show="bNavDisplay" :style="{height:height+'px'}">
-            <i @click="switchDisplayNav">╳</i>
+            <i>╳</i>
             <ul>
                 <li><router-link :class="{curColor: 0===index}" to="/">首 页 INDEX</router-link></li>
                 <li><router-link :class="{curColor: 1===index}" to="/">新 遇 NEWS</router-link></li>

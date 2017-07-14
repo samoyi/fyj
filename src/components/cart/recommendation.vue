@@ -53,7 +53,7 @@
         width: 100%;
         .product-card {
             width: 47%; height: 263px;
-            margin-left: 2%;
+            margin: 10px auto auto 2%;
             float: left;
             background-color: white;
             position: relative;
