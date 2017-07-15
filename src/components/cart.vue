@@ -40,8 +40,8 @@
         },
         mounted: function(){
             {
-                let sURL = "http://www.fuyj.com.cn/ajax/cartPage.php",
-                // let sURL = "../data/cartPage.json",
+                // let sURL = "http://www.fuyj.com.cn/ajax/cartPage.php",
+                let sURL = "../data/cartPage.json",
                 fnSuccessCallback = (res)=>{
                     let oParsed = JSON.parse(res);
 

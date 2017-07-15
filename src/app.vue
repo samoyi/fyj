@@ -1,7 +1,7 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData"></router-view>
+            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view>
     </section>
 </template>
 
@@ -22,6 +22,7 @@ export default {
       cartList: [], // userData中的购物车数据，在好几个组件的头部购物车图标都要显示数量
       addrList: [],
       detailID: null,
+      orderInfo: {},
     }
   },
   components: {
@@ -39,14 +40,14 @@ export default {
 
 
 
-    //   document.cookie = "user_id=10006255;max-age=3600";
+      document.cookie = "user_id=10006255;max-age=3600";
       if( "user_id" in getCookies() ){
           alert("可以自动登录");
           {
               // 加载用户数据
               // 包括购物车、订单、优惠券、地址、消息
-            //   let sURL = "../data/user.json",
-            let sURL = "http://www.fuyj.com.cn/ajax/user.php",
+              let sURL = "../data/user.json",
+            // let sURL = "http://www.fuyj.com.cn/ajax/user.php",
                   fnSuccessCallback = (res)=>{
                       let oParsed = JSON.parse(res);
                       this.userData = oParsed;

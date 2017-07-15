@@ -1,7 +1,6 @@
 <template>
-    <div class="placeOrder" :order="order">
-        <!-- <span class="btn" @click="placeOrder">立即下单</span> -->
-        <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link>
+    <div class="payNow" :order="order">
+        <span class="btn" @click="placeOrder">立即下单</span>
         <span class="seleted">已选 {{orderInfo[0]}} 件</span>
         <span class="sum">应付总额：¥{{orderInfo[1]}}</span>
     </div>
@@ -21,24 +20,20 @@ export default {
             let aSelected = this.$parent.$parent.cartList.filter((item)=>{
                 return item.checked;
             });
-            alert("下单成功后清除已经下订单的商品");
+            alert("跳转到微信授权页\n下单成功后清除已经下订单的商品");
             console.log(aSelected);
         },
     },
     computed: {
         orderInfo(){
             let nSum = 0,
-                aSelected = [],
                 nSelected = 0;
             this.$parent.$parent.cartList.forEach((item, index)=>{
                 if(item.checked){ // 只计算选中的
-                    aSelected.push(item);
                     nSelected += item.amount;
                     nSum += item.amount *item.price;
                 }
             });
-            this.$parent.$parent.orderInfo.sum = nSum;
-            this.$parent.$parent.orderInfo.list = aSelected;
             return [nSelected, nSum];
         }
     },

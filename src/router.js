@@ -2,6 +2,7 @@ import cIndexPage from "./components/index.vue";
 import cProducts from "./components/products.vue";
 import cDetailPage from "./components/detail.vue";
 import cCartPage from "./components/cart.vue";
+import cOrderDetail from "./components/orderDetail.vue";
 import cUserPage from "./components/user.vue";
 import cBindTel from "./components/bindTel.vue";
 import cAboutus from "./components/aboutus.vue";
@@ -43,6 +44,10 @@ const router = new VueRouter({
       {
           path: "/cart",
           component: cCartPage,
+      },
+      {
+          path: "/orderDetail",
+          component: cOrderDetail,
       },
       {
           path: "/user",

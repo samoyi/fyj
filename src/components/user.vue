@@ -55,8 +55,8 @@
                 // this.messageList = oUserData.message;
             }
             else{
-                // let sURL = "../data/user.json",
-                let sURL = "http://www.fuyj.com.cn/ajax/user.php",
+                let sURL = "../data/user.json",
+                // let sURL = "http://www.fuyj.com.cn/ajax/user.php",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);
                         this.$parent.userData = oParsed;
