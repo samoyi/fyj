@@ -17,7 +17,7 @@
 
 <script>
 
-    import {toDetail} from "../../js/common.js";
+    import {toDetail, AJAX_GET, AJAX_POST} from "../../js/common.js";
 
     export default {
         props: ["list"],
@@ -28,15 +28,51 @@
         methods: {
             switchCheck(index){
                 this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
-                console.log(this.$parent.$parent.cartList[index]);
+
+                // 删除不需要传输的缩略图、名称
+                let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
+                delete postProduct.thumbnail;
+                delete postProduct.name;
+                delete postProduct.price;
+
+                let sURL = "http://www.fuyj.com.cn/ajax/cart_change.php",
+                    data = "cart=" + JSON.stringify(postProduct),
+                    fnSuccessCallback = (res)=>{
+                        console.log(res)
+                    };
+                AJAX_GET(sURL+"?"+data, fnSuccessCallback);
             },
             amountSub(index){
                 this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
-                console.log(this.$parent.$parent.cartList[index]);
+
+                // 删除不需要传输的缩略图、名称
+                let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
+                delete postProduct.thumbnail;
+                delete postProduct.name;
+                delete postProduct.price;
+
+                let sURL = "http://www.fuyj.com.cn/ajax/cart_change.php",
+                    data = "cart=" + JSON.stringify(postProduct),
+                    fnSuccessCallback = (res)=>{
+                        console.log(res)
+                    };
+                AJAX_POST(sURL, data, fnSuccessCallback);
             },
             amountAdd(index){
                 ++this.$parent.$parent.cartList[index].amount;
-                console.log(this.$parent.$parent.cartList[index]);
+
+                // 删除不需要传输的缩略图、名称
+                let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
+                delete postProduct.thumbnail;
+                delete postProduct.name;
+                delete postProduct.price;
+
+                let sURL = "http://www.fuyj.com.cn/ajax/cart_change.php",
+                    data = "cart=" + JSON.stringify(postProduct),
+                    fnSuccessCallback = (res)=>{
+                        console.log(res)
+                    };
+                AJAX_POST(sURL, data, fnSuccessCallback);
             },
             toDetail,
         },

@@ -66,6 +66,11 @@
         position: fixed; left: 0; top: 210px;
         background-color: black; width: 22px; height: 22px;
         z-index: 1;
+        background:{
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            size: 761px 809px;
+            position: -88px -127px;
+        }
     }
 }
 

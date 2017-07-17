@@ -26,6 +26,10 @@
 <style lang="scss" scoped>
 header{
     height: 175px;
+    background:{
+        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/colorfulBg.jpg");
+        size: cover;
+    }
     .back{
         position: absolute;
         top: 14px; left: 12px;

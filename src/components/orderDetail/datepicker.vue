@@ -51,7 +51,7 @@
         watch: {
             date(){
                 console.log( this.date );
-                this.$parent.$parent.deliveryInfo.date = this.date.split("-").map((item)=>Number.parseInt(item,10));
+                this.$parent.$parent.deliveryInfo.date = this.date;
             },
         },
         mounted(){
@@ -60,3 +60,9 @@
         }
     }
 </script>
+<style lang="scss" scoped>
+select{
+    width: 94%;
+    height: 32px;
+}
+</style>

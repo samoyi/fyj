@@ -1,17 +1,36 @@
 <template>
-    <section id="loadingPage">
-        loading
+    <section id="loadingPage" v-if="display" :style="{height:height+'px'}">
+        <img src="http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/logo.gif" alt="浮遇纪" />
     </section>
 </template>
-
+<script>
+import {nWindowHeight} from "../js/common.js";
+export default {
+    props: ["list"],
+    data() {
+        return {
+            height: nWindowHeight,
+            display: true,
+        }
+    },
+    mounted(){
+        setInterval(()=>{
+            this.display = false;
+        }, 3500);
+    },
+}
+</script>
 <style lang="scss" scoped>
     #loadingPage{
-        display: none;
-        width: 100%;
-        height: 100%;
+        width: 100%; height: 100%;
+        background-color: white;
+        position: fixed;
+        z-index: 99999;
         img{
-            width: 200px; height: 200px;
-            background-color: red;
+            position: relative;
+            width: 100%;
+            // display: block;
+            top: 30%;
         }
     }
 </style>

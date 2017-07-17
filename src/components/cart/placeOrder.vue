@@ -47,10 +47,14 @@ export default {
 
 <style lang="scss" scoped>
 .placeOrder{
+    background:{
+        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+        position: -341px -155px;
+        size: 761px 809px;
+    }
     width: 100%; height: 64px;
     position: fixed;
     bottom: 0; z-index: 9;
-    background: yellow;
     .btn{
         color: white;
         font-size: 14px;

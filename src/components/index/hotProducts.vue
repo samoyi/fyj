@@ -46,7 +46,10 @@ export default {
 .hotProducts{
     overflow: hidden;
     height: 390px;
-    background-color: #d7ecf1;
+    background:{
+        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/colorfulBg.jpg");
+        size: cover;
+    }
     position: relative;
     h2{
         font-size: $h2FontSize;

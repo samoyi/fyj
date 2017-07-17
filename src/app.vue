@@ -1,7 +1,7 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-            <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view>
+        <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view>
     </section>
 </template>
 
@@ -76,9 +76,9 @@ export default {
 <style lang="scss">
     body{
         background-color: #f6f6f6;
-        #content>section:first-child{
-            min-height: 200px;
-            margin-top: 55px;
-        }
+        // #content>section:first-child{
+        //     min-height: 200px;
+        //     margin-top: 55px;
+        // }
     }
 </style>

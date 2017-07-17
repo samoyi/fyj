@@ -75,7 +75,11 @@ export default {
     bottom: 0; z-index: 9;
     .btnArea{
         width: 100%; height: 64px;
-        background-color: royalblue;
+        background:{
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            position: -341px -155px;
+            size: 761px 809px;
+        }
         position: absolute; bottom: 0;
         .btn{
             width: 217px; height: 40px;

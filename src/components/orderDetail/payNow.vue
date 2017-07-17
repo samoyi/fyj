@@ -20,28 +20,32 @@ export default {
             console.log(this.$parent.$parent.orderInfo);
             console.log(this.sum +" "+ this.freight);
             console.log(this.$parent.deliveryInfo);
+            if( !this.$parent.deliveryInfo.date ){
+                alert("请选择收货日期");
+                return;
+            }
+            if( !this.$parent.deliveryInfo.hour ){
+                alert("请选择收货时间");
+                return;
+            }
             let sendOrderInfo = {
-                products: [
-                    {
-                        "id": 10,
-                        "spec": "3磅",
-                        "amount": 2,
-                    },
-                    {
-                        "id": 10,
-                        "name": "一抹茶的温柔治愈",
-                        "amount": 2,
-                    }
-                ],
-                "amount": 2,
-                "state": 4,
-                "freight": 15,
+                "products": this.$parent.$parent.orderInfo.list.map(function(item){
+                    return {
+                        "id": item.id,
+                         "spec": item.spec,
+                         "price": item.price, 
+                         "amount": item.amount
+                    };
+                }),
+                "sum": this.$parent.$parent.orderInfo.sum,
+                "freight": this.freight,
                 "delivery_tel": 133039403940,
                 "delivery_consignee": "王富贵",
                 "delivery_addr": "北纬路甲一号",
-                "delivery_date":"2017-7-18",
-                "delivery_hour": 18
+                "delivery_date": this.$parent.deliveryInfo.date,
+                "delivery_hour": this.$parent.deliveryInfo.hour
             };
+            console.log(JSON.stringify(sendOrderInfo));
         },
     },
     computed: {

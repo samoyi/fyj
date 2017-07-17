@@ -12,14 +12,14 @@
                     <span>订单编号： {{item.number}}</span>
                     <span >{{orderState(item.state)}}</span>
                 </div>
-                <div class="middle">
-                    <img :src="item.thumbnail" alt="item.name" />
-                    <span class="name">{{item.name}}</span>
-                    <span class="spec">{{item.spec}}</span>
-                    <span class="price">¥{{item.price}}×{{item.amount}}</span>
+                <div class="middle" v-for="(item1, index1) in item.products">
+                    <img :src="item1.thumbnail" alt="item1.name" />
+                    <span class="name">{{item1.name}}</span>
+                    <span class="spec">{{item1.spec}}</span>
+                    <span class="price">¥{{item1.price}}×{{item1.amount}}</span>
                 </div>
                 <div class="bottom">
-                    <span>共{{item.amount}}件商品 合计：¥{{item.price*item.amount}}</span>
+                    <span>共{{getTotalAmount(item)}}件商品 合计：¥{{item.price*item.amount}}</span>
                     <div>
                         <a v-if="item.state<3" href="tel:4006633677">联系客服取消订单</a>
                         <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, index)">{{getOrderState(item.state)}}</span>
@@ -38,6 +38,16 @@
             return {};
         },
         methods: {
+            getTotalAmount(products){
+                return products.reduce(function(amount, item){
+                    return totalAmount + item.amount;
+                }, 0);
+            },
+            getTotalPrice(products){
+                return products.reduce(function(amount, item){
+                    return totalAmount + item.amount;
+                }, 0);
+            },
             orderState(state){
                 switch (state){
                     case 1:{
