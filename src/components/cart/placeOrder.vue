@@ -66,6 +66,7 @@ export default {
             position: -341px -348px;
             size: 761px 809px;
         }
+        text-decoration: none;
     }
     .seleted, .sum{
         color: #17919f;

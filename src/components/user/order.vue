@@ -19,7 +19,7 @@
                     <span class="price">¥{{item1.price}}×{{item1.amount}}</span>
                 </div>
                 <div class="bottom">
-                    <span>共{{getTotalAmount(item)}}件商品 合计：¥{{item.price*item.amount}}</span>
+                    <span>共{{getTotalAmount(item.products)}}件商品 合计：¥{{getTotalSum(item.products)}}</span>
                     <div>
                         <a v-if="item.state<3" href="tel:4006633677">联系客服取消订单</a>
                         <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, index)">{{getOrderState(item.state)}}</span>
@@ -39,14 +39,16 @@
         },
         methods: {
             getTotalAmount(products){
-                return products.reduce(function(amount, item){
+                return products.reduce(function(totalAmount, item){
                     return totalAmount + item.amount;
                 }, 0);
+                // return 666;
             },
-            getTotalPrice(products){
-                return products.reduce(function(amount, item){
-                    return totalAmount + item.amount;
+            getTotalSum(products){
+                return products.reduce(function(totalSum, item){
+                    return totalSum + item.amount*item.price;
                 }, 0);
+                // return 777;
             },
             orderState(state){
                 switch (state){

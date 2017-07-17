@@ -16,11 +16,19 @@
                 </li>
             </ul>
         </div>
-        <div class="addr">
+        <div class="addr" @click="displayAddrSelector">
             <span>{{oDefaultAddr.consignee}}</span>
             <span>{{oDefaultAddr.tel}}</span>
             <span>{{oDefaultAddr.addr}}</span>
             <span class="arrow">&gt;</span>
+            <div class="addrSelector" v-show="bAddrSelectorDisplay">
+                <div v-for="(item,index) in userData.addr" v-if="item!=={}">
+                    <span>{{selectedAddr.consignee}}</span>
+                    <span>{{selectedAddr.tel}}</span>
+                    <span>{{selectedAddr.addr}}</span>
+                    <input type="radio" name="addr" :value="index" @click="seletcAddr(index)" />
+                </div>
+            </div>
         </div>
         <div class="time">
             <span @click="displayDatePicker">送货时间</span>
@@ -42,16 +50,29 @@
             return {
                 amount: this.orderInfo.list.length,
                 bDatePickerDispaly : false,
+                bAddrSelectorDisplay: false,
             };
         },
         computed: {
             oDefaultAddr(){
                 return this.userData.addr.find((item)=>item.isDefault);
             },
+            selectedAddr(){
+                return this.userData.addr.find(function(item){
+                    return item.isDefault;
+                });
+            },
         },
         methods: {
             displayDatePicker(){
                 this.bDatePickerDispaly = !this.bDatePickerDispaly;
+            },
+            displayAddrSelector(){
+                this.bAddrSelectorDisplay = true;
+            },
+            seletcAddr(index){
+                this.selectedAddr = userData.addr[index];
+                this.bAddrSelectorDisplay = false;
             },
         },
         components: {
