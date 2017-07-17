@@ -1,27 +1,47 @@
 <template>
-    <div class="payNow" :order="order">
-        <span class="btn" @click="placeOrder">立即下单</span>
-        <span class="seleted">已选 {{orderInfo[0]}} 件</span>
-        <span class="sum">应付总额：¥{{orderInfo[1]}}</span>
+    <div class="payNow" :sum="sum" :freight="freight">
+        <span class="btn" @click="pay">立即支付</span>
+        <span class="sum">共计：¥{{sum+freight}}</span>
     </div>
 </template>
 
 <script>
 
 export default {
-    props: ["order"],
+    props: ["sum", "freight"],
     data() {
         return {
             aSelected: [],
         }
     },
     methods: {
-        placeOrder(){
-            let aSelected = this.$parent.$parent.cartList.filter((item)=>{
-                return item.checked;
-            });
-            alert("跳转到微信授权页\n下单成功后清除已经下订单的商品");
-            console.log(aSelected);
+        pay(){
+            console.log("核对是否填了送货时间");
+            console.log(this.$parent.$parent.orderInfo);
+            console.log(this.sum +" "+ this.freight);
+            console.log(this.$parent.deliveryInfo);
+            let sendOrderInfo = {
+                products: [
+                    {
+                        "id": 10,
+                        "spec": "3磅",
+                        "amount": 2,
+                    },
+                    {
+                        "id": 10,
+                        "name": "一抹茶的温柔治愈",
+                        "amount": 2,
+                    }
+                ],
+                "amount": 2,
+                "state": 4,
+                "freight": 15,
+                "delivery_tel": 133039403940,
+                "delivery_consignee": "王富贵",
+                "delivery_addr": "北纬路甲一号",
+                "delivery_date":"2017-7-18",
+                "delivery_hour": 18
+            };
         },
     },
     computed: {
@@ -35,7 +55,7 @@ export default {
                 }
             });
             return [nSelected, nSum];
-        }
+        },
     },
 }
 </script>

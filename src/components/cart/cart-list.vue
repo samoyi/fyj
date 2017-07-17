@@ -28,12 +28,15 @@
         methods: {
             switchCheck(index){
                 this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
+                console.log(this.$parent.$parent.cartList[index]);
             },
             amountSub(index){
                 this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
+                console.log(this.$parent.$parent.cartList[index]);
             },
             amountAdd(index){
                 ++this.$parent.$parent.cartList[index].amount;
+                console.log(this.$parent.$parent.cartList[index]);
             },
             toDetail,
         },

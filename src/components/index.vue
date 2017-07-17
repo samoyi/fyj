@@ -6,7 +6,7 @@
         <hot-products :list="hotProducts"></hot-products>
         <buttom-list></buttom-list>
         <buttom-copyright></buttom-copyright>
-        <a class="tel" href="tel:13030303030" />
+        <a class="tel" href="tel:4006633677" />
     </section>
 </template>
 

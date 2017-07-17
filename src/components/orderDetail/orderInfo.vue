@@ -14,9 +14,9 @@
             <span>&gt;</span>
         </div>
         <div>
-            <span>送货时间</span>
-            <span>&gt;</span>
-            <date-picker></date-picker>
+            <span @click="displayDatePicker">送货时间</span>
+            <span @click="displayDatePicker">&gt;</span>
+            <date-picker v-show="bDatePickerDispaly"></date-picker>
         </div>
     </section>
 </template>
@@ -30,11 +30,17 @@
         data: function () {
             return {
                 amount: this.orderInfo.list.length,
+                bDatePickerDispaly : false,
             };
         },
         computed: {
             oDefaultAddr(){
                 return this.userData.addr.find((item)=>item.isDefault);
+            },
+        },
+        methods: {
+            displayDatePicker(){
+                this.bDatePickerDispaly = !this.bDatePickerDispaly;
             },
         },
         components: {

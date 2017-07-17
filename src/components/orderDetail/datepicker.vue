@@ -2,7 +2,7 @@
     <div>
         <datepicker v-model="date" language="ch" :min="min" :max="max"></datepicker>
         <select v-model="selectedHour" class="hour" @change="seleteHour">
-            <option value="10" selected>10:00-11:00</option>
+            <option value="10">10:00-11:00</option>
             <option value="11">11:00-12:00</option>
             <option value="12">12:00-13:00</option>
             <option value="13">13:00-14:00</option>
@@ -22,8 +22,8 @@
     export default {
         data() {
             return {
-                date: '',
-                selectedHour: 10,
+                date: "",
+                selectedHour: "",
             }
         },
         components: { datepicker },
@@ -45,6 +45,13 @@
         methods: {
             seleteHour(){
                 console.log( this.selectedHour );
+                this.$parent.$parent.deliveryInfo.hour = Number.parseInt(this.selectedHour, 10);
+            },
+        },
+        watch: {
+            date(){
+                console.log( this.date );
+                this.$parent.$parent.deliveryInfo.date = this.date.split("-").map((item)=>Number.parseInt(item,10));
             },
         },
         mounted(){

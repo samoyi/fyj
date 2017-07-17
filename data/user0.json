@@ -21,25 +21,13 @@
     ],
     "order": [
         {
+            "id": 10,
             "number": "439483204203752",
-            "products": [
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "2磅",
-                    "price": 198,
-                    "amount": 1
-                },
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "2磅",
-                    "price": 198,
-                    "amount": 1
-                }
-            ],
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "2磅",
+            "price": 198,
+            "amount": 1,
             "state": 1,
             "freight": 15,
             "delivery_tel": 133039403940,
@@ -49,17 +37,13 @@
             "delivery_hour": 18
         },
         {
+            "id": 10,
             "number": "439483204203752",
-            "products": [
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "3磅",
-                    "price": 298,
-                    "amount": 2
-                }
-            ],
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
             "state": 2,
             "freight": 15,
             "delivery_tel": 133039403940,
@@ -69,17 +53,13 @@
             "delivery_hour": 18
         },
         {
+            "id": 10,
             "number": "439483204203752",
-            "products": [
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "3磅",
-                    "price": 298,
-                    "amount": 2
-                }
-            ],
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
             "state": 3,
             "freight": 15,
             "delivery_tel": 133039403940,
@@ -89,17 +69,13 @@
             "delivery_hour": 18
         },
         {
+            "id": 10,
             "number": "439483204203752",
-            "products": [
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "3磅",
-                    "price": 298,
-                    "amount": 2
-                }
-            ],
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
             "state": 4,
             "freight": 15,
             "delivery_tel": 133039403940,
@@ -109,17 +85,13 @@
             "delivery_hour": 18
         },
         {
+            "id": 10,
             "number": "439483204203752",
-            "products": [
-                {
-                    "id": 10,
-                    "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
-                    "name": "一抹茶的温柔治愈",
-                    "spec": "3磅",
-                    "price": 298,
-                    "amount": 2
-                }
-            ],
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
             "state": 5,
             "freight": 15,
             "delivery_tel": 133039403940,
