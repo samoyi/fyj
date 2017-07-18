@@ -40,7 +40,8 @@
                     fnSuccessCallback = (res)=>{
                         console.log(res)
                     };
-                AJAX_GET(sURL+"?"+data, fnSuccessCallback);
+                // AJAX_GET(sURL+"?"+data, fnSuccessCallback);
+                AJAX_POST(sURL, data, fnSuccessCallback);
             },
             amountSub(index){
                 this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;

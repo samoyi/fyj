@@ -40,9 +40,8 @@ export default {
 
 
 
-      document.cookie = "user_id=10006255;max-age=3600";
-      if( "user_id" in getCookies() ){
-          alert("可以自动登录");
+    //   document.cookie = "user_id=10006255;max-age=3600";
+    //   if( "user_id" in getCookies() ){
           {
               // 加载用户数据
               // 包括购物车、订单、优惠券、地址、消息
@@ -57,7 +56,7 @@ export default {
               AJAX_GET(sURL, fnSuccessCallback);
           }
 
-      }
+    //   }
 
   },
   computed: {

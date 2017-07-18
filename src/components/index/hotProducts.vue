@@ -68,7 +68,7 @@ export default {
             background: white;
             height: 240px;
             >img{
-                width: 133px; height: 133px;
+                width: 133px; height: 100%;
             }
             >p{
                 text-align: left;
