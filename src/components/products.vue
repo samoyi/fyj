@@ -4,7 +4,7 @@
         <h2>| 遇见心  方知味 |<br />PRODUCTS</h2>
         <section class="list">
             <div class="product" v-for="item in list">
-                <img :src="item.url" :alt="item.name" @click="toDetail(item.id)" />
+                <img :src="item.url" :alt="item.name" @click="toDetailShalow(item.id)" />
                 <p class="name">{{item.name}}</p>
                 <p class="des" v-html="item.des"></p>
                 <p class="price">
@@ -12,7 +12,7 @@
                     <span class="num">{{item.price}}</span>
                     <span>/{{item.spec}}</span>
                 </p>
-                <i></i>
+                <!-- <i></i> 购物车图标 -->
             </div>
             <div style="clear:both;"></div>
         </section>
@@ -25,7 +25,7 @@
     import header from "./common/header.vue";
     import bottom from "./common/bottom.vue";
 
-    import {AJAX_GET, toDetail} from "../js/common.js";
+    import {AJAX_GET, toDetail, toDetailShalow} from "../js/common.js";
 
     export default {
         props: ["cartAmount"],
@@ -41,6 +41,7 @@
         mounted: function(){
             // 加载 数据
             {
+                // let sURL = "http://www.fuyj.com.cn/ajax/goods_all.php",
                 let sURL = "../data/products.json",
                 fnSuccessCallback = (res)=>{
                     this.list = JSON.parse(res);
@@ -49,7 +50,7 @@
             }
         },
         methods: {
-            toDetail,
+            toDetailShalow,
         },
     };
 
@@ -96,6 +97,9 @@
                 font-size: 11px;
                 color: #9b9b9b;
                 margin: 10px auto auto 14px;
+                height: 24px;
+                overflow: hidden;
+                line-height: 12px;
             }
             .price{
                 font-size: 12px;

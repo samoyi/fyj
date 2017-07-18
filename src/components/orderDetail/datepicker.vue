@@ -2,7 +2,7 @@
     <div>
         <datepicker v-model="date" language="ch" :min="min" :max="max"></datepicker>
         <select v-model="selectedHour" class="hour" @change="seleteHour">
-            <option value="10">10:00-11:00</option>
+            <option value="10" selected>10:00-11:00</option>
             <option value="11">11:00-12:00</option>
             <option value="12">12:00-13:00</option>
             <option value="13">13:00-14:00</option>
@@ -62,7 +62,7 @@
 </script>
 <style lang="scss" scoped>
 select{
-    width: 94%;
+    width: 100%;
     height: 32px;
 }
 </style>

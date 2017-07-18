@@ -5,12 +5,14 @@
             <h2>订单详情</h2>
         </header>
         <order-info :order-info="orderInfo" :user-data="userData"></order-info>
+        <order-cost :sum="orderInfo.sum" :freight="freight"></order-cost>
         <pay-now :sum="orderInfo.sum" :freight="freight"></pay-now>
     </section>
 </template>
 
 <script>
     import orderInfo from "./orderDetail/orderInfo.vue";
+    import cost from "./orderDetail/cost.vue";
     import payNow from "./orderDetail/payNow.vue";
 
     import {AJAX_GET} from "../js/common.js";
@@ -26,6 +28,7 @@
         components: {
           "order-info": orderInfo,
           "pay-now": payNow,
+          "order-cost": cost,
         },
         methods: {
             back(){

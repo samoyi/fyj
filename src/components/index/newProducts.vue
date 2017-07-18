@@ -8,11 +8,11 @@
             <p class="price">
                 <span>¥</span>
                 <span class="num">{{item.price}}</span>
-                <span>{{item.spec}}</span>
+                <span> / {{item.spec}}</span>
             </p>
-            <i></i>
+            <!-- <i></i> 购物车图标配合 -->
             <div>
-                <span></span>
+                <!-- <span></span> 购物车图标配合 -->
             </div>
         </div>
     </section>

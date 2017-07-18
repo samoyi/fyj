@@ -4,7 +4,7 @@
             <h3 v-if="item.title">{{item.title}}</h3>
             <p class="des" v-if="item.des" v-html="item.des"></p>
             <img :src="item.url" @click="toDetail(item.id)" />
-            <div class="price">
+            <div class="price" @click="toDetail(item.id)">
                 <span v-if="item.price">¥</span>
                 <span class="num" v-if="item.price">{{item.price}}</span>
                 <span v-if="item.spec">/{{item.spec}}</span>

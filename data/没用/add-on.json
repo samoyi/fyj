@@ -1,1 +1,149 @@
-{"cart":[{"id":"59","thumbnail":"http:\/\/www.fuyj.com.cn\/Array","name":"\u5343\u5c42\u91cc\u7684\u6d6e\u751f\u56db\u5b63 \/ Crepes at Seasons","spec":"1.5\u78c5","price":"198.00","amount":"2","checked":null},{"id":"2","thumbnail":"http:\/\/www.fuyj.com.cn\/Array","name":"\u4f4f\u5728\u8292\u679c\u8857\u4e0a\u7684\u6155\u65af Mango Mango","spec":"1.0\u78c5","price":"168.00","amount":"3","checked":null}],"order":[{"number":"12193","products":[{"id":"60","thumbnail":"http:\/\/www.fuyj.com.cn\/images\/201706\/thumb_img\/60_thumb_G_1496868398868.jpg","name":"\u8086\u00b7\u81c6\uff0fFours Fairy Tale","spec":"1.0\u78c5","price":218,"amount":1},{"id":"62","thumbnail":"http:\/\/www.fuyj.com.cn\/images\/201707\/thumb_img\/62_thumb_G_1499822517150.jpg","name":"\u8292\u679c\u5976\u6cb9\u914d\uff0fMango cake","spec":"1.0\u78c5","price":198,"amount":1}],"state":1,"freight":"0.00","delivery_tel":"18009226074","delivery_consignee":"\u5b66\u9738","delivery_addr":"\u6cb3\u6d77\u5927\u5b66","delivery_date":"2017-07-18","delivery_hour":"10"},{"number":"12194","products":[{"id":"1","thumbnail":"http:\/\/www.fuyj.com.cn\/images\/201605\/thumb_img\/1_thumb_G_1463531426926.jpg","name":"\u8349\u8393\u6251\u5012\u8986\u76c6\u5b50\uff0fWild Berries","spec":"1.0\u78c5","price":188,"amount":1}],"state":1,"freight":"0.00","delivery_tel":"18009226074","delivery_consignee":"\u5b66\u9738","delivery_addr":"\u6cb3\u6d77\u5927\u5b66","delivery_date":"2017-07-18","delivery_hour":"10"},{"number":"12202","products":[{"id":"62","thumbnail":"http:\/\/www.fuyj.com.cn\/images\/201707\/thumb_img\/62_thumb_G_1499822517150.jpg","name":"\u8292\u679c\u5976\u6cb9\u914d\uff0fMango cake","spec":"1.0\u78c5","price":198,"amount":1}],"state":1,"freight":"0.00","delivery_tel":"18009226074","delivery_consignee":"\u5b66\u9738","delivery_addr":"\u6cb3\u6d77\u5927\u5b66","delivery_date":"2017-07-18","delivery_hour":"16"},{"number":"12203","products":[{"id":"62","thumbnail":"http:\/\/www.fuyj.com.cn\/images\/201707\/thumb_img\/62_thumb_G_1499822517150.jpg","name":"\u8292\u679c\u5976\u6cb9\u914d\uff0fMango cake","spec":"1.0\u78c5","price":198,"amount":2}],"state":1,"freight":"0.00","delivery_tel":"18009226074","delivery_consignee":"\u5b66\u9738","delivery_addr":"\u6cb3\u6d77\u5927\u5b66","delivery_date":"2017-07-18","delivery_hour":"16"}],"card":[{"id":"0","expires":"2017-08-10 15:00","name":"\u4f18\u60e0120\u5143"},{"id":"0","expires":"2017-08-10 15:16","name":"\u4f18\u60e050\u5143"}],"addr":[{"tel":"18009226074","consignee":"\u5b66\u9738","address":"\u6cb3\u6d77\u5927\u5b66","isDefault":true},{"tel":"18009226074","consignee":"\u7a0b\u5e8f\u733f","address":"\u5728\u90a3\u9065\u8fdc\u7684\u5730\u65b9","isDefault":false}],"message":[{"date":"2017-07-11 15:00","content":"\u5c0a\u656c\u7684\u4f1a\u5458\uff0c\u60a8\u597d\uff0c\u60a8\u7684\u4f18\u60e0\u5238\u9a6c\u4e0a\u8981\u8fc7\u671f\u4e86\uff0c\u8bf7\u5728\u8fc7\u671f\u524d\u4f7f\u7528\uff0c\u5426\u5219\u5c06\u4e0d\u53ef\u7528\uff0c\u5982\u679c\u60a8\u6709\u4ec0\u4e48\u95ee\u9898\uff0c\u8bf7\u76f4\u63a5\u8054\u7cfb\u5ba2\u670d\uff0c\u8c22\u8c22\u60a8\u7684\u5408\u4f5c\u3002"},{"date":"2017-07-11 15:33","content":"\u8fd1\u671f\u6211\u4eec\u7f51\u7ad9\u63a8\u51fa\u4e86\u65b0\u54c1\uff0c\u60a8\u5728\u5de5\u4f5c\u4e4b\u4f59\u53ef\u67e5\u770b\u3002"}]}
+{
+    "cart": [
+        {
+            "id": "59",
+            "thumbnail": "http://www.fuyj.com.cn/images/201704/thumb_img/59_thumb_G_1491948406750.jpg",
+            "name": "千层里的浮生四季 / Crepes at Seasons",
+            "spec": "1.5磅",
+            "price": 198,
+            "amount": 3,
+            "checked": true
+        },
+        {
+            "id": "2",
+            "thumbnail": "http://www.fuyj.com.cn/images/201605/thumb_img/2_thumb_G_1463524298694.jpg",
+            "name": "住在芒果街上的慕斯 Mango Mango",
+            "spec": "1.0磅",
+            "price": 168,
+            "amount": 3,
+            "checked": false
+        }
+    ],
+    "order": [
+        {
+            "number": "12193",
+            "products": [
+                {
+                    "id": "60",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+                    "name": "肆·臆／Fours Fairy Tale",
+                    "spec": "1.0磅",
+                    "price": 218,
+                    "amount": 1
+                },
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "10"
+        },
+        {
+            "number": "12194",
+            "products": [
+                {
+                    "id": "1",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201605/thumb_img/1_thumb_G_1463531426926.jpg",
+                    "name": "草莓扑倒覆盆子／Wild Berries",
+                    "spec": "1.0磅",
+                    "price": 188,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "10"
+        },
+        {
+            "number": "12202",
+            "products": [
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "16"
+        },
+        {
+            "number": "12203",
+            "products": [
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 2
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "16"
+        }
+    ],
+    "card": [
+        {
+            "id": "0",
+            "expires": "2017-08-10 15:00",
+            "name": "优惠120元"
+        },
+        {
+            "id": "0",
+            "expires": "2017-08-10 15:16",
+            "name": "优惠50元"
+        }
+    ],
+    "addr": [
+        {
+            "tel": "18009226074",
+            "consignee": "学霸",
+            "address": "河海大学",
+            "isDefault": true
+        },
+        {
+            "tel": "18009226074",
+            "consignee": "程序猿",
+            "address": "在那遥远的地方",
+            "isDefault": false
+        },
+        {}
+    ],
+    "message": [
+        {
+            "date": "2017-07-11 15:00",
+            "content": "尊敬的会员，您好，您的优惠券马上要过期了，请在过期前使用，否则将不可用，如果您有什么问题，请直接联系客服，谢谢您的合作。"
+        },
+        {
+            "date": "2017-07-11 15:33",
+            "content": "近期我们网站推出了新品，您在工作之余可查看。"
+        }
+    ]
+}

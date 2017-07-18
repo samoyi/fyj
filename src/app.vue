@@ -31,12 +31,12 @@ export default {
   router,
   mounted: function(){
 
-    //   {
-    //       let sURL = "http://www.fuyj.com.cn/ajax/login.php/101?phone=18009226074&password=18009226074",
-    //             fnSuccessCallback = (res)=>{
-    //             };
-    //         AJAX_GET(sURL, fnSuccessCallback);
-    //   }
+      {
+          let sURL = "http://www.fuyj.com.cn/ajax/login.php/101?phone=18009226074&password=18009226074",
+                fnSuccessCallback = (res)=>{
+                };
+            AJAX_GET(sURL, fnSuccessCallback);
+      }
 
 
 
@@ -51,7 +51,14 @@ export default {
                       let oParsed = JSON.parse(res);
                       this.userData = oParsed;
                       this.cartList = oParsed.cart;
-                      this.addrList = oParsed.addr;
+
+                      let aAddr = oParsed.addr;
+                      while(aAddr.length<3){
+                          aAddr.push({});
+                      }
+                      this.addrList = aAddr;
+                      console.log(this.addrList);
+                    //   this.addrList = oParsed.addr;
                   };
               AJAX_GET(sURL, fnSuccessCallback);
           }

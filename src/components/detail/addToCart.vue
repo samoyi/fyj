@@ -50,6 +50,9 @@ export default {
                 this.$parent.$parent.cartList.unshift(productInfo);
                 this.selectedSpecIndex = 0;
                 this.amount = 1;
+console.log(this.$parent.displayTip);
+                this.$parent.displayTip = true;
+
             }
 
             // 显示或隐藏半透明遮罩

@@ -1,5 +1,5 @@
 <template>
-    <section class="addAddr">
+    <section class="addAddr" :style="{height:sWinHeight}">
         <header>
             <span class="back" @click="back">返回</span>
             <h3>添加配送地址</h3>
@@ -18,17 +18,20 @@
 
 <script>
 
+    import {nWindowHeight} from "../../js/common.js";
+
     export default {
         data: function () {
             return {
                 name: "",
-                tel: "11111111111",
+                tel: "",
                 addr: "",
                 isDefult: true,
                 // 提交时要要验证这三个err都是false。所以这里不能一开始就是false
                 nameErr: null,
                 telErr: null,
                 addrErr: null,
+                sWinHeight: nWindowHeight+"px",
             };
         },
         methods: {
@@ -60,28 +63,27 @@
                 if(false===this.nameErr && false===this.telErr && false===this.addrErr){
                     let oNewAddr = {
                         "tel": this.tel,
-                        "name": this.name,
+                        "consignee": this.name,
                         "addr": this.addr,
                         "isDefault": this.isDefult,
                     };
 
-                    // 过滤掉null之后，现有的有效地址
-                    let addrList = this.$parent.$parent.$parent.addrList.filter((item)=>item.name);
-
+                    // 过滤掉{}之后，现有的有效地址
+                    let addrList = this.$parent.$parent.$parent.userData.addr.filter((item)=>item.consignee);
                     if(this.isDefult){ // 新添加的设为默认地址
                         this.$parent.$parent.defaultAddrIndex = addrList.length;
                     }
                     addrList.push(oNewAddr);
-                    // 因为地址列表必须要有三个（空的用null补），所以这里在实际地址
-                    // 的数组上用null补全三项
-                    console.log(addrList);
+                    // 因为地址列表必须要有三个（空的用{}补），所以这里在实际地址的数组
+                    // 上用{}补全三项
+
                     while(addrList.length<3){
                         addrList.push({});
                     }
-                    console.log(addrList);
-                    this.$parent.$parent.$parent.addrList = addrList;
-                    console.log(addrList[2]);
-                    alert("提交地址列表")
+                    // this.$parent.$parent.$parent.addrList = addrList;
+                    this.$parent.$parent.$parent.userData.addr = addrList;
+                    console.log(this.$parent.$parent.$parent.userData);
+                    console.log("提交地址列表")
                     history.back();
                 }
             },
@@ -93,12 +95,10 @@
 <style lang="scss" scoped>
 @import "../../scss/common.scss";
 .addAddr{
-    opacity: 0.5;
-    background-color: #f6f6f6;
+    background-color: white;
     position: fixed;
     top: 0;
     width: 100%;
-    height: 100%;
     header{
         width: 100%;
         height: $headerHeight;

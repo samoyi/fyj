@@ -17,6 +17,9 @@ export default {
         setInterval(()=>{
             this.display = false;
         }, 3500);
+        window.onload = ()=>{
+            this.display = false;
+        };
     },
 }
 </script>

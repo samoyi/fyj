@@ -1,5 +1,6 @@
 <template>
     <section id="detailPage">
+        <app-header :cart-amount="cartAmount"></app-header>
         <awesome-swiper :product-summary="productSummary"></awesome-swiper>
         <product-summary :product-summary="productSummary"></product-summary>
         <product-yongxin :yongxin="yongxin"></product-yongxin>
@@ -9,20 +10,24 @@
         <div class="buttomPad" style="height:64px;"></div>
         <div v-show="bDispalyChooseBox" class="shade" @click="switchChooseBox"></div>
         <add-cart :display-box="bDispalyChooseBox" @switchChooseBox="switchChooseBox" :product-summary="productSummary"></add-cart>
+        <add-tip :displayTip="displayTip"></add-tip>
     </section>
 </template>
 
 <script>
+    import header from "./common/header.vue";
     import awesomeSwiper from "./detail/awesome-swiper.vue";
     import summary from "./detail/summary.vue";
     import yongxin from "./detail/yongxin.vue";
     import spec from "./detail/spec.vue";
     import notice from "./detail/notice.vue";
     import addToCart from "./detail/addToCart.vue";
+    import addTip from "./detail/addTip.vue";
 
     import {AJAX_GET} from "../js/common.js";
 
     export default {
+        props: ["cartAmount"],
         data: function () {
             return {
                 id: null,
@@ -33,18 +38,23 @@
                 // bDispalyChooseBox 是否显示加入购物车的规格数量选择框。
                 // 显示选择框的同时也显示半透明遮罩
                 bDispalyChooseBox: false,
+                displayTip: false,
             }
         },
         components: {
+            "app-header": header,
           "awesome-swiper": awesomeSwiper,
           "product-summary": summary,
           "product-yongxin": yongxin,
           "product-spec": spec,
           "product-notice": notice,
           "add-cart": addToCart,
+          "add-tip": addTip,
         },
         mounted: function(){
             {
+                console.log(location.hash);
+                console.log(location.search);
                 let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + this.$parent.detailID,
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{

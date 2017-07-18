@@ -9,7 +9,7 @@
                     <span>¥</span>
                     <span class="num">{{item.attr_price}}</span>
                 </p>
-                <i></i>
+                <!-- <i></i> 购物车图标 -->
             </div>
             <div style="clear:both; height:64px;"></div>
         </div>

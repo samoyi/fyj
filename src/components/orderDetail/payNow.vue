@@ -7,6 +7,8 @@
 
 <script>
 
+import {AJAX_POST} from "../../js/common.js";
+
 export default {
     props: ["sum", "freight"],
     data() {
@@ -33,7 +35,7 @@ export default {
                     return {
                         "id": item.id,
                          "spec": item.spec,
-                         "price": item.price, 
+                         "price": item.price,
                          "amount": item.amount
                     };
                 }),
@@ -45,7 +47,15 @@ export default {
                 "delivery_date": this.$parent.deliveryInfo.date,
                 "delivery_hour": this.$parent.deliveryInfo.hour
             };
-            console.log(JSON.stringify(sendOrderInfo));
+
+
+            let sURL = "http://www.fuyj.com.cn/ajax/payInfo.php",
+                data = "payInfo=" + JSON.stringify(sendOrderInfo),
+                fnSuccessCallback = (res)=>{
+                    console.log(res)
+                };
+            AJAX_POST(sURL, data, fnSuccessCallback);
+
         },
     },
     computed: {
@@ -65,11 +75,15 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.placeOrder{
+.payNow{
+    background:{
+        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+        position: -341px -155px;
+        size: 761px 809px;
+    }
     width: 100%; height: 64px;
     position: fixed;
     bottom: 0; z-index: 9;
-    background: yellow;
     .btn{
         color: white;
         font-size: 14px;
@@ -81,8 +95,9 @@ export default {
             position: -341px -348px;
             size: 761px 809px;
         }
+        text-decoration: none;
     }
-    .seleted, .sum{
+    .sum{
         color: #17919f;
         line-height: 64px;
         font-size: 12px;

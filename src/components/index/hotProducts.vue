@@ -68,7 +68,7 @@ export default {
             background: white;
             height: 240px;
             >img{
-                width: 133px; height: 100%;
+                width: 100%; height: 135px;
             }
             >p{
                 text-align: left;
@@ -76,9 +76,12 @@ export default {
             }
             .name{
                 font-size: 14px;
-                line-height: 12px;
+                line-height: 14px;
                 color: #1e1e1e;
                 margin-top: 14px;
+                height: 14px;
+                vertical-align: middle;
+                overflow: hidden;
             }
             .des{
                 font-size: 11px;

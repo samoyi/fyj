@@ -17,22 +17,23 @@
             </ul>
         </div>
         <div class="addr">
-            <span>{{selectedAddr.consignee}}</span>
-            <span>{{selectedAddr.tel}}</span>
-            <span>{{selectedAddr.addr}}</span>
+            <span @click="displayAddrSelector">{{selectedAddr.consignee}}</span>
+            <span @click="displayAddrSelector">{{selectedAddr.tel}}</span>
+            <br />
+            <span @click="displayAddrSelector">{{selectedAddr.addr}}</span>
             <span class="arrow" @click="displayAddrSelector">&gt;</span>
             <div class="addrSelector" v-show="bAddrSelectorDisplay">
                 <div v-for="(item,index) in userData.addr" v-if="item.tel">
                     <span>{{item.consignee}}</span>
                     <span>{{item.tel}}</span>
                     <span>{{item.addr}}</span>
-                    <input type="radio" name="addr" :value="index" @click="seletcAddr(index)" :checked="item.isDefault" />
+                    <input type="radio" name="addr" :value="index" @click="seletcAddr(index)" :checked="index===selectedAddrIndex" />
                 </div>
-                <router-link class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
+                <router-link class="addAddr" to="/user/addAddr" v-if="userData.addr[2].tel">+ 新增收货地址</router-link>
             </div>
         </div>
         <div class="time">
-            <span @click="displayDatePicker">送货时间</span>
+            <span @click="displayDatePicker">&#128338; 送货时间</span>
             <date-picker class="date-picker" v-show="bDatePickerDispaly"></date-picker>
             <span class="arrow" @click="displayDatePicker">&gt;</span>
         </div>
@@ -53,29 +54,25 @@
                 bAddrSelectorDisplay: false,
                 sWinHeight: nWindowHeight+"px",
                 selectedAddr: {},
+                selectedAddrIndex: null,
             };
         },
         computed: {
             oDefaultAddr(){
                 return this.userData.addr.find((item)=>item.isDefault);
             },
-            // selectedAddr(index){
-            //     // return this.userData.addr.find(function(item){
-            //     //     return item.isDefault;
-            //     // });
-            //     this.selectedAddr = this.userData.addr[index];
-            // },
         },
         methods: {
             displayDatePicker(){
                 this.bDatePickerDispaly = !this.bDatePickerDispaly;
             },
             displayAddrSelector(){
-                this.bAddrSelectorDisplay = true;
+                this.bAddrSelectorDisplay = !this.bAddrSelectorDisplay;
             },
             seletcAddr(index){
                 this.selectedAddr = this.userData.addr[index];
                 this.bAddrSelectorDisplay = false;
+                this.selectedAddrIndex = index;
             },
         },
         components: {
@@ -83,6 +80,9 @@
         },
         mounted(){
             this.selectedAddr = this.userData.addr.find(function(item){
+                return item.isDefault;
+            });
+            this.selectedAddrIndex = this.userData.addr.findIndex(function(item){
                 return item.isDefault;
             });
         }
@@ -138,7 +138,7 @@
     }
     .addr, .time{
         background: white;
-        margin-top: 10px;
+
         font-size: 12px;
         line-height: 16px;
         padding: 10px 0 10px 10px;
@@ -151,6 +151,10 @@
         }
     }
     .addr{
+        margin-top: 16px;
+        .arrow{
+            top: 20px;
+        }
         .addrSelector{
             width: 100%;
             background: white;
@@ -164,11 +168,19 @@
             div:first-child{
                 margin-top: 20px;
             }
+            .addAddr{
+                text-decoration: none;
+                color: black;
+            }
         }
     }
     .time{
         .date-picker{
             width: 94%;
+            margin-top: 20px;
+        }
+        .arrow{
+            top: 10px;
         }
     }
 }

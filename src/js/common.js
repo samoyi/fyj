@@ -69,7 +69,11 @@ function getCookies()
 // 根据ID跳转到具体的某个详情页
 function toDetail(id){
     this.$parent.$parent.detailID = id;
-    location.hash = "#/detail";
+    location.hash = "#/detail?id="+id;
+}
+function toDetailShalow(id){
+    this.$parent.detailID = id;
+    location.hash = "#/detail?id="+id;
 }
 
-export {nWindowHeight, nHeaderHeight, AJAX_GET, AJAX_POST, getCookies, toDetail};
+export {nWindowHeight, nHeaderHeight, AJAX_GET, AJAX_POST, getCookies, toDetail, toDetailShalow};

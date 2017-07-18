@@ -94,7 +94,7 @@
                     this.$parent.$parent.userData.order[index].state = 4;
                 }
                 if( 1===state ){
-                    alert("进入支付页面支付 支付成功后怎么刷新这里的状态");
+                    alert("进入支付页面支付");
                     this.$parent.$parent.userData.order.state = 2;
                 }
             },

@@ -16,7 +16,7 @@
                 <span class="delete" @click="deleteAddr(index)">删除地址</span>
             </li>
         </ul>
-        <div class="add">
+        <div class="add" v-if="!list[2].consignee">
             <router-link v-show="displayAddBtn(list)" class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
         </div>
         <router-view></router-view>
@@ -51,11 +51,17 @@
             deleteAddr(index){
                 console.log( index );
                 this.$parent.$parent.addrList.splice(index, 1, {});
-                alert("发送数据");
+                console.log("发送数据");
             },
             setDefault(index){
                 this.$parent.defaultAddrIndex = index;
-                alert("发送数据");
+                // this.$parent.$parent.userData.addr[index].isDefaultdefault = true;
+                // this.$parent.$parent.userData.addr.forEach(function(item, __index){
+                //     if(__index===index){
+                //         item
+                //     }
+                // });
+                console.log("发送数据");
             },
             displayAddBtn(list){ // 有效地址少于三个就显示添加地址按钮
                 return Array.prototype.filter.call(list, function(item){

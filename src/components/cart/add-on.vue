@@ -9,7 +9,7 @@
                     <span>¥</span>
                     <span class="num">{{item.add_price}}</span>
                 </p>
-                <i></i>
+                <!-- <i></i> 购物车图标 -->
             </swiper-slide>
         </swiper>
     </section>
