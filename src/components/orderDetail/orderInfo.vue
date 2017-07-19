@@ -11,7 +11,7 @@
                     <div class="info">
                         <span>{{item.spec}}</span>
                         <br/>
-                        <span>¥ {{item.price}}×{{item.amount}}</span>
+                        <span>¥ {{Number.parseFloat(item.price)}}×{{item.amount}}</span>
                     </div>
                 </li>
             </ul>

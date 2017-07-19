@@ -6,10 +6,10 @@
                 <div @click="toDetail(item.id)">
                     <img :src="item.url" :alt="item.name" />
                     <p class="name">{{item.name}}</p>
-                    <p class="des" v-html="item.des"></p>
+                    <p class="des" v-html="item.des.replace(/&nbsp;/g, '')"></p>
                     <p class="price">
                         <span>¥</span>
-                        <span class="num">{{item.price}}</span>
+                        <span class="num">{{Number.parseFloat(item.price)}}</span>
                         <span>/{{item.spec}}</span>
                     </p>
                     <slot></slot>
@@ -85,7 +85,7 @@ export default {
             }
             .des{
                 font-size: 11px;
-                line-height: 16px; height: 16px;
+                line-height: 16px; height: 32px;
                 color: #9b9b9b;
                 margin-top: 6px;
                 overflow: hidden;

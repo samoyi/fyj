@@ -14,7 +14,7 @@
         display: block;
         height: 45px; line-height: 45px;
         box-sizing: border-box;
-        border-bottom: 1px solid #9b9b9b;
+        border-bottom: 1px solid #e8e8e8;
         color: #1e1e1e;
         text-align: center;
         font-size: 14px;

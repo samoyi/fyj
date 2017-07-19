@@ -5,7 +5,7 @@
             <img :src="item.thumbnail" :alt="item.name" @click="toDetail(item.id)" />
             <p class="name">{{item.name}}</p>
             <p class="spec">规格: {{item.spec}}</p>
-            <p class="price">{{item.price}}×{{item.amount}}</p>
+            <p class="price">{{Number.parseFloat(item.price)}}×{{item.amount}}</p>
             <div class="amount">
                 <i class="sub" @click="amountSub(index)">-</i>
                 <span class="num">{{item.amount}}</span>

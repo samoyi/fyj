@@ -6,7 +6,7 @@
             <img :src="item.url" @click="toDetail(item.id)" />
             <div class="price" @click="toDetail(item.id)">
                 <span v-if="item.price">¥</span>
-                <span class="num" v-if="item.price">{{item.price}}</span>
+                <span class="num" v-if="item.price">{{Number.parseFloat(item.price)}}</span>
                 <span v-if="item.spec">/{{item.spec}}</span>
             </div>
         </swiper-slide>
@@ -67,9 +67,8 @@ export default {
          top: 300px; right: 20px;
         color: white;
         background: {
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
-            position: -342px -559px;
-            size: 761px 809px;
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp1.png");
+            size: cover;
         }
         font-size: 12px;
         .num{

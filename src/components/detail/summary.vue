@@ -6,7 +6,7 @@
             <span class="num" v-if="productSummary.price">{{(productSummary.price)[0]}}</span>
             <span v-if="productSummary.spec">元/{{((productSummary.spec)[0])}}</span>
         </p>
-        <p class="des" v-html="productSummary.des"></p>
+        <p class="des" v-html="productSummary.des.replace(/&nbsp;/g, '')"></p>
         <i class="icon" :style="{backgroundPosition:oSpriteMap[productSummary.icon]}"></i>
         <p class="tags">{{productSummary.tag}}</p>
     </div>
@@ -52,7 +52,8 @@ export default {
     }
     .des{
         font-size: 11px;
-        line-height: 16px;
+        line-height: 16px; height: 48px; overflow: hidden;
+        text-align: center;
         color: #9b9b9b;
         margin-top: 20px;
     }

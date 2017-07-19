@@ -123,7 +123,7 @@
     }
     .questions{
         >div{
-            border-bottom: 1px solid #9b9b9b;
+            border-bottom: 1px solid #e8e8e8;
             background:#f6f6f6;
             h3{
                 background: white;

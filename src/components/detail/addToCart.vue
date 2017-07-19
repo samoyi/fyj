@@ -85,15 +85,20 @@ console.log(this.$parent.displayTip);
         }
         position: absolute; bottom: 0;
         .btn{
-            width: 217px; height: 40px;
+            width: 218px; height: 40px;
             position: absolute; margin:auto; top: 0; right: 0; bottom: 0; left:0;
             line-height: 40px;
             text-align: center;
             color: white;
+            // background:{
+            //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            //     position: -341px -298px;
+            //     size: 761px 809px;
+            // }
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
-                position: -341px -298px;
-                size: 761px 809px;
+                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+                position: 0px -70px;
+                size: 325px 154px;
             }
         }
     }

@@ -4,10 +4,10 @@
         <div v-for="item in list" :key="item.name" @click="toDetail(item.id)">
             <img :src="item.url" :alt="item.name" />
             <p class="title">{{item.name}}</p>
-            <p class="des" v-html="item.des"></p>
+            <p class="des" v-html="item.des.replace(/&nbsp;/g, '')"></p>
             <p class="price">
                 <span>¥</span>
-                <span class="num">{{item.price}}</span>
+                <span class="num">{{Number.parseFloat(item.price)}}</span>
                 <span> / {{item.spec}}</span>
             </p>
             <!-- <i></i> 购物车图标配合 -->
@@ -66,8 +66,11 @@
         .des{
             font-size: 11px;
             line-height: 16px;
+            height: 48px;
+            overflow: hidden;
             color: #9b9b9b;
             margin-top: 10px;
+            text-align: center;
         }
         .price{
             font-size: 11px;
@@ -89,7 +92,7 @@
         }
         >div{
             width: 118px; height: 1px;
-            background-color:  #9b9b9b;
+            background-color:  #e8e8e8;
             position: absolute;
             right: 14px; bottom: 0px;
             span{

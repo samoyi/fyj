@@ -20,9 +20,8 @@
         position: absolute;
         top: 17px; left: 50%; margin-left: -32px;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
-            position: -198px -307px;
-            size: 761px 809px;
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp2.png");
+            size: cover;
         }
     }
 }

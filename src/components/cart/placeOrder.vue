@@ -61,10 +61,15 @@ export default {
         width: 103px; text-align: center;
         height: 31px; line-height: 31px;
         position: absolute; right: 17px; top: 16px;
+        // background:{
+        //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+        //     position: -341px -348px;
+        //     size: 761px 809px;
+        // }
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
-            position: -341px -348px;
-            size: 761px 809px;
+            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+            position: 0px -120px;
+            size: 325px 154px;
         }
         text-decoration: none;
     }

@@ -132,16 +132,21 @@
         position: fixed; bottom: 0;
         .addAddr{
             display: block;
-            width: 217px; height: 40px; line-height: 40px;
+            width: 218px; height: 40px; line-height: 40px;
             text-align: center;
             position: absolute;
-            top: 12px; left: 50%; margin-left: -108px;
+            top: 12px; left: 50%; margin-left: -109px;
             text-decoration: none;
             color: white;
+            // background:{
+            //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            //     size: 761px 809px;
+            //     position: -341px -298px;
+            // }
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
-                size: 761px 809px;
-                position: -341px -298px;
+                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+                position: 0px -70px;
+                size: 325px 154px;
             }
         }
     }

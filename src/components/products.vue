@@ -6,10 +6,10 @@
             <div class="product" v-for="item in list">
                 <img :src="item.url" :alt="item.name" @click="toDetailShalow(item.id)" />
                 <p class="name">{{item.name}}</p>
-                <p class="des" v-html="item.des"></p>
+                <p class="des" v-html="item.des.replace(/&nbsp;/g, '')"></p>
                 <p class="price">
                     <span>¥</span>
-                    <span class="num">{{item.price}}</span>
+                    <span class="num">{{Number.parseFloat(item.price)}}</span>
                     <span>/{{item.spec}}</span>
                 </p>
                 <!-- <i></i> 购物车图标 -->
@@ -41,8 +41,8 @@
         mounted: function(){
             // 加载 数据
             {
-                // let sURL = "http://www.fuyj.com.cn/ajax/goods_all.php",
-                let sURL = "../data/products.json",
+                let sURL = "http://www.fuyj.com.cn/ajax/goods_all.php",
+                // let sURL = "../data/products.json",
                 fnSuccessCallback = (res)=>{
                     this.list = JSON.parse(res);
                 };
