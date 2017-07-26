@@ -19,6 +19,11 @@
 </template>
 
 <script>
+
+    let sHash = location.hash,
+        sOpenID = sHash.slice(sHash.indexOf("openid")+7);
+
+
     import {AJAX_GET, AJAX_POST} from "../js/common.js";
 
 
@@ -38,8 +43,16 @@
                     this.err = "手机号码格式错误";
                 }
                 else{
-                    let sURL = "",
-                        fnSucceccCallback = (status)=>{alert("发送成功");},
+                    let sURL = "http://www.fuyj.com.cn/ajax/getPhone.php?act=vcode&phone=" + this.tel,
+                        fnSucceccCallback = ()=>{
+                            this.codeTip = "秒后还没收到就重试";
+                            let timer = setInterval(()=>{
+                                    if(!--this.second){
+                                        clearInterval(timer);
+                                        this.codeTip = "没收到验证码请重试";
+                                    }
+                                }, 1000);
+                        },
                         fnFailCallback = (status)=>{alert("发送失败，请重试");};
                     AJAX_GET(sURL, fnSucceccCallback, fnFailCallback);
                 }
@@ -52,19 +65,10 @@
                     this.err = "没写验证码";
                 }
                 else{
-                    let sURL = "",
-                        data = "tel="+this.tel,
+                    let sURL = "http://www.fuyj.com.cn/ajax/getPhone.php",
+                        data = "act=phone&phone=" + this.tel + "&vCode=" + this.code + "&openid=" + sOpenID,
                         fnSucceccCallback = (status)=>{
                             alert("检查验证码是否正确。正确则跳转到订单页面");
-                            {
-                                this.codeTip = "秒后还没收到就重试";
-                                let timer = setInterval(()=>{
-                                        if(!--this.second){
-                                            clearInterval(timer);
-                                            this.codeTip = "没收到验证码请重试";
-                                        }
-                                    }, 1000);
-                            }
                         },
                         fnFailCallback = (status)=>{alert("发送失败，请重试");};
                     AJAX_POST(sURL, data, fnSucceccCallback, fnFailCallback);

@@ -161,18 +161,25 @@
     ],
     "addr": [
         {
+            "id": "22",
             "tel": 133039403940,
             "consignee": "王富贵",
-            "addr": "北纬路甲一号",
+            "province": 16,
+            "city": 220,
+            "area": 1837,
+            "consigneeAddr": "北纬路甲一号",
             "isDefault": false
         },
         {
+            "id": "33",
             "tel": 158039403940,
             "consignee": "赵小美",
-            "addr": "北纬路甲一号",
+            "province": 16,
+            "city": 220,
+            "area": 1834,
+            "consigneeAddr": "北纬路甲一号",
             "isDefault": true
-        },
-        {}
+        }
     ],
     "message":[
         {

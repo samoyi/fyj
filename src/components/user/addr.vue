@@ -9,11 +9,12 @@
         <ul class="addrList" v-if="list">
             <li v-for="(item,index) in list" v-if="item.consignee">
                 <span class="name-tel">{{item.consignee}}  {{item.tel}}</span>
-                <span class="addr">{{item.addr}}</span>
+                <!-- <span class="addr">{{item.addr}}</span> -->
+                <span class="addr">{{getAddr(item)}}</span>
                 <div class="default">
-                    <input type="radio" :checked="defaultIndex===index" @click="setDefault(index)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
+                    <input type="radio" :checked="defaultIndex===index" @click="setDefault(index, item.addr_id)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
                 </div>
-                <span class="delete" @click="deleteAddr(index)">删除地址</span>
+                <span class="delete" @click="deleteAddr(index, item.addr_id)">删除地址</span>
             </li>
         </ul>
         <div class="add" v-if="!list[2].consignee">
@@ -24,7 +25,7 @@
 </template>
 
 <script>
-
+    import {AJAX_POST} from "../../js/common.js";
     import addAddr from "./addAddr.vue";
     import Vue from 'vue/dist/vue.js';
     import VueRouter from 'vue-router';
@@ -45,23 +46,58 @@
         props: ["list", "defaultIndex"],
         data: function () {
             return {
+                regionCode: {
+                    province: {
+                        16: "江苏省",
+                    },
+                    city: {
+                        16: {
+                            220: "南京市",
+                        }
+                    },
+                    area: {
+                        16: {
+                            220: {
+                                1834: "玄武区",
+                                1835: "鼓楼区",
+                                1837: "建邺区",
+                                1838: "秦淮区",
+                                1839: "雨花台区",
+                                1841: "栖霞区",
+                                1843: "江宁区",
+                            }
+                        }
+                    },
+                },
             };
         },
         methods: {
-            deleteAddr(index){
-                console.log( index );
-                this.$parent.$parent.addrList.splice(index, 1, {});
-                console.log("发送数据");
+            getAddr(item){
+                let oRegionCode = this.regionCode;
+                return oRegionCode.province[item.province] +" "
+                        + oRegionCode.city[item.province][item.city] +" "
+                        + oRegionCode.area[item.province][item.city][item.area] +" "
+                        + item.consigneeAddr;
             },
-            setDefault(index){
+            deleteAddr(index, id){
+                this.$parent.$parent.addrList.splice(index, 1, {});
+
+                let sURL = "http://www.fuyj.com.cn/ajax/addr_change.php",
+                    data = "act=del" + "&id=" + id,
+                    fnSuccessCallback = (res)=>{
+                        console.log(res);
+                    };
+                AJAX_POST(sURL, data, fnSuccessCallback);
+            },
+            setDefault(index, id){
                 this.$parent.defaultAddrIndex = index;
-                // this.$parent.$parent.userData.addr[index].isDefaultdefault = true;
-                // this.$parent.$parent.userData.addr.forEach(function(item, __index){
-                //     if(__index===index){
-                //         item
-                //     }
-                // });
-                console.log("发送数据");
+
+                let sURL = "http://www.fuyj.com.cn/ajax/addr_change.php",
+                    data = "act=change" + "&id=" + id,
+                    fnSuccessCallback = (res)=>{
+                        console.log(res);
+                    };
+                AJAX_POST(sURL, data, fnSuccessCallback);
             },
             displayAddBtn(list){ // 有效地址少于三个就显示添加地址按钮
                 return Array.prototype.filter.call(list, function(item){
