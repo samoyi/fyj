@@ -21,8 +21,9 @@
                 <div class="bottom">
                     <span>共{{getTotalAmount(item.products)}}件商品 合计：¥{{getTotalSum(item.products)}}</span>
                     <div>
-                        <a v-if="item.state<3" href="tel:4006633677">联系客服取消订单</a>
-                        <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, index)">{{getOrderState(item.state)}}</span>
+                        <span v-if="item.state===1" @click="cancelOrder(item.number)">取消订单</span>
+                        <a v-if="item.state===2" href="tel:4006633677">联系客服取消订单</a>
+                        <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, item.number, index)">{{getOrderState(item.state)}}</span>
                     </div>
                 </div>
             </li>
@@ -88,15 +89,27 @@
                     }
                 }
             },
-            handleOrder(state, index){
+            handleOrder(state, number, index){
                 if( 3===state ){
-                    alert("发送确认收货信息");
-                    this.$parent.$parent.userData.order[index].state = 4;
+                    let sURL = "http://www.fuyj.com.cn/ajax/.php",
+                        data = "act=&number="+number,
+                        fnSuccessCallback = (res)=>{
+                            this.$parent.$parent.userData.order[index].state = 4;
+                        };
+                    AJAX_POST(sURL, data, fnSuccessCallback);
                 }
                 if( 1===state ){
                     alert("进入支付页面支付");
                     this.$parent.$parent.userData.order.state = 2;
                 }
+            },
+            cancelOrder(number){
+                let sURL = "http://www.fuyj.com.cn/ajax/.php",
+                    data = "act=cancel&number="+number,
+                    fnSuccessCallback = (res)=>{
+                        this.$parent.$parent.userData.order[index].state = 5;
+                    };
+                AJAX_POST(sURL, data, fnSuccessCallback);
             },
         },
     };

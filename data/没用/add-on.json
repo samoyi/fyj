@@ -1,24 +1,5 @@
 {
-    "cart": [
-        {
-            "id": "59",
-            "thumbnail": "http://www.fuyj.com.cn/images/201704/thumb_img/59_thumb_G_1491948406750.jpg",
-            "name": "千层里的浮生四季 / Crepes at Seasons",
-            "spec": "1.5磅",
-            "price": 198,
-            "amount": 3,
-            "checked": true
-        },
-        {
-            "id": "2",
-            "thumbnail": "http://www.fuyj.com.cn/images/201605/thumb_img/2_thumb_G_1463524298694.jpg",
-            "name": "住在芒果街上的慕斯 Mango Mango",
-            "spec": "1.0磅",
-            "price": 168,
-            "amount": 3,
-            "checked": false
-        }
-    ],
+    "cart": [],
     "order": [
         {
             "number": "12193",
@@ -98,6 +79,14 @@
                     "spec": "1.0磅",
                     "price": 198,
                     "amount": 2
+                },
+                {
+                    "id": "60",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+                    "name": "肆·臆／Fours Fairy Tale",
+                    "spec": "1.0磅",
+                    "price": 218,
+                    "amount": 1
                 }
             ],
             "state": 1,
@@ -123,18 +112,25 @@
     ],
     "addr": [
         {
-            "tel": "18009226074",
-            "consignee": "学霸",
-            "address": "河海大学",
-            "isDefault": true
-        },
-        {
-            "tel": "18009226074",
-            "consignee": "程序猿",
-            "address": "在那遥远的地方",
+            "addr_id": "6530",
+            "tel": "12121212121",
+            "consignee": "1",
+            "province": "16",
+            "city": "220",
+            "area": "1838",
+            "consigneeAddr": "12",
             "isDefault": false
         },
-        {}
+        {
+            "addr_id": "6436",
+            "tel": "18000000000",
+            "consignee": "收货人1",
+            "province": "16",
+            "city": "220",
+            "area": "1834",
+            "consigneeAddr": "收货地址1",
+            "isDefault": true
+        }
     ],
     "message": [
         {

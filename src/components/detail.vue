@@ -53,9 +53,10 @@
         },
         mounted: function(){
             {
-                console.log(location.hash);
-                console.log(location.search);
-                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + this.$parent.detailID,
+                let tmp_index = location.hash.indexOf("id"),
+                    productID = tmp_index===-1 ? this.$parent.detailID : location.hash.slice(tmp_index+3);
+
+                let sURL = "http://www.fuyj.com.cn/ajax/goods_detail.php?id=" + productID,
                 // let sURL = "../data/productInfo.json",
                     fnSuccessCallback = (res)=>{
                         let oParsed = JSON.parse(res);
