@@ -5,7 +5,7 @@ const config = require('../config')
 const vueLoaderConfig = require('./vue-loader.conf')
 
 function resolve (dir) {
-    return path.join(__dirname, '..', dir)
+    return path.join(__dirname, '..', dir);
 }
 
 const createLintingRule = () => ({
@@ -41,13 +41,36 @@ module.exports = {
     module: {
         rules: [
             ...(config.dev.useEslint ? [createLintingRule()] : []),
-            {
-                test: /\.css$/,
-                loader: "style-loader!css-loader",
-            },
+            // {
+            //     test: /\.css$/,
+            //     loader: "css-loader",
+            // },
             {
                 test: /\.(scss)$/,
                 loader: "style-loader!css-loader!sass-loader?modules",
+            },
+            // {
+            //     test: /\.css$/,
+            //     use: [
+            //         // 'vue-style-loader',
+            //         'css-loader'
+            //     ],
+            // },
+            // {
+            //     test: /\.scss$/,
+            //     use: [
+            //         'vue-style-loader',
+            //         'css-loader',
+            //         'sass-loader'
+            //     ],
+            // },
+            {
+                test: /\.sass$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader',
+                    'sass-loader?indentedSyntax'
+                ],
             },
             {
                 test: /\.vue$/,

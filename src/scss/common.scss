@@ -1,0 +1,15 @@
+@import "reset.scss";
+
+html, body, #wrapper{
+	width:100%;
+	position: absolute; top: 0; left: 0;
+	background-size :cover; background-position: center;
+    font-family: "Microsoft YaHei";
+}
+
+$headerHeight: 55px;
+$h2FontSize: 14px;
+
+.swiper-pagination-bullet-active{
+	background-color: #17919f; // 重写分页器的当前圆点的颜色。直接在package文件里改无效
+}

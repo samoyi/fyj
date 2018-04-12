@@ -23,8 +23,13 @@ module.exports = {
     rules: {
         // OCD
         'semi': ['error', 'always'],
-        'indent': ['error', 4],
+        'indent': ['error', 4, { 'SwitchCase': 1 }],
         'comma-dangle': ['error', 'always-multiline'],
+        'space-before-blocks': ['error', 'never'],
+        'space-before-function-paren': ['error', 'never'],
+        'arrow-spacing': ['error', { 'before': false, 'after': false }],
+        'operator-linebreak': [2, 'before'],
+        'brace-style': ['error', 'stroustrup'],
 
         // allow async-await
         'generator-star-spacing': 'off',
