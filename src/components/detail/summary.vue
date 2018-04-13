@@ -1,14 +1,18 @@
+<!-- 头图之下、用心之上的产品概述部分 -->
 <template>
-    <div class="productSummary" v-if="productSummary">
-        <p class="title">{{productSummary.name}}</p>
+    <div class="summary" v-if="summary">
+        <p class="title">{{summary.name}}</p>
         <p class="price">
             <span>¥</span>
-            <span class="num" v-if="productSummary.price">{{(productSummary.price)[0]}}</span>
-            <span v-if="productSummary.spec">元/{{((productSummary.spec)[0])}}</span>
+            <span class="num" v-if="summary.price">{{(summary.price)[0]}}</span>
+            <!-- 因为产品计量单位不一定是“磅”，所以计量单位也要作为数据传入 -->
+            <span v-if="summary.spec">元/{{((summary.spec)[0])}}</span>
         </p>
-        <p class="des" v-html="productSummary.des.replace(/&nbsp;/g, '')"></p>
-        <i class="icon" :style="{backgroundPosition:oSpriteMap[productSummary.icon]}"></i>
-        <p class="tags">{{productSummary.tag}}</p>
+        <p class="des" v-html="summary.des.replace(/&nbsp;/g, '')"></p>
+        <!-- 图标规则见 src\js\sprite_map.js 中的说明 -->
+        <i class="icon" :style="{backgroundPosition:oSpriteMap[summary.icon]}"></i>
+        <!-- 该款产品的若干标签 -->
+        <p class="tags">{{summary.tags}}</p>
     </div>
 </template>
 
@@ -17,7 +21,11 @@
 import {oSpriteMap} from '../../js/sprite_map.js';
 
 export default {
-    props: ['productSummary'],
+    props: {
+        summary: {
+            type: Object,
+        },
+    },
     data(){
         return {
             oSpriteMap,
@@ -28,7 +36,7 @@ export default {
 
 <style lang="scss" scoped>
 
-.productSummary{
+.summary{
     width: 100%; height: 208px;
     background: white;
     overflow: hidden;
@@ -62,7 +70,7 @@ export default {
         position: absolute;
         left: 5px; bottom: 10px;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             size: 761px 809px;
         }
     }

@@ -1,13 +1,14 @@
+<!-- 规格 -->
 <template>
-    <div class="spec" v-if="productSpec">
+    <div class="spec" v-if="specInfo">
         <h3>
             <i></i>
             <span>规格</span>
         </h3>
-        <p v-html="productSpec.des"></p>
-        <i :style="{backgroundPosition:oSpriteMap[productSpec.icon]}"></i><!--现在的图标是刀叉，以后可能还会变成其他的-->
+        <p v-html="specInfo.des"></p>
+        <i :style="{backgroundPosition:oSpriteMap[specInfo.icon]}"></i><!--现在的图标是刀叉，以后可能还会变成其他的-->
         <ul>
-            <li v-for="item in productSpec.list" :key="item" v-html="item"></li>
+            <li v-for="item in specInfo.list" :key="item" v-html="item"></li>
         </ul>
     </div>
 </template>
@@ -17,7 +18,11 @@
 import {oSpriteMap} from '../../js/sprite_map.js';
 
 export default {
-    props: ['productSpec'],
+    props: {
+        specInfo: {
+            type: Object,
+        },
+    },
     data(){
         return {
             oSpriteMap,
@@ -49,7 +54,7 @@ export default {
             position: absolute;
             left: 5px; top: 0px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -88px -183px;
             // -88px -155px 黑色的
@@ -57,7 +62,7 @@ export default {
         }
     }
     >p{
-        margin-left: 14px;
+        margin-left: 4%; width: 92%;
         font-size: 11px;
         color: #9b9b9b;
         margin-top: 56px;
@@ -67,7 +72,7 @@ export default {
         position: absolute;
         left: 14px; top: 79px;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             size: 761px 809px;
         }
     }

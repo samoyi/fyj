@@ -35,7 +35,7 @@ export default {
             width: 87px; height: 87px;
             border: none;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -198px -112px;
             }
@@ -54,7 +54,7 @@ export default {
             font-size: 12px;
             color: #9b9b9b;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -341px -15px;
             }

@@ -3,7 +3,9 @@
         <h2>推荐商品</h2>
         <div>
             <div class="product-card" v-for="item in list" :key="item.goods_name">
-                <img :src="item.goods_thumb" :alt="item.goods_name" @click="toDetail(item.id)" />
+                <router-link :to="'/detail/'+item.id">
+                    <img :src="item.goods_thumb" :alt="item.goods_name" />
+                </router-link>
                 <p class="name">{{item.goods_name}}</p>
                 <p class="price">
                     <span>¥</span>
@@ -18,7 +20,7 @@
 
 <script>
 
-import {toDetail} from '../../js/common.js';
+// import {toDetail} from '../../js/common.js';
 
 export default {
     data(){
@@ -31,7 +33,7 @@ export default {
     },
     props: ['list'],
     methods: {
-        toDetail,
+        // toDetail,
     },
 };
 
@@ -76,7 +78,7 @@ export default {
                 position: absolute;
                 right: 14px; bottom: 10px;
                 background:{
-                    image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                    image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                     position: -14px -143px;
                     size: 761px 809px;
                 }

@@ -1,8 +1,13 @@
 <template>
     <section class="cartList" v-if="list.length">
         <div v-for="(item,index) in list" :key="index">
-            <i class="checkbox" :class="{checked: item.checked}" @click="switchCheck(index)">√</i>
-            <img :src="item.thumbnail" :alt="item.name" @click="toDetail(item.id)" />
+            <i class="checkbox" :class="{checked: item.checked}"
+                    @click="switchCheck(index)">
+                √
+            </i>
+            <router-link :to="'/detail/'+item.id">
+                <img :src="item.thumbnail" :alt="item.name" />
+            </router-link>
             <p class="name">{{item.name}}</p>
             <p class="spec">规格: {{item.spec}}</p>
             <p class="price">{{Number.parseFloat(item.price)}}×{{item.amount}}</p>
@@ -17,16 +22,21 @@
 
 <script>
 
-import {toDetail, AJAX_POST} from '../../js/common.js';
+import {AJAX_POST} from '../../js/common.js';
 
 export default {
-    props: ['list'],
     data(){
         return {};
     },
+    computed: {
+        list(){
+            return this.$store.state.cart.list;
+        },
+    },
     methods: {
         switchCheck(index){
-            this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
+            // this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
+            this.$store.commit('switchCheck', index);
 
             // 删除不需要传输的缩略图、名称
             let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
@@ -42,7 +52,11 @@ export default {
             AJAX_POST(sURL, data, fnSuccessCallback);
         },
         amountSub(index){
-            this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
+            // this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
+            if (this.list[index].amount === 1){
+                return;
+            }
+            this.$store.commit('decrementAmount', index);
 
             // 删除不需要传输的缩略图、名称
             let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
@@ -58,7 +72,11 @@ export default {
             AJAX_POST(sURL, data, fnSuccessCallback);
         },
         amountAdd(index){
-            ++this.$parent.$parent.cartList[index].amount;
+            // ++this.$parent.$parent.cartList[index].amount;
+            if (this.list[index].amount === 9){
+                return;
+            }
+            this.$store.commit('incrementAmount', index);
 
             // 删除不需要传输的缩略图、名称
             let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
@@ -73,7 +91,6 @@ export default {
             };
             AJAX_POST(sURL, data, fnSuccessCallback);
         },
-        toDetail,
     },
 };
 

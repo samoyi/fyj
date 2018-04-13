@@ -8,7 +8,7 @@
             <i></i>
             <p>{{cardInfo}}</p>
         </div>
-        <cart-list class="cartList" ref="cartList" :list="cartList"></cart-list>
+        <cart-list class="cartList" ref="cartList"></cart-list>
         <add-on class="add-on" :list="addOnList"></add-on>
         <recommendation-products class="recommendation" :list="recommendation"></recommendation-products>
         <place-order></place-order>
@@ -89,7 +89,7 @@ export default {
             width: 17px; height: 30px;
             position: absolute; left: 21px; top: 1px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 position: -88px -239px;
                 size: 761px 809px;
             }

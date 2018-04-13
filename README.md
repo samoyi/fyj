@@ -1,5 +1,8 @@
 # fyj
 
+因为是测试数据，所以商品详情页只有两种商品
+
+
 > fyj wechat website
 
 ## Build Setup

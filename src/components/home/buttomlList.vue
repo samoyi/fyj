@@ -6,9 +6,8 @@
          <router-link to="/contact">联系方式</router-link>
     </section>
 </template>
-<style lang="scss">
-#indexButtomlList
-{
+<style lang="scss" scoped>
+#indexButtomlList{
     height: 180px;
     >a{
         display: block;

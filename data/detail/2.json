@@ -1,0 +1,41 @@
+{
+    "0": {
+        "attr_price": "0",
+        "attr_name": "10磅"
+    },
+    "id": "2",
+    "name": "住在芒果街上的慕斯 Mango Mango",
+    "des": "   ｜如果你愿意一层一层切开住在芒果街上的慕斯｜｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+    "tags": [
+        "甄选热带新鲜芒果",
+        "顶级法芒果泥淋酱",
+        "英国乳脂奶油"
+    ],
+    "yongxin": "手工浸染的情感是工业科技所无法取代的",
+    "specInfo": {
+        "des": "纯手工制作，尺寸仅供做参考，以重量为准",
+        "list": [
+            "1磅  15cm×15cm  适合3～4人食用  免费配送5套餐具",
+            "2磅  20cm ×20cm   适合7～8人食用  免费配送10套餐具",
+            "3磅  25cm ×25cm   适合10~12人食用  免费配送15套餐具"
+        ]
+    },
+    "images": [
+        "http://localhost/gits/fyj/data/image/detail/2/1.jpg",
+        "http://localhost/gits/fyj/data/image/detail/2/2.jpg",
+        "http://localhost/gits/fyj/data/image/detail/2/3.jpg"
+    ],
+    "icon": "蛋糕",
+    "price": [
+        168,
+        268,
+        378,
+        0
+    ],
+    "specForChoose": [
+        "1.0磅",
+        "2.0磅",
+        "3.0磅",
+        "10磅"
+    ]
+}

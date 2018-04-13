@@ -1,0 +1,82 @@
+[
+    {
+        "id": "1",
+        "url": "http://localhost/gits/fyj/data/image/products/1/thumb.jpg",
+        "name": "草莓扑倒覆盆子／Wild Berries",
+        "des": "&nbsp;&nbsp;&nbsp;｜浓郁覆盆子与红颊草莓的狂野之恋｜<br />&nbsp;&nbsp;｜它们是彼此注定的红玫瑰，谁扑倒谁都不重要｜<br />｜谁说冰火不可相恋｜<br />&nbsp;",
+        "price": "188",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "2",
+        "url": "http://localhost/gits/fyj/data/image/products/2/thumb.jpg",
+        "name": "住在芒果街上的慕斯 Mango Mango",
+        "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+        "price": "168",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "1",
+        "url": "http://localhost/gits/fyj/data/image/products/1/thumb.jpg",
+        "name": "草莓扑倒覆盆子／Wild Berries",
+        "des": "&nbsp;&nbsp;&nbsp;｜浓郁覆盆子与红颊草莓的狂野之恋｜<br />&nbsp;&nbsp;｜它们是彼此注定的红玫瑰，谁扑倒谁都不重要｜<br />｜谁说冰火不可相恋｜<br />&nbsp;",
+        "price": "188",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "2",
+        "url": "http://localhost/gits/fyj/data/image/products/2/thumb.jpg",
+        "name": "住在芒果街上的慕斯 Mango Mango",
+        "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+        "price": "168",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "1",
+        "url": "http://localhost/gits/fyj/data/image/products/1/thumb.jpg",
+        "name": "草莓扑倒覆盆子／Wild Berries",
+        "des": "&nbsp;&nbsp;&nbsp;｜浓郁覆盆子与红颊草莓的狂野之恋｜<br />&nbsp;&nbsp;｜它们是彼此注定的红玫瑰，谁扑倒谁都不重要｜<br />｜谁说冰火不可相恋｜<br />&nbsp;",
+        "price": "188",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "2",
+        "url": "http://localhost/gits/fyj/data/image/products/2/thumb.jpg",
+        "name": "住在芒果街上的慕斯 Mango Mango",
+        "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+        "price": "168",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "1",
+        "url": "http://localhost/gits/fyj/data/image/products/1/thumb.jpg",
+        "name": "草莓扑倒覆盆子／Wild Berries",
+        "des": "&nbsp;&nbsp;&nbsp;｜浓郁覆盆子与红颊草莓的狂野之恋｜<br />&nbsp;&nbsp;｜它们是彼此注定的红玫瑰，谁扑倒谁都不重要｜<br />｜谁说冰火不可相恋｜<br />&nbsp;",
+        "price": "188",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "2",
+        "url": "http://localhost/gits/fyj/data/image/products/2/thumb.jpg",
+        "name": "住在芒果街上的慕斯 Mango Mango",
+        "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+        "price": "168",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "1",
+        "url": "http://localhost/gits/fyj/data/image/products/1/cantfind.jpg",
+        "name": "图片无法找到的测试／Wild Berries",
+        "des": "&nbsp;&nbsp;&nbsp;｜浓郁覆盆子与红颊草莓的狂野之恋｜<br />&nbsp;&nbsp;｜它们是彼此注定的红玫瑰，谁扑倒谁都不重要｜<br />｜谁说冰火不可相恋｜<br />&nbsp;",
+        "price": "188",
+        "spec": "1.0磅"
+    },
+    {
+        "id": "2",
+        "url": "http://localhost/gits/fyj/data/image/products/2/thumb.jpg",
+        "name": "住在芒果街上的慕斯 Mango Mango",
+        "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+        "price": "168",
+        "spec": "1.0磅"
+    }
+]

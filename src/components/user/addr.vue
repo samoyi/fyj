@@ -117,7 +117,7 @@ export default {
             width: 87px; height: 87px;
             border: none;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -198px -209px;
             }
@@ -174,12 +174,12 @@ export default {
             text-decoration: none;
             color: white;
             // background:{
-            //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            //     image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             //     size: 761px 809px;
             //     position: -341px -298px;
             // }
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/temp3.png");
                 position: 0px -70px;
                 size: 325px 154px;
             }

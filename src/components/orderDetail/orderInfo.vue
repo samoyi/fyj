@@ -1,12 +1,12 @@
 <template>
-    <section class="orderInfo" :list="orderInfo" :user-data="userData">
+    <section class="orderInfo" :user-data="userData">
         <div class="title">
             <span>购物清单</span>
             <span>共计 {{amount}} 件产品</span>
         </div>
         <div class="productsWrapper">
-            <ul class="products" :style="{width: (102+10)*(orderInfo.list.length) + 'px'}">
-                <li v-for="item in orderInfo.list" :key="item.name">
+            <ul class="products" :style="{width: (102+10)*(orderList.length) + 'px'}">
+                <li v-for="item in orderList" :key="item.name">
                     <img :src="item.thumbnail" :alt="item.name"/>
                     <div class="info">
                         <span>{{item.spec}}</span>
@@ -46,10 +46,9 @@ import {nWindowHeight} from '../../js/common.js';
 import datepicker from './datepicker.vue';
 
 export default {
-    props: ['orderInfo', 'userData'],
-    data: function(){
+    props: ['userData'],
+    data(){
         return {
-            amount: this.orderInfo.list.length,
             bDatePickerDispaly: false,
             bAddrSelectorDisplay: false,
             sWinHeight: nWindowHeight + 'px',
@@ -58,6 +57,12 @@ export default {
         };
     },
     computed: {
+        orderList(){
+            return this.$store.state.order.list;
+        },
+        amount(){
+            return this.orderList.length;
+        },
         oDefaultAddr(){
             return this.userData.addr.find((item)=>item.isDefault);
         },

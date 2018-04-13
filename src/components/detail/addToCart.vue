@@ -1,7 +1,8 @@
+<!-- 第一次点击“加入购物车”时弹出的窗口 -->
 <template>
     <div class="addToCart" v-if="productSummary">
         <div class="chooseBox" v-show="displayBox">
-            <img class="thumbnail" :src="productSummary.image[0]" />
+            <img class="thumbnail" :src="productSummary.images[0]" />
             <p class="name">{{productSummary.name}}</p>
             <p class="price" v-if="productSummary.price">¥{{productSummary.price[selectedSpecIndex]}}</p>
             <div class="spec">
@@ -52,6 +53,7 @@ export default {
                     'checked': true,
                 };
                 this.$parent.$parent.cartList.unshift(productInfo);
+                this.$store.commit('addToCart', productInfo);
                 this.selectedSpecIndex = 0;
                 this.amount = 1;
                 this.$parent.displayTip = true;
@@ -80,7 +82,7 @@ export default {
     .btnArea{
         width: 100%; height: 64px;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             position: -341px -155px;
             size: 761px 809px;
         }
@@ -92,12 +94,12 @@ export default {
             text-align: center;
             color: white;
             // background:{
-            //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            //     image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             //     position: -341px -298px;
             //     size: 761px 809px;
             // }
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/temp3.png");
                 position: 0px -70px;
                 size: 325px 154px;
             }

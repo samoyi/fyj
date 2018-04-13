@@ -114,7 +114,7 @@ export default {
             width: 160px; height: 160px;
             position: absolute; margin: auto; top: 0; right: 0; bottom: 0; left: 0;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 position: -341px -389px;
                 size: 761px 809px;
             }

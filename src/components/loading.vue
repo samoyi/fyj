@@ -4,14 +4,14 @@
     </section>
 </template>
 <script>
-import {nWindowHeight} from "../js/common.js";
+import {nWindowHeight} from '../js/common.js';
 export default {
-    props: ["list"],
-    data() {
+    props: ['list'],
+    data(){
         return {
             height: nWindowHeight,
             display: true,
-        }
+        };
     },
     mounted(){
         setInterval(()=>{
@@ -21,7 +21,7 @@ export default {
             this.display = false;
         };
     },
-}
+};
 </script>
 <style lang="scss" scoped>
     #loadingPage{

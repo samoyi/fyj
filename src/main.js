@@ -7,7 +7,10 @@ import App from './App';
 import {router} from './router';
 import store from './store';
 
+import VueResource from 'vue-resource';
 import VueAwesomeSwiper from 'vue-awesome-swiper';
+
+Vue.use(VueResource);
 Vue.use(VueAwesomeSwiper);
 
 Vue.config.productionTip = false;

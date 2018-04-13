@@ -1,21 +1,33 @@
+<!-- 详情页顶部产品图 -->
 <template>
-    <swiper :options="swiperOption" class="swiper-box" v-if="productSummary">
-        <swiper-slide class="swiper-item" v-for="(item,index) in productSummary.image" :style="{backgroundImage:'url('+item+')'}" :key="index"></swiper-slide>
+    <swiper :options="swiperOption" class="swiper-box">
+    <!-- <swiper :options="swiperOption" class="swiper-box" v-if="productSummary"> -->
+        <!-- <swiper-slide class="swiper-item" v-for="item in productSummary.image" :style="{backgroundImage:'url('+item+')'}" :key="item"></swiper-slide> -->
+        <swiper-slide class="swiper-item" v-for="item in images"
+                :style="{backgroundImage:'url('+item+')'}"
+                :key="item">
+        </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
 </template>
 
 <script>
-// import {nWindowHeight, nHeaderHeight} from '../../js/common.js';
 
 export default {
-    props: ['productSummary'],
+    props: {
+        images: {
+            type: Array,
+            required: true,
+            default: ()=>[],
+        },
+    },
+    // props: ['productSummary'],
     data(){
         return {
             swiperOption: {
-                pagination: '.swiper-pagination',
-                centeredSlides: true,
-                autoplayDisableOnInteraction: false,
+                pagination: {
+                    el: '.swiper-pagination',
+                },
             },
         };
     },

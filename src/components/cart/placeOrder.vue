@@ -1,7 +1,7 @@
 <template>
     <div class="placeOrder" :order="order">
-        <!-- <span class="btn" @click="placeOrder">立即下单</span> -->
-        <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link>
+        <span class="btn" @click="placeOrder">立即下单</span>
+        <!-- <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link> -->
         <span class="seleted">已选 {{orderInfo[0]}} 件</span>
         <span class="sum">应付总额：¥{{orderInfo[1]}}</span>
     </div>
@@ -16,30 +16,37 @@ export default {
             aSelected: [],
         };
     },
-    methods: {
-        placeOrder(){
-            let aSelected = this.$parent.$parent.cartList.filter((item)=>{
-                return item.checked;
-            });
-            alert('下单成功后清除已经下订单的商品');
-            console.log(aSelected);
-        },
-    },
     computed: {
+        list(){
+            return this.$store.state.cart.list;
+        },
         orderInfo(){
             let nSum = 0;
             let aSelected = [];
             let nSelected = 0;
-            this.$parent.$parent.cartList.forEach((item, index)=>{
+            this.list.forEach((item, index)=>{
                 if (item.checked){ // 只计算选中的
                     aSelected.push(item);
                     nSelected += item.amount;
                     nSum += item.amount * item.price;
                 }
             });
+            // this.aSelected = aSelected;
             // this.$parent.$parent.orderInfo.sum = nSum;
             // this.$parent.$parent.orderInfo.list = aSelected;
             return [nSelected, nSum];
+        },
+    },
+    methods: {
+        placeOrder(){
+            let aSelected = this.list.filter((item)=>{
+                return item.checked;
+            });
+            this.$store.commit('createOrder', aSelected);
+
+            alert('下单成功后清除已经下订单的商品');
+            console.log(aSelected);
+            this.$router.push('/orderDetail');
         },
     },
 };
@@ -48,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 .placeOrder{
     background:{
-        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+        image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
         position: -341px -155px;
         size: 761px 809px;
     }
@@ -62,12 +69,12 @@ export default {
         height: 31px; line-height: 31px;
         position: absolute; right: 17px; top: 16px;
         // background:{
-        //     image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+        //     image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
         //     position: -341px -348px;
         //     size: 761px 809px;
         // }
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp3.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/temp3.png");
             position: 0px -120px;
             size: 325px 154px;
         }

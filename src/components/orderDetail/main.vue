@@ -11,9 +11,9 @@
 </template>
 
 <script>
-import orderInfo from './orderDetail/orderInfo.vue';
-import cost from './orderDetail/cost.vue';
-import payNow from './orderDetail/payNow.vue';
+import orderInfo from './orderInfo.vue';
+import cost from './cost.vue';
+import payNow from './payNow.vue';
 
 export default {
     props: ['orderInfo', 'userData'],
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/common.scss";
+@import "../../scss/common.scss";
 #orderDetailPage{
     >header{
         height: $headerHeight; line-height: $headerHeight;

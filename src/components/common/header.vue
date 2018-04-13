@@ -1,7 +1,7 @@
 <template>
     <header>
         <span class="navMenu" @click="switchDisplayNav"></span>
-        <img class="logo" src="http://www.fuyj.com.cn/front/images/logo.png" alt="浮遇纪" />
+        <img class="logo" src="http://localhost/gits/fyj/data/image/icons/logo.png" alt="浮遇纪" />
         <!-- <span class="user"></span> -->
         <router-link class="user" to="/user"></router-link>
         <router-link class="cart" to="/cart">
@@ -10,10 +10,10 @@
         <nav @click="switchDisplayNav" v-show="bNavDisplay" :style="{height:height+'px'}">
             <i>╳</i>
             <ul>
-                <li><router-link :class="{curColor: 0===index}" to="/">首 页 INDEX</router-link></li>
-                <li><router-link :class="{curColor: 1===index}" to="/">新 遇 NEWS</router-link></li>
+                <li><router-link :class="{curColor: 0===index}" to="/">首 页 HOME</router-link></li>
+                <li><router-link :class="{curColor: 1===index}" to="/">新 遇 NEWS （敬请期待）</router-link></li>
                 <li><router-link :class="{curColor: 2===index}" to="/product">再 遇 PRODUCTS</router-link></li>
-                <li><router-link :class="{curColor: 3===index}" to="/">礼 遇 EXCLUSIVE</router-link></li>
+                <li><router-link :class="{curColor: 3===index}" to="/">礼 遇 EXCLUSIVE （敬请期待）</router-link></li>
                 <li><router-link :class="{curColor: 4===index}" to="/aboutus">相 遇 ABOUT US</router-link></li>
             </ul>
         </nav>
@@ -59,7 +59,7 @@ header{
     .navMenu, .user, .cart{
         width: 22px; height: 22px;
         background: {
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             size: 761px 809px;
         }
     }

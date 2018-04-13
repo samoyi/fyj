@@ -1,12 +1,11 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-// import HelloWorld from '@/components/HelloWorld';
 
-import cIndexPage from '@/components/index';
+import cHomePage from '@/components/home/main';
 import cProducts from '@/components/products';
-import cDetailPage from '@/components/detail';
+import cDetailPage from '@/components/detail/main';
 import cCartPage from '@/components/cart';
-import cOrderDetail from '@/components/orderDetail';
+import cOrderDetail from '@/components/orderDetail/main';
 import cUserPage from '@/components/user';
 import cBindTel from '@/components/bindTel';
 import cAboutus from '@/components/aboutus';
@@ -26,10 +25,10 @@ const router = new Router({
     routes: [
         {
             path: '/',
-            component: cIndexPage,
+            component: cHomePage,
         },
         {
-            path: '/detail',
+            path: '/detail/:id',
             component: cDetailPage,
         },
         {
@@ -74,16 +73,11 @@ const router = new Router({
             path: '/contact',
             component: cContact,
         },
+        {
+            path: '*',
+            redirect: '/',
+        },
     ],
 });
 
 export {router};
-// export default new Router({
-//     routes: [
-//         {
-//             path: '/',
-//             name: 'HelloWorld',
-//             component: HelloWorld,
-//         },
-//     ],
-// });

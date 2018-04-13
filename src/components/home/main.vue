@@ -11,22 +11,22 @@
 </template>
 
 <script>
-import header from './common/header.vue';
-import awesomeSwiper from './index/awesome-swiper.vue';
-import newProducts from './index/newProducts.vue';
-import hotProducts from './index/hotProducts.vue';
-import buttomlList from './index/buttomlList.vue';
-import copyright from './index/copyright.vue';
+import header from '../common/header.vue';
+import awesomeSwiper from './awesome-swiper.vue';
+import newProducts from './newProducts.vue';
+import hotProducts from './hotProducts.vue';
+import buttomlList from './buttomlList.vue';
+import copyright from './copyright.vue';
 
-import {AJAX_GET} from '../js/common.js';
+// import {AJAX_GET} from '../../js/common.js';
 
 export default {
     props: ['cartAmount'],
     data(){
         return {
-            carouselList: null,
-            newProducts: null,
-            hotProducts: null,
+            carouselList: [],
+            newProducts: [],
+            hotProducts: [],
         };
     },
     components: {
@@ -39,22 +39,31 @@ export default {
     },
     mounted: function(){
         // 加载 数据
-        let sURL = 'http://www.fuyj.com.cn/ajax/home.php';
-        // let sURL = '../data/index.json',
-        let fnSuccessCallback = (res)=>{
-            let parsed = JSON.parse(res);
+        // let sURL = 'http://www.fuyj.com.cn/ajax/home.php';
+        // // let sURL = '../data/index.json',
+        // let fnSuccessCallback = (res)=>{
+        //     let parsed = JSON.parse(res);
+        //     this.carouselList = parsed.carousel;
+        //     this.newProducts = parsed.new;
+        //     this.hotProducts = parsed.hot;
+        // };
+        // AJAX_GET(sURL, fnSuccessCallback);
+        let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=home';
+        this.$http.get(sURL).then(res=>{
+            let parsed = res.body;
             this.carouselList = parsed.carousel;
             this.newProducts = parsed.new;
             this.hotProducts = parsed.hot;
-        };
-        AJAX_GET(sURL, fnSuccessCallback);
+        }, err=>{
+            throw new Error(err);
+        });
     },
 };
 
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/common.scss";
+@import "../../scss/common.scss";
 #indexPage{
     width: 100%;
     position: absolute; top: $headerHeight;
@@ -63,7 +72,7 @@ export default {
         background-color: black; width: 22px; height: 22px;
         z-index: 1;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
             size: 761px 809px;
             position: -88px -127px;
         }

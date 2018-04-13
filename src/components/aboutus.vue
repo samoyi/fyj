@@ -14,7 +14,7 @@
                     因为你要记得，<br />
                     遇见，只是一个开始，相伴才是最隽永的主题。
                 </p>
-                <img src="http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/aboutus/aboutus_01.jpg" alt="浮遇纪" />
+                <img src="http://localhost/gits/fyj/data/image/aboutus/1.jpg" alt="浮遇纪" />
             </div>
             <div>
                 <h3>遇.逢知己</h3>
@@ -26,7 +26,7 @@
                     漫漫浮生，沉醉味蕾。<br />
                     遇见心，方知味。
                 </p>
-                <img src="http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/aboutus/aboutus_02.jpg" alt="浮遇纪" />
+                <img src="http://localhost/gits/fyj/data/image/aboutus/2.jpg" alt="浮遇纪" />
             </div>
             <div>
                 <h3>纪.录惊喜</h3>
@@ -40,7 +40,7 @@
                     浮生若有相遇，经年皆成欢喜。<br />
                     不忘初心，何时相遇都不算迟。
                 </p>
-                <img src="http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/aboutus/aboutus_03.jpg" alt="浮遇纪" />
+                <img src="http://localhost/gits/fyj/data/image/aboutus/3.jpg" alt="浮遇纪" />
             </div>
         </section>
         <app-bottom></app-bottom>

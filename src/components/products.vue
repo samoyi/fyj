@@ -3,8 +3,12 @@
         <app-header :index="2" :cart-amount="cartAmount"></app-header>
         <h2>| 遇见心  方知味 |<br />PRODUCTS</h2>
         <section class="list">
-            <div class="product" v-for="item in list" :key="item.name">
-                <img :src="item.url" :alt="item.name" @click="toDetailShalow(item.id)" />
+            <!-- 这里的key应该用id，但因为测试数据的蛋糕详情页只有两种，所以加随机数避免重复 -->
+            <div class="product" v-for="(item,index) in list" :key="item.id+Math.random()">
+                <router-link :to="'/detail/'+item.id">
+                    <img :src="imgUrl(item, index)" :alt="item.name"
+                        @error="recordIndex(index)" />
+                </router-link>
                 <p class="name">{{item.name}}</p>
                 <p class="des" v-html="item.des.replace(/&nbsp;/g, '')"></p>
                 <p class="price">
@@ -25,14 +29,19 @@
 import header from './common/header.vue';
 import bottom from './common/bottom.vue';
 
-import {AJAX_GET, toDetailShalow} from '../js/common.js';
+import failJPG from '../assets/fail.jpg';
+// import {AJAX_GET} from '../js/common.js';
 
 export default {
     props: ['cartAmount'],
     data: function(){
         return {
             list: null,
+            aErrorImageIndex: [],
         };
+    },
+    computed: {
+
     },
     components: {
         'app-header': header,
@@ -40,16 +49,33 @@ export default {
     },
     mounted(){
         // 加载 数据
-        {
-            let sURL = 'http://www.fuyj.com.cn/ajax/goods_all.php';
-            let fnSuccessCallback = (res)=>{
-                this.list = JSON.parse(res);
-            };
-            AJAX_GET(sURL, fnSuccessCallback);
-        }
+        // let sURL = 'http://www.fuyj.com.cn/ajax/goods_all.php';
+        // let fnSuccessCallback = (res)=>{
+        //     this.list = JSON.parse(res);
+        // };
+        // AJAX_GET(sURL, fnSuccessCallback);
+        let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=goods';
+        this.$http.get(sURL).then(res=>{
+            this.list = res.body;
+        }, err=>{
+            throw new Error(err);
+        });
     },
     methods: {
-        toDetailShalow,
+        // toDetailShalow,
+        // 记录加载图片失败的序号
+        recordIndex(index){
+            this.aErrorImageIndex.push(index);
+        },
+        // 如果图片加载失败，则统一使用提示失败的图片
+        imgUrl(item, index){
+            if (this.aErrorImageIndex.includes(index)){
+                return failJPG;
+            }
+            else {
+                return item.url;
+            }
+        },
     },
 };
 
@@ -79,7 +105,7 @@ export default {
             float: left;
             margin-bottom: 5px;
             width: 49%; height: 263px;
-            >img{
+            img{
                 width: 100%; height: 172px;
             }
             >p{
@@ -109,7 +135,7 @@ export default {
                 position: absolute;
                 right: 14px; bottom: 9px;
                 background:{
-                    image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                    image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                     position: -14px -143px;
                     size: 761px 809px;
                 }

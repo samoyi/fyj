@@ -1,15 +1,31 @@
 <template>
-    <swiper :style="{height:height+'px'}"  class="swiper-box" v-show="list"
+    <swiper :style="{height:height+'px'}"  class="index-carousel" v-show="list.length"
         :options="swiperOption" ref="mySwiper">
-        <swiper-slide class="swiper-item" v-for="(item, index) in list" :key="index">
+        <!-- 这里的key应该用id，但因为测试数据的蛋糕详情页只有两种，所以加随机数避免重复 -->
+        <swiper-slide class="swiper-item" v-for="item in list"
+            :key="item.id+Math.random()">
             <h3 v-if="item.title">{{item.title}}</h3>
             <p class="des" v-if="item.des" v-html="item.des"></p>
-            <img :src="item.url" @click="toDetail(item.id)" />
-            <div class="price" @click="toDetail(item.id)">
+            <router-link :to="'/detail/'+item.id">
+                <img :src="item.url" />
+            </router-link>
+            <!-- <img :src="item.url" @click="toDetail(item.id)" /> -->
+            <router-link :to="'/detail/'+item.id">
+                <div class="price">
+                    <span v-if="item.price">¥</span>
+                    <span class="num" v-if="item.price">
+                        {{Number.parseFloat(item.price)}}
+                    </span>
+                    <span v-if="item.spec">/{{item.spec}}</span>
+                </div>
+            </router-link>
+            <!-- <div class="price" @click="toDetail(item.id)">
                 <span v-if="item.price">¥</span>
-                <span class="num" v-if="item.price">{{Number.parseFloat(item.price)}}</span>
+                <span class="num" v-if="item.price">
+                    {{Number.parseFloat(item.price)}}
+                </span>
                 <span v-if="item.spec">/{{item.spec}}</span>
-            </div>
+            </div> -->
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>
@@ -18,7 +34,7 @@
 <script>
 import 'swiper/dist/css/swiper.css';
 import { swiper, swiperSlide } from 'vue-awesome-swiper';
-import {nWindowHeight, nHeaderHeight, toDetail} from '../../js/common.js';
+import {nWindowHeight, nHeaderHeight} from '../../js/common.js';
 
 export default {
     components: {
@@ -26,20 +42,19 @@ export default {
         swiperSlide,
     },
     props: {
-        'list': {
+        list: {
             type: Array,
-            default: function(){
-                return [];
-            },
+            required: true,
+            default: ()=>[],
         },
     },
     data(){
         return {
             swiperOption: {
-                pagination: '.swiper-pagination',
-                centeredSlides: true,
-                autoplay: 2500,
-                autoplayDisableOnInteraction: false,
+                autoplay: true,
+                pagination: {
+                    el: '.swiper-pagination',
+                },
             },
             height: nWindowHeight - nHeaderHeight,
             ids: [],
@@ -50,9 +65,6 @@ export default {
             return this.$refs.mySwiper.swiper;
         },
     },
-    methods: {
-        toDetail,
-    },
     mounted(){
         this.swiper.slideTo(0, 1000, false);
     },
@@ -61,7 +73,7 @@ export default {
 
 <style lang="scss">
 @import "../../scss/common.scss";
-.swiper-box {
+.index-carousel {
     width: 100%;
     margin: 0 auto;
     .swiper-wrapper{
@@ -81,7 +93,8 @@ export default {
                 position: absolute;
                 top: 102px;
                 font-size: 13px;
-                text-align: center; width: 100%;
+                text-align: center;
+                width: 90%; left: 5%;
             }
             .price{
                 width: 160px; height: 160px;
@@ -90,7 +103,7 @@ export default {
                 top: 300px; right: 20px;
                 color: white;
                 background: {
-                    image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp1.png");
+                    image: url("http://localhost/gits/fyj/data/image/icons/temp1.png");
                     size: cover;
                 }
                 font-size: 12px;

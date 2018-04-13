@@ -18,7 +18,7 @@ export default {};
         position: absolute;
         top: 17px; left: 50%; margin-left: -32px;
         background:{
-            image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/temp/temp2.png");
+            image: url("http://localhost/gits/fyj/data/image/icons/temp2.png");
             size: cover;
         }
     }

@@ -1,0 +1,80 @@
+{
+    "carousel": [
+        {
+            "id": "1",
+            "title": "浮生六记",
+            "des": "相遇、相识、相知、相许、相守、相伴",
+            "url": "http://localhost/gits/fyj/data/image/home/carousel/1.jpg",
+            "price": "188.00",
+            "spec": "磅"
+        },
+        {
+            "id": "2",
+            "title": "奶茶的忧伤",
+            "des": "才话别的一场梦",
+            "url": "http://localhost/gits/fyj/data/image/home/carousel/2.jpg",
+            "price": "188.00",
+            "spec": "磅"
+        },
+        {
+            "id": "1",
+            "title": "初心 / Original Will",
+            "des": "那年夏天，那个你",
+            "url": "http://localhost/gits/fyj/data/image/home/carousel/3.jpg",
+            "price": "288.00",
+            "spec": "磅"
+        }
+    ],
+    "new": [
+        {
+            "id": "2",
+            "url": "http://localhost/gits/fyj/data/image/home/new/1.jpg",
+            "name": "傲蕉的可可千层小姐／Choc Nana",
+            "des": "｜这是令我们骄傲的匠心之作｜<br />&nbsp;",
+            "price": "0",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "1",
+            "url": "http://localhost/gits/fyj/data/image/home/new/2.jpg",
+            "name": "一抹茶的温柔治愈／Motcha Lovers",
+            "des": "｜好久不见，是该相见｜&nbsp;<br /> <br />｜将岁月里的好久不见，化成抹茶的一抹清香｜&nbsp;<br />｜致永远不老的你们，致你们心里没唱出的情歌｜",
+            "price": "188",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "2",
+            "url": "http://localhost/gits/fyj/data/image/home/new/3.jpg",
+            "name": "37℃爱／White Love",
+            "des": "&nbsp;｜谁说只有情人节才能表白｜<br />｜表白，不分时间、地点｜<br />｜只看对象｜<br />｜37℃，爱人怀抱的温度｜<br />｜给需要爱的你｜<br />&nbsp;",
+            "price": "198",
+            "spec": "1.0磅"
+        }
+    ],
+    "hot": [
+        {
+            "id": "1",
+            "url": "http://localhost/gits/fyj/data/image/home/hot/1.jpg",
+            "name": "住在芒果街上的慕斯 Mango Mango",
+            "des": "&nbsp; &nbsp;&nbsp;｜如果你愿意一层一层切开住在芒果街上的慕斯｜<br />｜你会发现，这里只有芒果，芒果，和芒果，没有秘密｜",
+            "price": "168",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "2",
+            "url": "http://localhost/gits/fyj/data/image/home/hot/2.jpg",
+            "name": "兩伴／Double Life",
+            "des": "&nbsp;&nbsp;｜正好的时光 刚好的对方｜<br />&nbsp;｜感谢有你的夏天｜",
+            "price": "198",
+            "spec": "1.0磅"
+        },
+        {
+            "id": "1",
+            "url": "http://localhost/gits/fyj/data/image/home/hot/3.jpg",
+            "name": "香蕉先生的巧克力暖冬／Chocolate Winter",
+            "des": "<br />| 属于热带的灵魂 |<br />| 注定要相遇 |<br />| 放下坚硬的防备 |<br />| 温暖一整个冬天 |<br />",
+            "price": "179",
+            "spec": "1.0磅"
+        }
+    ]
+}

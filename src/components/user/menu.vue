@@ -51,7 +51,7 @@ menu{
             position: absolute; left: 50%; margin-left: -11px;
             top: 11px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
             }
         }

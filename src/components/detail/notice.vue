@@ -1,3 +1,4 @@
+<!-- 订购须知 -->
 <template>
     <div class="notice">
         <h3>
@@ -28,7 +29,6 @@
 <script>
 
 export default {
-    props: ['notice'],
     data(){
         return {};
     },
@@ -57,7 +57,7 @@ export default {
             position: absolute;
             left: 5px; top: 0px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -88px -211px;
             }
@@ -73,7 +73,7 @@ export default {
             position: absolute;
             left: 14px; top: 2px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
             }
         }

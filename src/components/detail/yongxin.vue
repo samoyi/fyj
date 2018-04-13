@@ -1,3 +1,4 @@
+<!-- 用心 -->
 <template>
     <div class="yongxin" v-if="yongxin">
         <h3>
@@ -11,7 +12,11 @@
 <script>
 
 export default {
-    props: ['yongxin'],
+    props: {
+        yongxin: {
+            type: String,
+        },
+    },
     data(){
         return {};
     },
@@ -41,14 +46,14 @@ export default {
             position: absolute;
             left: 5px; top: 0px;
             background:{
-                image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/sprite.png");
+                image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -88px -155px;
             }
         }
     }
     >p{
-        margin-left: 14px;
+        margin-left: 4%; width: 92%;
         font-size: 11px; line-height: 18px;
         color: #9b9b9b;
         margin-top: 56px;

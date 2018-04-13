@@ -26,7 +26,7 @@ export default {
 header{
     height: 175px;
     background:{
-        image: url("http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/colorfulBg.jpg");
+        image: url("http://localhost/gits/fyj/data/image/colorfulBg.jpg");
         size: cover;
     }
     .back{
