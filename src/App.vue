@@ -60,14 +60,15 @@ export default {
             // AJAX_GET(sURL, fnSuccessCallback);
             let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=user&tel=18009';
             this.$http.get(sURL).then(res=>{
-                let oParsed = res.body;
-                this.userData = oParsed;
-                this.cartList = oParsed.cart;
-                let aAddr = oParsed.addr;
-                while (aAddr.length < 3){
-                    aAddr.push({});
-                }
-                this.addrList = aAddr;
+                // let oParsed = res.body;
+                this.$store.commit('loadUser', res.body);
+                // this.userData = oParsed;
+                // this.cartList = oParsed.cart;
+                // let aAddr = oParsed.addr;
+                // while (aAddr.length < 3){
+                //     aAddr.push({});
+                // }
+                // this.addrList = aAddr;
             }, err=>{
                 throw new Error(err);
             });

@@ -2,8 +2,8 @@
     <div class="placeOrder" :order="order">
         <span class="btn" @click="placeOrder">立即下单</span>
         <!-- <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link> -->
-        <span class="seleted">已选 {{orderInfo[0]}} 件</span>
-        <span class="sum">应付总额：¥{{orderInfo[1]}}</span>
+        <span class="seleted">已选 {{cartCheckedAmount}} 件</span>
+        <span class="sum">应付总额：¥{{cartCheckedSum}}</span>
     </div>
 </template>
 
@@ -13,20 +13,35 @@ export default {
     props: ['order'],
     data(){
         return {
-            aSelected: [],
+            // aSelected: [],
         };
     },
     computed: {
         list(){
             return this.$store.state.cart.list;
         },
-        orderInfo(){
-            let nSum = 0;
+        cartCheckedSum(){
+            return this.$store.getters.cartCheckedSum;
+        },
+        cartCheckedAmount(){
+            return this.$store.getters.cartCheckedAmount;
+        },
+        aSelected(){
             let aSelected = [];
-            let nSelected = 0;
             this.list.forEach((item, index)=>{
                 if (item.checked){ // 只计算选中的
                     aSelected.push(item);
+                }
+            });
+            return aSelected;
+        },
+        orderInfo(){
+            let nSum = 0;
+            // let aSelected = [];
+            let nSelected = 0;
+            this.list.forEach((item, index)=>{
+                if (item.checked){ // 只计算选中的
+                    // aSelected.push(item);
                     nSelected += item.amount;
                     nSum += item.amount * item.price;
                 }
@@ -39,14 +54,26 @@ export default {
     },
     methods: {
         placeOrder(){
-            let aSelected = this.list.filter((item)=>{
-                return item.checked;
-            });
-            this.$store.commit('createOrder', aSelected);
-
-            alert('下单成功后清除已经下订单的商品');
-            console.log(aSelected);
-            this.$router.push('/orderDetail');
+            // let aSelected = this.list.filter((item)=>{
+            //     return item.checked;
+            // });
+            // 向后端提交订单商品，后端生成订单信息并返回
+            // let sURL = 'http://red-space.cn/test/ajax.php';
+            // let sURL = 'http://127.0.0.1/gits/fyj/data/ajax.php';
+            let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+            let oPostBody = {
+                act: 'createOrder',
+                items: this.aSelected,
+            };
+            this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                .then(res=>{
+                    // 创建为一个未支付的订单，该行为会同时删除购物车中已提交的商品
+                    this.$store.commit('unpaid', res.body);
+                    this.$router.push('/orderDetail');
+                })
+                .catch(err=>{
+                    throw new Error(err);
+                });
         },
     },
 };

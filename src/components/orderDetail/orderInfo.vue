@@ -1,12 +1,12 @@
 <template>
-    <section class="orderInfo" :user-data="userData">
+    <section class="orderInfo">
         <div class="title">
             <span>购物清单</span>
             <span>共计 {{amount}} 件产品</span>
         </div>
         <div class="productsWrapper">
             <ul class="products" :style="{width: (102+10)*(orderList.length) + 'px'}">
-                <li v-for="item in orderList" :key="item.name">
+                <li v-for="(item,index) in orderList" :key="index">
                     <img :src="item.thumbnail" :alt="item.name"/>
                     <div class="info">
                         <span>{{item.spec}}</span>
@@ -29,7 +29,7 @@
                     <span>{{item.addr}}</span>
                     <input type="radio" name="addr" :value="index" @click="seletcAddr(index)" :checked="index===selectedAddrIndex" />
                 </div>
-                <router-link class="addAddr" to="/user/addAddr" v-if="userData.addr[2].tel">+ 新增收货地址</router-link>
+                <router-link class="addAddr" to="/user/addAddr" v-if="userData.addr[2]">+ 新增收货地址</router-link>
             </div>
         </div>
         <div class="time">
@@ -46,7 +46,6 @@ import {nWindowHeight} from '../../js/common.js';
 import datepicker from './datepicker.vue';
 
 export default {
-    props: ['userData'],
     data(){
         return {
             bDatePickerDispaly: false,
@@ -57,6 +56,9 @@ export default {
         };
     },
     computed: {
+        userData(){
+            return this.$store.state.user;
+        },
         orderList(){
             return this.$store.state.order.list;
         },

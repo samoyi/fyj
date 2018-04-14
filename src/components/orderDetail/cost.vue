@@ -14,7 +14,12 @@
 <script>
 
 export default {
-    props: ['sum', 'freight'],
+    props: ['freight'],
+    computed: {
+        sum(){
+            return this.$store.getters.curOrderSum;
+        },
+    },
 };
 </script>
 

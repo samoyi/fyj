@@ -10,18 +10,34 @@
 import {AJAX_POST} from '../../js/common.js';
 
 export default {
-    props: ['sum', 'freight'],
+    props: ['freight'],
     data(){
         return {
             aSelected: [],
         };
     },
+    computed: {
+        sum(){
+            return this.$store.getters.curOrderSum;
+        },
+        list(){
+            return this.$store.state.order.list;
+        },
+        // orderInfo(){
+        //     let nSum = 0;
+        //     let nSelected = 0;
+        //     this.$parent.$parent.cartList.forEach((item, index)=>{
+        //         if (item.checked){ // 只计算选中的
+        //             nSelected += item.amount;
+        //             nSum += item.amount * item.price;
+        //         }
+        //     });
+        //     return [nSelected, nSum];
+        // },
+    },
     methods: {
         pay(){
             console.log('核对是否填了送货时间');
-            console.log(this.$parent.$parent.orderInfo);
-            console.log(this.sum + ' ' + this.freight);
-            console.log(this.$parent.deliveryInfo);
             if (!this.$parent.deliveryInfo.date){
                 alert('请选择收货日期');
                 return;
@@ -31,7 +47,7 @@ export default {
                 return;
             }
             let sendOrderInfo = {
-                'products': this.$parent.$parent.orderInfo.list.map(function(item){
+                'products': this.list.map(function(item){
                     return {
                         'id': item.id,
                         'spec': item.spec,
@@ -39,7 +55,7 @@ export default {
                         'amount': item.amount,
                     };
                 }),
-                'sum': this.$parent.$parent.orderInfo.sum,
+                'sum': this.sum,
                 'freight': this.freight,
                 'delivery_tel': 133039403940,
                 'delivery_consignee': '王富贵',
@@ -51,22 +67,12 @@ export default {
             let sURL = 'http://www.fuyj.com.cn/ajax/payInfo.php';
             let data = 'payInfo=' + JSON.stringify(sendOrderInfo);
             let fnSuccessCallback = (res)=>{
-                location.href = res;
+                if (window.confirm('模拟支付。选择支付成功或失败，'
+                    + '点击“确定”表示支付成功')){
+                    this.$store.commit('paid');
+                }
             };
             AJAX_POST(sURL, data, fnSuccessCallback);
-        },
-    },
-    computed: {
-        orderInfo(){
-            let nSum = 0;
-            let nSelected = 0;
-            this.$parent.$parent.cartList.forEach((item, index)=>{
-                if (item.checked){ // 只计算选中的
-                    nSelected += item.amount;
-                    nSum += item.amount * item.price;
-                }
-            });
-            return [nSelected, nSum];
         },
     },
 };
