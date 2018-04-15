@@ -69,7 +69,8 @@ export default {
             let fnSuccessCallback = (res)=>{
                 if (window.confirm('模拟支付。选择支付成功或失败，'
                     + '点击“确定”表示支付成功')){
-                    this.$store.commit('paid');
+                    this.$store.commit('paid'
+                        , this.$store.state.order.curOrderID);
                 }
             };
             AJAX_POST(sURL, data, fnSuccessCallback);

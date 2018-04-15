@@ -1,13 +1,13 @@
 <template>
     <section class="order">
-        <div class="noOrder" v-if="!list">
+        <div class="noOrder" v-if="!orderList">
             <div></div>
             <p>
                 您当前还没有订单<br />快去购物吧
             </p>
         </div>
-        <ul class="orderList" v-if="list">
-            <li v-for="(item, index) in list" :key="index">
+        <ul class="orderList" v-if="orderList">
+            <li v-for="(item, index) in orderList" :key="index">
                 <div class="top">
                     <span>订单编号： {{item.number}}</span>
                     <span >{{orderState(item.state)}}</span>
@@ -36,9 +36,14 @@
 import {AJAX_POST} from '@/js/common';
 
 export default {
-    props: ['list'],
-    data: function(){
+    // props: ['list'],
+    data(){
         return {};
+    },
+    computed: {
+        orderList(){
+            return this.$store.state.order.list;
+        },
     },
     methods: {
         getTotalAmount(products){

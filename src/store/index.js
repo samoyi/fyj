@@ -23,6 +23,7 @@ export default new Vuex.Store({
         // 当前订单的状态
         order: {
             list: [],
+            curOrderID: '',
         },
 
         // 用户的状态。包括用户信息、历史订单、优惠券、消息
@@ -110,14 +111,23 @@ export default new Vuex.Store({
         // createOrder(state, list){
         //     state.order.list = list;
         // },
+        setCurOrderID(state, id){
+            state.order.curOrderID = id;
+        },
         // 支付成功后提交订单
-        paid(state){
-            // state.user.order.unshift();
+        paid(state, id){
+            state.order.list.some(item=>{
+                if (item.id === id){
+                    item.paid = true;
+                    return true;
+                }
+            });
         },
         // 进入支付流程后，创建一个未支付的订单
         // 同时清空购物车里已经进入支付的商品
         unpaid(state, order){
             // let aChecked = state.cart.list.filter(item=>item.checked);
+            order.paid = false;
             state.order.list.unshift(order);
             state.cart.list = state.cart.list.filter(item=>!item.checked);
         },

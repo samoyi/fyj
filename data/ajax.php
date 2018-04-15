@@ -30,7 +30,8 @@
             $userData = json_decode(file_get_contents('./userData.json'));
             $order = array(
                 'items'=> $_POST['items'],
-                'time'=> time()
+                'time'=> time(),
+                'id'=> mt_rand(100000, 999999)
             );
             array_unshift($userData->order, $order);
             file_put_contents('./userData.json', json_encode($userData));

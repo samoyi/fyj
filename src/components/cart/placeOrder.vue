@@ -68,7 +68,9 @@ export default {
             this.$http.post(sURL, oPostBody, {emulateJSON: true})
                 .then(res=>{
                     // 创建为一个未支付的订单，该行为会同时删除购物车中已提交的商品
-                    this.$store.commit('unpaid', res.body);
+                    let oCurOrder = res.body;
+                    this.$store.commit('unpaid', oCurOrder);
+                    this.$store.commit('setCurOrderID', oCurOrder.id);
                     this.$router.push('/orderDetail');
                 })
                 .catch(err=>{
