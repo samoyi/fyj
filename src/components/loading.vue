@@ -1,6 +1,6 @@
 <template>
     <section id="loadingPage" v-if="display" :style="{height:height+'px'}">
-        <img src="http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/logo.gif" alt="浮遇纪" />
+        <img src="http://localhost/gits/fyj/data/image/logo.gif" alt="浮遇纪" />
     </section>
 </template>
 <script>

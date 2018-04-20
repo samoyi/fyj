@@ -31,7 +31,7 @@
 
 <script>
 
-import {nWindowHeight, AJAX_POST} from '../../js/common.js';
+import {nWindowHeight} from '../../js/common.js';
 import regionSelector from './regionSelector.vue';
 
 export default {
@@ -111,13 +111,28 @@ export default {
                 this.$parent.$parent.$parent.userData.addr = addrList;
                 console.log(this.$parent.$parent.$parent.userData);
 
-                let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-                let data = 'act=add' + '&addr=' + JSON.stringify(oNewAddr);
-                let fnSuccessCallback = (res)=>{
-                    console.log(res);
+                // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
+                // let data = 'act=add' + '&addr=' + JSON.stringify(oNewAddr);
+                // let fnSuccessCallback = (res)=>{
+                //     console.log(res);
+                // };
+                // AJAX_POST(sURL, data, fnSuccessCallback);
+                // history.back();
+                let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+                let oPostBody = {
+                    act: 'addAddr',
+                    addr: JSON.stringify(oNewAddr),
                 };
-                AJAX_POST(sURL, data, fnSuccessCallback);
-                history.back();
+
+                this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                    .then(res=>{
+                        // 创建为一个未支付的订单，该行为会同时删除购物车中已提交的商品
+                        this.$store.commit('modifyAddrs', res.body);
+                        this.$router.go(-1);
+                    })
+                    .catch(err=>{
+                        throw new Error(err);
+                    });
             }
         },
     },
@@ -165,7 +180,7 @@ export default {
             padding-left: 14px;
             input{
                 border: none;
-                height: 30px;
+                // height: 30px;
             }
             .error{
                 color: red;
@@ -176,6 +191,7 @@ export default {
         >div:last-child{
             border-bottom: none;
             position: relative;
+            margin-top: 22px;
             >div{
                 width: 94%;
                 height: 26px;
@@ -184,8 +200,8 @@ export default {
                 left: 64px;
             }
             >input{
-                position: absolute;
-                top: 50px;
+                // position: absolute;
+                // top: 50px;
             }
             .error{
                 position: absolute;

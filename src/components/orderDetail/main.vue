@@ -4,9 +4,9 @@
             <span @click="back">返回</span>
             <h2>订单详情</h2>
         </header>
-        <order-info :order-info="orderInfo" :user-data="userData"></order-info>
-        <order-cost :sum="orderInfo.sum" :freight="freight"></order-cost>
-        <pay-now :sum="orderInfo.sum" :freight="freight"></pay-now>
+        <order-info></order-info>
+        <order-cost :freight="freight"></order-cost>
+        <pay-now :freight="freight"></pay-now>
     </section>
 </template>
 
@@ -16,7 +16,6 @@ import cost from './cost.vue';
 import payNow from './payNow.vue';
 
 export default {
-    props: ['orderInfo', 'userData'],
     data(){
         return {
             freight: 15,

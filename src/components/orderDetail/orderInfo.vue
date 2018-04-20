@@ -5,8 +5,8 @@
             <span>共计 {{amount}} 件产品</span>
         </div>
         <div class="productsWrapper">
-            <ul class="products" :style="{width: (102+10)*(orderList.length) + 'px'}">
-                <li v-for="(item,index) in orderList" :key="index">
+            <ul class="products" :style="{width: (102+10)*(curOrderList.length) + 'px'}">
+                <li v-for="(item,index) in curOrderList" :key="index">
                     <img :src="item.thumbnail" :alt="item.name"/>
                     <div class="info">
                         <span>{{item.spec}}</span>
@@ -27,7 +27,7 @@
                     <span>{{item.consignee}}</span>
                     <span>{{item.tel}}</span>
                     <span>{{item.addr}}</span>
-                    <input type="radio" name="addr" :value="index" @click="seletcAddr(index)" :checked="index===selectedAddrIndex" />
+                    <input type="radio" name="addr" :value="index" @click="seletcAddr(item, index)" :checked="index===selectedAddrIndex" />
                 </div>
                 <router-link class="addAddr" to="/user/addAddr" v-if="userData.addr[2]">+ 新增收货地址</router-link>
             </div>
@@ -59,11 +59,11 @@ export default {
         userData(){
             return this.$store.state.user;
         },
-        orderList(){
-            return this.$store.state.order.list;
+        curOrderList(){
+            return this.$store.state.user.order[0].items;
         },
         amount(){
-            return this.orderList.length;
+            return this.curOrderList.length;
         },
         oDefaultAddr(){
             return this.userData.addr.find((item)=>item.isDefault);
@@ -76,10 +76,11 @@ export default {
         displayAddrSelector(){
             this.bAddrSelectorDisplay = !this.bAddrSelectorDisplay;
         },
-        seletcAddr(index){
+        seletcAddr(item, index){
             this.selectedAddr = this.userData.addr[index];
             this.bAddrSelectorDisplay = false;
-            this.selectedAddrIndex = index;
+            // this.selectedAddrIndex = index;
+            this.store.commit('setCurAddrID', item['addr_id']);
         },
     },
     components: {

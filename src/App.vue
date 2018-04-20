@@ -6,27 +6,24 @@
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-        <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view>
+        <router-view  :addr-list="addrList" ></router-view>
+        <!-- <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view> -->
     </section>
 </template>
 
 <script>
-// export default {
-//     name: 'App',
-// };
 import cLoadingPage from './components/loading.vue';
 import {AJAX_GET} from './js/common.js';
-// import {AJAX_GET, getCookies} from './js/common.js';
 
 export default {
     data(){
         return {
             siteTitle: '浮遇纪',
-            userData: null, // 如果自动登录，则一开始就取得用户数据，并全局可访问
-            cartList: [], // userData中的购物车数据，在好几个组件的头部购物车图标都要显示数量
+            // userData: null, // 如果自动登录，则一开始就取得用户数据，并全局可访问
+            // cartList: [], // userData中的购物车数据，在好几个组件的头部购物车图标都要显示数量
             addrList: [],
-            detailID: null,
-            orderInfo: {},
+            // detailID: null,
+            // orderInfo: {},
         };
     },
     components: {
@@ -77,12 +74,12 @@ export default {
     },
     computed: {
         // 计算购物车中商品数量
-        cartAmount(){
-            if (!this.cartList.length){
-                return 0;
-            }
-            return this.cartList.reduce((sum, item)=>sum + item.amount, 0);
-        },
+        // cartAmount(){
+        //     if (!this.cartList.length){
+        //         return 0;
+        //     }
+        //     return this.cartList.reduce((sum, item)=>sum + item.amount, 0);
+        // },
     },
 };
 </script>

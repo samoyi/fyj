@@ -1,5 +1,5 @@
 <template>
-    <section class="add-on" v-if="list">
+    <section class="add-on" v-if="list.length">
         <h2>加价购</h2>
         <swiper :options="swiperOption" class="swiper-box">
             <swiper-slide class="swiper-item" v-for="item in list" :key="item.add_name">
@@ -19,8 +19,6 @@
 
 <script>
 
-// import {toDetail} from '../../js/common.js';
-
 export default {
     data(){
         return {
@@ -30,10 +28,12 @@ export default {
             },
         };
     },
-    props: ['list'],
-    methods: {
-        // toDetail,
+    computed: {
+        list(){
+            return this.$store.state.user.cart;
+        },
     },
+    methods: {},
 };
 
 </script>

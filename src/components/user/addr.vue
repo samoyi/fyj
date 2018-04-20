@@ -12,12 +12,12 @@
                 <!-- <span class="addr">{{item.addr}}</span> -->
                 <span class="addr">{{getAddr(item)}}</span>
                 <div class="default">
-                    <input type="radio" :checked="defaultIndex===index" @click="setDefault(index, item.addr_id)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
+                    <input type="radio" :checked="item.isDefault" @click="setDefault(item)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
                 </div>
-                <span class="delete" @click="deleteAddr(index, item.addr_id)">删除地址</span>
+                <span class="delete" @click="deleteAddr(item.addr_id)">删除地址</span>
             </li>
         </ul>
-        <div class="add" v-if="!list[2].consignee">
+        <div class="add" v-if="!list[2]">
             <router-link v-show="displayAddBtn(list)" class="addAddr" to="/user/addAddr">+ 新增收货地址</router-link>
         </div>
         <router-view></router-view>
@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import {AJAX_POST} from '../../js/common.js';
+// import {AJAX_POST} from '../../js/common.js';
 // import addAddr from './addAddr.vue';
 // import Vue from 'vue/dist/vue.js';
 // import VueRouter from 'vue-router';
@@ -42,7 +42,7 @@ import {AJAX_POST} from '../../js/common.js';
 // });
 
 export default {
-    props: ['list', 'defaultIndex'],
+    props: ['list'],
     data: function(){
         return {
             regionCode: {
@@ -78,30 +78,55 @@ export default {
                 + oRegionCode.area[item.province][item.city][item.area] + ' '
                 + item.consigneeAddr;
         },
-        deleteAddr(index, id){
-            this.$parent.$parent.addrList.splice(index, 1, {});
-
-            let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-            let data = 'act=del' + '&id=' + id;
-            let fnSuccessCallback = (res)=>{
-                console.log(res);
+        deleteAddr(addrID){
+            // this.$parent.$parent.addrList.splice(index, 1, {});
+            //
+            // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
+            // let data = 'act=del' + '&id=' + id;
+            // let fnSuccessCallback = (res)=>{
+            //     console.log(res);
+            // };
+            // AJAX_POST(sURL, data, fnSuccessCallback);
+            let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+            let oPostBody = {
+                act: 'deleteAddr',
+                addr_id: JSON.stringify(addrID),
             };
-            AJAX_POST(sURL, data, fnSuccessCallback);
+            this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                .then(res=>{
+                    this.$store.commit('modifyAddrs', res.body);
+                })
+                .catch(err=>{
+                    throw new Error(err);
+                });
         },
-        setDefault(index, id){
-            this.$parent.defaultAddrIndex = index;
-
-            let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-            let data = 'act=change' + '&id=' + id;
-            let fnSuccessCallback = (res)=>{
-                console.log(res);
-            };
-            AJAX_POST(sURL, data, fnSuccessCallback);
+        setDefault(item){
+            // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
+            // let data = 'act=change' + '&id=' + id;
+            // let fnSuccessCallback = (res)=>{
+            //     console.log(res);
+            // };
+            // AJAX_POST(sURL, data, fnSuccessCallback);
+            if (!item.isDefault){
+                let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+                let oPostBody = {
+                    act: 'changeDefaultAddr',
+                    addr_id: JSON.stringify(item.addr_id),
+                };
+                this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                    .then(res=>{
+                        this.$store.commit('modifyAddrs', res.body);
+                    })
+                    .catch(err=>{
+                        throw new Error(err);
+                    });
+            }
         },
         displayAddBtn(list){ // 有效地址少于三个就显示添加地址按钮
-            return Array.prototype.filter.call(list, function(item){
-                return item.name;
-            }).length < 3;
+            // return Array.prototype.filter.call(list, function(item){
+            //     return item.name;
+            // }).length < 3;
+            return list.length < 3;
         },
     },
 };

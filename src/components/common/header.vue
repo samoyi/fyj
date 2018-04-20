@@ -24,12 +24,17 @@
 import {nWindowHeight} from '../../js/common.js';
 
 export default {
-    props: ['index', 'cartAmount'],
+    props: ['index'],
     data(){
         return {
             bNavDisplay: false,
             height: nWindowHeight,
         };
+    },
+    computed: {
+        cartAmount(){
+            return this.$store.state.user.cart.length;
+        },
     },
     methods: {
         switchDisplayNav(){

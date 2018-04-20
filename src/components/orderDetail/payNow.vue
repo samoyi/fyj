@@ -7,7 +7,7 @@
 
 <script>
 
-import {AJAX_POST} from '../../js/common.js';
+// import {AJAX_POST} from '../../js/common.js';
 
 export default {
     props: ['freight'],
@@ -21,7 +21,7 @@ export default {
             return this.$store.getters.curOrderSum;
         },
         list(){
-            return this.$store.state.order.list;
+            return this.$store.state.user.order;
         },
         // orderInfo(){
         //     let nSum = 0;
@@ -46,34 +46,55 @@ export default {
                 alert('请选择收货时间');
                 return;
             }
-            let sendOrderInfo = {
-                'products': this.list.map(function(item){
-                    return {
-                        'id': item.id,
-                        'spec': item.spec,
-                        'price': item.price,
-                        'amount': item.amount,
-                    };
-                }),
-                'sum': this.sum,
-                'freight': this.freight,
-                'delivery_tel': 133039403940,
-                'delivery_consignee': '王富贵',
-                'delivery_addr': '北纬路甲一号',
-                'delivery_date': this.$parent.deliveryInfo.date,
-                'delivery_hour': this.$parent.deliveryInfo.hour,
-            };
+            // let sendOrderInfo = {
+            //     'products': this.list.map(function(item){
+            //         return {
+            //             'id': item.id,
+            //             'spec': item.spec,
+            //             'price': item.price,
+            //             'amount': item.amount,
+            //         };
+            //     }),
+            //     'sum': this.sum,
+            //     'freight': this.freight,
+            //     'delivery_tel': 133039403940,
+            //     'delivery_consignee': '王富贵',
+            //     'delivery_addr': '北纬路甲一号',
+            //     'delivery_date': this.$parent.deliveryInfo.date,
+            //     'delivery_hour': this.$parent.deliveryInfo.hour,
+            // };
 
-            let sURL = 'http://www.fuyj.com.cn/ajax/payInfo.php';
-            let data = 'payInfo=' + JSON.stringify(sendOrderInfo);
-            let fnSuccessCallback = (res)=>{
-                if (window.confirm('模拟支付。选择支付成功或失败，'
-                    + '点击“确定”表示支付成功')){
-                    this.$store.commit('paid'
-                        , this.$store.state.order.curOrderID);
-                }
-            };
-            AJAX_POST(sURL, data, fnSuccessCallback);
+            if (window.confirm('模拟支付。选择支付成功或失败，'
+                + '点击“确定”表示支付成功')){
+                let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+                let oPostBody = {
+                    act: 'pay',
+                    id: this.$store.state.order.curOrderID,
+                    addr_id: this.$store.state.order.curAddrID,
+                };
+                this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                    .then(res=>{
+                        this.$store.commit('paid', res.body.trim());
+                        this.$router.push('/user');
+                    })
+                    .catch(err=>{
+                        throw new Error(err);
+                    });
+            }
+            else{
+                this.$router.push('/user');
+            }
+
+            // let sURL = 'http://www.fuyj.com.cn/ajax/payInfo.php';
+            // let data = 'payInfo=' + JSON.stringify(sendOrderInfo);
+            // let fnSuccessCallback = (res)=>{
+            //     if (window.confirm('模拟支付。选择支付成功或失败，'
+            //         + '点击“确定”表示支付成功')){
+            //         this.$store.commit('paid'
+            //             , this.$store.state.order.curOrderID);
+            //     }
+            // };
+            // AJAX_POST(sURL, data, fnSuccessCallback);
         },
     },
 };

@@ -42,7 +42,6 @@ export default {
         switchChooseBox(){
             // 如果在已显示的状态下点击 加入购物车，则说明确实要将商品加入购物车
             if (this.$parent.bDispalyChooseBox){
-                console.log(this.$parent.id, this.selectedSpecIndex, this.amount);
                 let productInfo = {
                     'id': this.$parent.id,
                     'thumbnail': 'http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg',
@@ -52,8 +51,30 @@ export default {
                     'amount': this.amount,
                     'checked': true,
                 };
-                this.$parent.$parent.cartList.unshift(productInfo);
+
+                // 保存之前的购物车，如果后端保存失败，则前端恢复
+                let oPrevCart = JSON.parse(JSON.stringify(this.$store.state.user.cart));
                 this.$store.commit('addToCart', productInfo);
+
+                // 每次更新购物车都将购物车数据发送到后端
+                let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+                let oPostBody = {
+                    act: 'updateCart',
+                    cart: JSON.stringify(this.$store.state.user.cart),
+                };
+                this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                    .then(res=>{
+                        // 后端保存失败，购物车回滚
+                        if (res.body !== 'true'){
+                            this.$store.commit('cartRollback', oPrevCart);
+                        }
+                    })
+                    .catch(err=>{
+                        this.$store.commit('cartRollback', oPrevCart);
+                        throw new Error(err);
+                    });
+
+                // 添加完之后添加选项恢复到初始状态
                 this.selectedSpecIndex = 0;
                 this.amount = 1;
                 this.$parent.displayTip = true;

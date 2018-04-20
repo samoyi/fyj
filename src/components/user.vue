@@ -1,6 +1,6 @@
 <template>
     <section id="userPage" v-if="userData">
-        <user-header class="header" :cart-amount="cartAmount"></user-header>
+        <user-header class="header"></user-header>
         <user-menu class="menu" :cur-index="curIndex"></user-menu>
         <user-order class="order" v-if="0===curIndex" :list="userData.order"></user-order>
         <user-card class="card" v-if="1===curIndex" :list="userData.card"></user-card>
@@ -20,7 +20,6 @@ import message from './user/message.vue';
 import {AJAX_GET} from '../js/common.js';
 
 export default {
-    props: ['cartAmount', 'userData'],
     data(){
         return {
             tel: null,
@@ -33,6 +32,11 @@ export default {
             defaultAddrIndex: null, // 默认地址的序号
             messageList: null,
         };
+    },
+    computed: {
+        userData(){
+            return this.$store.state.user;
+        },
     },
     components: {
         'user-header': header,

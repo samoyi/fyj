@@ -1,5 +1,5 @@
 <template>
-    <div class="placeOrder" :order="order">
+    <div class="placeOrder" :order="order" v-if="list.length">
         <span class="btn" @click="placeOrder">立即下单</span>
         <!-- <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link> -->
         <span class="seleted">已选 {{cartCheckedAmount}} 件</span>
@@ -12,13 +12,11 @@
 export default {
     props: ['order'],
     data(){
-        return {
-            // aSelected: [],
-        };
+        return {};
     },
     computed: {
         list(){
-            return this.$store.state.cart.list;
+            return this.$store.state.user.cart;
         },
         cartCheckedSum(){
             return this.$store.getters.cartCheckedSum;
@@ -54,17 +52,19 @@ export default {
     },
     methods: {
         placeOrder(){
-            // let aSelected = this.list.filter((item)=>{
-            //     return item.checked;
-            // });
             // 向后端提交订单商品，后端生成订单信息并返回
             // let sURL = 'http://red-space.cn/test/ajax.php';
             // let sURL = 'http://127.0.0.1/gits/fyj/data/ajax.php';
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'createOrder',
-                items: this.aSelected,
+                // {emulateJSON: true} 设置会将对象的数字值转化为字符串，因此要先
+                // stringify
+                items: JSON.stringify(this.aSelected),
+                // 0为未支付；1为已支付；2为已经开始制作，不能随意取消
+                status: JSON.stringify(0),
             };
+
             this.$http.post(sURL, oPostBody, {emulateJSON: true})
                 .then(res=>{
                     // 创建为一个未支付的订单，该行为会同时删除购物车中已提交的商品

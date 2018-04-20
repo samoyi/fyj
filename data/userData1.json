@@ -13,57 +13,41 @@
             "name": "20元现金券"
         },
         {
-            "id": "42064604",
-            "expires": "2017-02-25 00:00",
-            "name": "30元感恩优惠券"
-        },
-        {
             "id": "75829519",
             "expires": "2017-05-28 00:00",
             "name": "20元优惠券"
-        },
-        {
-            "id": "11806210",
-            "expires": "2017-10-19 00:00",
-            "name": "20元补偿优惠券"
-        },
-        {
-            "id": "42123836",
-            "expires": "2017-11-21 00:00",
-            "name": "20元补偿券"
-        },
-        {
-            "id": "19212168",
-            "expires": "2017-12-30 00:00",
-            "name": "198元补偿券"
         }
     ],
     "addr": [
         {
-            "addr_id": "36",
+            "addr_id": 38,
             "tel": "13299007777",
             "consignee": "王蜜桃",
-            "province": "3",
-            "city": "37",
-            "area": "410",
-            "consigneeAddr": "凤城大道312号",
+            "province": "16",
+            "city": "220",
+            "area": "1834",
+            "consigneeAddr": "收货地址1",
             "isDefault": true
         },
         {
-            "addr_id": "38",
+            "addr_id": 37,
             "tel": "15821893559",
             "consignee": "vicky",
-            "province": "24",
-            "city": "311",
-            "area": "2599",
-            "consigneeAddr": "甘家寨",
+            "province": "16",
+            "city": "220",
+            "area": "1837",
+            "consigneeAddr": "收货地址2收货地址2收货地址2收货地址2收货地址2收货地址2",
             "isDefault": false
         }
     ],
     "message": [
         {
             "date": "2015-05-08 19:49",
-            "content": "PHILIP测试"
+            "content": "测试消息1"
+        },
+        {
+            "date": "2016-05-08 19:49",
+            "content": "测试消息2测试消息2测试消息2测试消息2测试消息2测试消息2测试消息2测试消息2测试消息2测试消息2"
         }
     ]
 }

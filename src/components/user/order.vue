@@ -9,21 +9,21 @@
         <ul class="orderList" v-if="orderList">
             <li v-for="(item, index) in orderList" :key="index">
                 <div class="top">
-                    <span>订单编号： {{item.number}}</span>
-                    <span >{{orderState(item.state)}}</span>
+                    <span>订单编号： {{item.id}}</span>
+                    <span >{{orderStatus(item.status)}}</span>
                 </div>
-                <div class="middle" v-for="(item1, index1) in item.products" :key="index1">
+                <div class="middle" v-for="(item1, index1) in item.items" :key="index1">
                     <img :src="item1.thumbnail" alt="item1.name" />
                     <span class="name">{{item1.name}}</span>
                     <span class="spec">{{item1.spec}}</span>
                     <span class="price">¥{{item1.price}}×{{item1.amount}}</span>
                 </div>
                 <div class="bottom">
-                    <span>共{{getTotalAmount(item.products)}}件商品 合计：¥{{getTotalSum(item.products)}}</span>
+                    <span>共{{getTotalAmount(item.items)}}件商品 合计：¥{{getTotalSum(item.items)}}</span>
                     <div>
-                        <span v-if="item.state===1" @click="cancelOrder(item.number)">取消订单</span>
-                        <a v-if="item.state===2" href="tel:4006633677">联系客服取消订单</a>
-                        <span v-if="getOrderState(item.state)" @click="handleOrder(item.state, item.number, index)">{{getOrderState(item.state)}}</span>
+                        <span v-if="item.status<2" @click="cancelOrder(item.number)">取消订单</span>
+                        <a v-if="item.status===3" href="tel:4006633677">联系客服取消订单</a>
+                        <span v-if="getOrderStatus(item.status)" @click="handleOrder(item.status, item.number, index)">{{getOrderStatus(item.status)}}</span>
                     </div>
                 </div>
             </li>
@@ -42,7 +42,7 @@ export default {
     },
     computed: {
         orderList(){
-            return this.$store.state.order.list;
+            return this.$store.state.user.order;
         },
     },
     methods: {
@@ -56,13 +56,16 @@ export default {
                 return totalSum + item.amount * item.price;
             }, 0);
         },
-        orderState(state){
-            switch (state){
-                case 1:{
+        orderStatus(status){
+            switch (status){
+                case 0:{
                     return '未付款';
                 }
-                case 2:{
+                case 1:{
                     return '已付款';
+                }
+                case 2:{
+                    return '正在制作';
                 }
                 case 3:{
                     return '已发货';
@@ -75,10 +78,13 @@ export default {
                 }
             }
         },
-        getOrderState(state){
-            switch (state){
-                case 1:{
+        getOrderStatus(status){
+            switch (status){
+                case 0:{
                     return '马上付款';
+                }
+                case 1:{
+                    return '';
                 }
                 case 2:{
                     return '';
@@ -94,25 +100,25 @@ export default {
                 }
             }
         },
-        handleOrder(state, number, index){
-            if (state === 3){
+        handleOrder(status, number, index){
+            if (status === 3){
                 let sURL = 'http://www.fuyj.com.cn/ajax/.php';
                 let data = 'act=&number=' + number;
                 let fnSuccessCallback = (res)=>{
-                    this.$parent.$parent.userData.order[index].state = 4;
+                    this.$parent.$parent.userData.order[index].status = 4;
                 };
                 AJAX_POST(sURL, data, fnSuccessCallback);
             }
-            if (state === 1){
+            if (status === 1){
                 alert('进入支付页面支付');
-                this.$parent.$parent.userData.order.state = 2;
+                this.$parent.$parent.userData.order.status = 2;
             }
         },
         cancelOrder(number){
             let sURL = 'http://www.fuyj.com.cn/ajax/.php';
             let data = 'act=cancel&number=' + number;
             let fnSuccessCallback = (res)=>{
-                this.$parent.$parent.userData.order['index'].state = 5;
+                this.$parent.$parent.userData.order['index'].status = 5;
             };
             AJAX_POST(sURL, data, fnSuccessCallback);
         },
