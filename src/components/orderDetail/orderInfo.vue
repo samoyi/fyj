@@ -57,10 +57,10 @@ export default {
     },
     computed: {
         userData(){
-            return this.$store.state.user;
+            return this.$store.state.userModule;
         },
         curOrderList(){
-            return this.$store.state.user.order[0].items;
+            return this.$store.state.userModule.order[0].items;
         },
         amount(){
             return this.curOrderList.length;

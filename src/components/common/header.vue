@@ -32,7 +32,7 @@ export default {
     },
     computed: {
         cartAmount(){
-            return this.$store.state.user.cart.length;
+            return this.$store.state.userModule.cart.length;
         },
     },
     methods: {

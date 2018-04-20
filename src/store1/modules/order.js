@@ -12,10 +12,10 @@ export default {
         // 当前订单总金额
         // 当前订单为订单列表中的第一项
         curOrderSum(state, getters, rootState){
-            if (rootState.userModule.order.length && state.curOrderID){
+            if (rootState.userModule.user.order.length && state.curOrderID){
                 let nSum = 0;
 
-                let oCurOrder = rootState.userModule.order.find(order=>{
+                let oCurOrder = rootState.user.order.find(order=>{
                     return order.id === state.curOrderID;
                 });
                 oCurOrder.items.forEach(item=>{
@@ -29,8 +29,8 @@ export default {
         },
         // 当前订单商品数量
         orderItemAmount(state, getters, rootState){
-            if (rootState.userModule.order.length && state.curOrderID){
-                let oCurOrder = rootState.userModule.order.find(order=>{
+            if (rootState.userModule.user.order.length && state.curOrderID){
+                let oCurOrder = rootState.userModule.user.order.find(order=>{
                     return order.id === state.curOrderID;
                 });
                 return oCurOrder.items.length;

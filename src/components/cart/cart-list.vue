@@ -38,20 +38,20 @@ export default {
     },
     computed: {
         list(){
-            return this.$store.state.user.cart;
+            return this.$store.state.userModule.cart;
         },
     },
     methods: {
         // 保存之前的购物车，如果后端保存失败，则前端恢复
         saveCart(){
-            this.prevCart = JSON.parse(JSON.stringify(this.$store.state.user.cart));
+            this.prevCart = JSON.parse(JSON.stringify(this.$store.state.userModule.cart));
         },
         // 将整个购物车发送到后端，整体更新
         sendCart(){
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'updateCart',
-                cart: JSON.stringify(this.$store.state.user.cart),
+                cart: JSON.stringify(this.$store.state.userModule.cart),
             };
             this.$http.post(sURL, oPostBody, {emulateJSON: true})
                 .then(res=>{

@@ -29,7 +29,7 @@ export default {
     },
     computed: {
         list(){
-            return this.$store.state.user.cart;
+            return this.$store.state.userModule.cart;
         },
     },
     methods: {},

@@ -1,5 +1,5 @@
 <template>
-    <div class="placeOrder" :order="order" v-if="list.length">
+    <div class="placeOrder" v-if="list.length">
         <span class="btn" @click="placeOrder">立即下单</span>
         <span class="seleted">已选 {{cartCheckedAmount}} 件</span>
         <span class="sum">应付总额：¥{{cartCheckedSum}}</span>
@@ -9,13 +9,13 @@
 <script>
 
 export default {
-    props: ['order'],
+    // props: ['order'],
     data(){
         return {};
     },
     computed: {
         list(){
-            return this.$store.state.user.cart;
+            return this.$store.state.userModule.cart;
         },
         cartCheckedSum(){
             return this.$store.getters.cartCheckedSum;
@@ -49,7 +49,7 @@ export default {
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'updateCart',
-                cart: JSON.stringify(this.$store.state.user.cart),
+                cart: JSON.stringify(this.$store.state.userModule.cart),
             };
             this.$http.post(sURL, oPostBody, {emulateJSON: true})
                 .then(res=>{
@@ -82,8 +82,11 @@ export default {
                     // 该提交会删除已经作为订单提交的购物车商品
                     this.$store.commit('unpaid', oCurOrder);
                     // 向后端提交修改后的购物车
+                    console.log(111);
                     this.sendCart();
+                    console.log(222);
                     this.$store.commit('setCurOrderID', oCurOrder.id);
+                    console.log(333);
                     this.$router.push('/orderDetail');
                 })
                 .catch(err=>{

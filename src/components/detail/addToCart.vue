@@ -53,14 +53,14 @@ export default {
                 };
 
                 // 保存之前的购物车，如果后端保存失败，则前端恢复
-                let oPrevCart = JSON.parse(JSON.stringify(this.$store.state.user.cart));
+                let oPrevCart = JSON.parse(JSON.stringify(this.$store.state.userModule.cart));
                 this.$store.commit('addToCart', productInfo);
 
                 // 每次更新购物车都将购物车数据发送到后端
                 let sURL = 'http://localhost/gits/fyj/data/ajax.php';
                 let oPostBody = {
                     act: 'updateCart',
-                    cart: JSON.stringify(this.$store.state.user.cart),
+                    cart: JSON.stringify(this.$store.state.userModule.cart),
                 };
                 this.$http.post(sURL, oPostBody, {emulateJSON: true})
                     .then(res=>{

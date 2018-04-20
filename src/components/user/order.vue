@@ -39,7 +39,7 @@ export default {
     },
     computed: {
         orderList(){
-            return this.$store.state.user.order;
+            return this.$store.state.userModule.order;
         },
     },
     methods: {

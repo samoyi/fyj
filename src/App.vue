@@ -12,7 +12,6 @@ export default {
     data(){
         return {
             siteTitle: '浮遇纪',
-            // addrList: [],
         };
     },
     components: {
@@ -22,6 +21,7 @@ export default {
         // 加载用户数据
         let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=user&tel=18009';
         this.$http.get(sURL).then(res=>{
+            console.log(this.$store);
             this.$store.commit('loadUser', res.body);
         }, err=>{
             throw new Error(err);

@@ -19,7 +19,7 @@ export default {
             return this.$store.getters.curOrderSum;
         },
         list(){
-            return this.$store.state.user.order;
+            return this.$store.state.userModule.order;
         },
     },
     methods: {
@@ -37,8 +37,8 @@ export default {
                 let sURL = 'http://localhost/gits/fyj/data/ajax.php';
                 let oPostBody = {
                     act: 'pay',
-                    id: this.$store.state.order.curOrderID,
-                    addr_id: this.$store.state.order.curAddrID,
+                    id: this.$store.state.orderModule.curOrderID,
+                    addr_id: this.$store.state.orderModule.curAddrID,
                 };
                 this.$http.post(sURL, oPostBody, {emulateJSON: true})
                     .then(res=>{
