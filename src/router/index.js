@@ -4,10 +4,9 @@ import Router from 'vue-router';
 import cHomePage from '@/components/home/main';
 import cProducts from '@/components/products';
 import cDetailPage from '@/components/detail/main';
-import cCartPage from '@/components/cart';
+import cCartPage from '@/components/cart/main';
 import cOrderDetail from '@/components/orderDetail/main';
-import cUserPage from '@/components/user';
-import cBindTel from '@/components/bindTel';
+import cUserPage from '@/components/user/main';
 import cAboutus from '@/components/aboutus';
 import cQuestions from '@/components/questions';
 import cContact from '@/components/contact';
@@ -52,10 +51,6 @@ const router = new Router({
                     component: addAddr,
                 },
             ],
-        },
-        {
-            path: '/bindTel',
-            component: cBindTel,
         },
         {
             path: '/aboutus',

@@ -48,7 +48,7 @@ import datepicker from './datepicker.vue';
 export default {
     data(){
         return {
-            bDatePickerDispaly: false,
+            bDatePickerDispaly: true,
             bAddrSelectorDisplay: false,
             sWinHeight: nWindowHeight + 'px',
             selectedAddr: {},
@@ -79,7 +79,6 @@ export default {
         seletcAddr(item, index){
             this.selectedAddr = this.userData.addr[index];
             this.bAddrSelectorDisplay = false;
-            // this.selectedAddrIndex = index;
             this.store.commit('setCurAddrID', item['addr_id']);
         },
     },

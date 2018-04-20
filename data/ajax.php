@@ -19,8 +19,13 @@
 
         // 商品详情
         if ($_GET['act'] === 'user' && isset($_GET['tel'])
-        && $_GET['tel'] === '18009'){
+            && $_GET['tel'] === '18009'){
             echo file_get_contents('./userData.json');
+        }
+
+        // 购物车页面中用户购物车内容以外的数据
+        if ($_GET['act'] === 'cartPageInfo'){
+            echo file_get_contents('./cartPageInfo.json');
         }
     }
 
@@ -84,6 +89,32 @@
                     $value['addr_id'] = $_POST['addr_id'];
                     file_put_contents('./userData.json', json_encode($userData));
                     echo $value['id'];
+                    exit;
+                }
+            }
+        }
+
+        // 取消订单
+        if ($_POST['act'] === 'cancelOrder' && isset($_POST['id'])){
+            $userData = json_decode(file_get_contents('./userData.json'), true);
+            foreach ($userData['order'] as $key=>&$value){
+                if ($value['id'] == $_POST['id']){
+                    $value['status'] = 5;
+                    file_put_contents('./userData.json', json_encode($userData));
+                    echo 'true';
+                    exit;
+                }
+            }
+        }
+
+        // 确认收货
+        if ($_POST['act'] === 'signFor' && isset($_POST['id'])){
+            $userData = json_decode(file_get_contents('./userData.json'), true);
+            foreach ($userData['order'] as $key=>&$value){
+                if ($value['id'] == $_POST['id']){
+                    $value['status'] = 4;
+                    file_put_contents('./userData.json', json_encode($userData));
+                    echo 'true';
                     exit;
                 }
             }

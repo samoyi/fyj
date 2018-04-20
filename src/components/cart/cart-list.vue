@@ -66,7 +66,6 @@ export default {
                 });
         },
         switchCheck(index){
-            // this.$parent.$parent.cartList[index].checked = !this.$parent.$parent.cartList[index].checked;
             this.$store.commit('switchCheck', index);
 
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
@@ -86,24 +85,11 @@ export default {
                 });
         },
         amountSub(index){
-            // this.$parent.$parent.cartList[index].amount = --this.$parent.$parent.cartList[index].amount || 1;
             if (this.list[index].amount === 1){
                 return;
             }
             this.$store.commit('decrementAmount', index);
 
-            // 删除不需要传输的缩略图、名称
-            // let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
-            // delete postProduct.thumbnail;
-            // delete postProduct.name;
-            // delete postProduct.price;
-            //
-            // let sURL = 'http://www.fuyj.com.cn/ajax/cart_change.php';
-            // let data = 'cart=' + JSON.stringify(postProduct);
-            // let fnSuccessCallback = (res)=>{
-            //     console.log(res);
-            // };
-            // AJAX_POST(sURL, data, fnSuccessCallback);
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'decrement',
@@ -125,24 +111,11 @@ export default {
                 });
         },
         amountAdd(index){
-            // ++this.$parent.$parent.cartList[index].amount;
             if (this.list[index].amount === 9){
                 return;
             }
             this.$store.commit('incrementAmount', index);
 
-            // 删除不需要传输的缩略图、名称
-            // let postProduct = JSON.parse(JSON.stringify(this.$parent.$parent.cartList[index]));
-            // delete postProduct.thumbnail;
-            // delete postProduct.name;
-            // delete postProduct.price;
-            //
-            // let sURL = 'http://www.fuyj.com.cn/ajax/cart_change.php';
-            // let data = 'cart=' + JSON.stringify(postProduct);
-            // let fnSuccessCallback = (res)=>{
-            //     console.log(res);
-            // };
-            // AJAX_POST(sURL, data, fnSuccessCallback);
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'increment',
@@ -167,24 +140,8 @@ export default {
         deleteSelected(aIndexes){
             this.$store.commit('deleteCartItems'
                 , this.$store.getters.cartChecked.indexes);
-
             this.saveCart();
             this.sendCart();
-            // let sURL = 'http://localhost/gits/fyj/data/ajax.php';
-            // let oPostBody = {
-            //     act: 'switchCheck',
-            //     index: JSON.stringify(index),
-            // };
-            // this.$http.post(sURL, oPostBody, {emulateJSON: true})
-            //     .then(res=>{
-            //         if (res.body.trim() !== 'true'){
-            //             this.$store.commit('switchCheck', index);
-            //         }
-            //     })
-            //     .catch(err=>{
-            //         this.$store.commit('switchCheck', index);
-            //         throw new Error(err);
-            //     });
         },
         allselect(){
             this.$store.commit('seleteAllCartItems');

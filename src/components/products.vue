@@ -16,7 +16,6 @@
                     <span class="num">{{Number.parseFloat(item.price)}}</span>
                     <span>/{{item.spec}}</span>
                 </p>
-                <!-- <i></i> 购物车图标 -->
             </div>
             <div style="clear:both;"></div>
         </section>
@@ -30,7 +29,6 @@ import header from './common/header.vue';
 import bottom from './common/bottom.vue';
 
 import failJPG from '../assets/fail.jpg';
-// import {AJAX_GET} from '../js/common.js';
 
 export default {
     props: ['cartAmount'],
@@ -48,12 +46,6 @@ export default {
         'app-bottom': bottom,
     },
     mounted(){
-        // 加载 数据
-        // let sURL = 'http://www.fuyj.com.cn/ajax/goods_all.php';
-        // let fnSuccessCallback = (res)=>{
-        //     this.list = JSON.parse(res);
-        // };
-        // AJAX_GET(sURL, fnSuccessCallback);
         let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=goods';
         this.$http.get(sURL).then(res=>{
             this.list = res.body;
@@ -62,7 +54,6 @@ export default {
         });
     },
     methods: {
-        // toDetailShalow,
         // 记录加载图片失败的序号
         recordIndex(index){
             this.aErrorImageIndex.push(index);

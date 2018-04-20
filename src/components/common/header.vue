@@ -2,7 +2,6 @@
     <header>
         <span class="navMenu" @click="switchDisplayNav"></span>
         <img class="logo" src="http://localhost/gits/fyj/data/image/icons/logo.png" alt="浮遇纪" />
-        <!-- <span class="user"></span> -->
         <router-link class="user" to="/user"></router-link>
         <router-link class="cart" to="/cart">
             <span v-if="cartAmount">{{cartAmount}}</span>

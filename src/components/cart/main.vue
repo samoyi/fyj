@@ -10,26 +10,26 @@
         </div>
         <cart-list class="cartList" ref="cartList"></cart-list>
         <add-on class="add-on" :list="addOnList"></add-on>
-        <recommendation-products class="recommendation" :list="recommendation"></recommendation-products>
+        <recommendation-products class="recommendation" :list="recommendation">
+        </recommendation-products>
         <place-order></place-order>
     </section>
 </template>
 
 <script>
 
-import cartList from './cart/cart-list.vue';
-import addOn from './cart/add-on.vue';
-import recommendation from './cart/recommendation.vue';
-import placeOrder from './cart/placeOrder.vue';
-import {AJAX_GET} from '../js/common.js';
+import cartList from './cart-list.vue';
+import addOn from './add-on.vue';
+import recommendation from './recommendation.vue';
+import placeOrder from './placeOrder.vue';
 
 export default {
     props: ['cartList'],
     data(){
         return {
-            cardInfo: '',
-            addOnList: [],
-            recommendation: [],
+            cardInfo: '', // 购物车卡券赠送消息
+            addOnList: [], // 加价购
+            recommendation: [], // 推荐商品
         };
     },
     components: {
@@ -39,20 +39,19 @@ export default {
         'place-order': placeOrder,
     },
     mounted(){
-        let sURL = 'http://www.fuyj.com.cn/ajax/cartPage.php';
-        // let sURL = '../data/cartPage.json',
-        let fnSuccessCallback = (res)=>{
-            let oParsed = JSON.parse(res);
-
-            this.cardInfo = oParsed.cardInfo;
+        let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=cartPageInfo';
+        this.$http.get(sURL).then(res=>{
+            let oParsed = res.body;
+            this.cardInfo = oParsed.cardInfo.trim();
             this.addOnList = oParsed.add_on;
             this.recommendation = oParsed.recommend;
-        };
-        AJAX_GET(sURL, fnSuccessCallback);
+        }, err=>{
+            throw new Error(err);
+        });
     },
     methods: {
         back(){
-            history.back();
+            this.$router.go(-1);
         },
     },
 };
@@ -60,7 +59,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../scss/common.scss";
+@import "../../scss/common.scss";
 #cartPage{
     width: 100%;
     >header{

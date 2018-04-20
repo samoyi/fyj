@@ -57,7 +57,6 @@ export default {
                 image: url("http://localhost/gits/fyj/data/image/icons/sprite.png");
                 size: 761px 809px;
                 position: -88px -183px;
-            // -88px -155px 黑色的
             }
         }
     }

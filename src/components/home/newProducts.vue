@@ -13,9 +13,7 @@
                 <span class="num">{{Number.parseFloat(item.price)}}</span>
                 <span> / {{item.spec}}</span>
             </p>
-            <!-- <i></i> 购物车图标配合 -->
             <div>
-                <!-- <span></span> 购物车图标配合 -->
             </div>
         </div>
     </section>

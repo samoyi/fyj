@@ -34,7 +34,6 @@ export default {
             this.$parent.province = this.province;
             this.$parent.city = this.city;
             this.$parent.area = this.area;
-            console.log(this.area);
         },
     },
 };
@@ -44,12 +43,8 @@ export default {
 <style lang="scss" scoped>
 @import "../../scss/common.scss";
 .regionSelector{
-
     height: 26px;
     position: absolute;
-    // width: 94%;
-    // top: 0;
-    // left: 64px;
     font-size: 12px;
     line-height: 26px;
     color: #464a4c;

@@ -18,8 +18,6 @@ import hotProducts from './hotProducts.vue';
 import buttomlList from './buttomlList.vue';
 import copyright from './copyright.vue';
 
-// import {AJAX_GET} from '../../js/common.js';
-
 export default {
     props: ['cartAmount'],
     data(){
@@ -38,16 +36,6 @@ export default {
         'buttom-copyright': copyright,
     },
     mounted: function(){
-        // 加载 数据
-        // let sURL = 'http://www.fuyj.com.cn/ajax/home.php';
-        // // let sURL = '../data/index.json',
-        // let fnSuccessCallback = (res)=>{
-        //     let parsed = JSON.parse(res);
-        //     this.carouselList = parsed.carousel;
-        //     this.newProducts = parsed.new;
-        //     this.hotProducts = parsed.hot;
-        // };
-        // AJAX_GET(sURL, fnSuccessCallback);
         let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=home';
         this.$http.get(sURL).then(res=>{
             let parsed = res.body;

@@ -9,7 +9,6 @@
             <router-link :to="'/detail/'+item.id">
                 <img :src="item.url" />
             </router-link>
-            <!-- <img :src="item.url" @click="toDetail(item.id)" /> -->
             <router-link :to="'/detail/'+item.id">
                 <div class="price">
                     <span v-if="item.price">¥</span>
@@ -19,13 +18,6 @@
                     <span v-if="item.spec">/{{item.spec}}</span>
                 </div>
             </router-link>
-            <!-- <div class="price" @click="toDetail(item.id)">
-                <span v-if="item.price">¥</span>
-                <span class="num" v-if="item.price">
-                    {{Number.parseFloat(item.price)}}
-                </span>
-                <span v-if="item.spec">/{{item.spec}}</span>
-            </div> -->
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
     </swiper>

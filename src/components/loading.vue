@@ -32,7 +32,6 @@ export default {
         img{
             position: relative;
             width: 100%;
-            // display: block;
             top: 30%;
         }
     }

@@ -9,7 +9,6 @@
         <ul class="addrList" v-if="list">
             <li v-for="(item,index) in list" :key="index" v-if="item.consignee">
                 <span class="name-tel">{{item.consignee}}  {{item.tel}}</span>
-                <!-- <span class="addr">{{item.addr}}</span> -->
                 <span class="addr">{{getAddr(item)}}</span>
                 <div class="default">
                     <input type="radio" :checked="item.isDefault" @click="setDefault(item)" name="isDefault" :id="index" /><label :for="index">  默认地址</label>
@@ -25,21 +24,6 @@
 </template>
 
 <script>
-// import {AJAX_POST} from '../../js/common.js';
-// import addAddr from './addAddr.vue';
-// import Vue from 'vue/dist/vue.js';
-// import VueRouter from 'vue-router';
-// Vue.use(VueRouter);
-//
-// const router = new VueRouter({
-//     // 配置routes
-//     routes: [
-//         {
-//             path: '/addAddr',
-//             component: addAddr,
-//         },
-//     ],
-// });
 
 export default {
     props: ['list'],
@@ -79,14 +63,6 @@ export default {
                 + item.consigneeAddr;
         },
         deleteAddr(addrID){
-            // this.$parent.$parent.addrList.splice(index, 1, {});
-            //
-            // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-            // let data = 'act=del' + '&id=' + id;
-            // let fnSuccessCallback = (res)=>{
-            //     console.log(res);
-            // };
-            // AJAX_POST(sURL, data, fnSuccessCallback);
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'deleteAddr',
@@ -101,12 +77,6 @@ export default {
                 });
         },
         setDefault(item){
-            // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-            // let data = 'act=change' + '&id=' + id;
-            // let fnSuccessCallback = (res)=>{
-            //     console.log(res);
-            // };
-            // AJAX_POST(sURL, data, fnSuccessCallback);
             if (!item.isDefault){
                 let sURL = 'http://localhost/gits/fyj/data/ajax.php';
                 let oPostBody = {
@@ -123,9 +93,6 @@ export default {
             }
         },
         displayAddBtn(list){ // 有效地址少于三个就显示添加地址按钮
-            // return Array.prototype.filter.call(list, function(item){
-            //     return item.name;
-            // }).length < 3;
             return list.length < 3;
         },
     },

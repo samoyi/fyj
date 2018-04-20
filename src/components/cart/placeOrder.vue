@@ -1,7 +1,6 @@
 <template>
     <div class="placeOrder" :order="order" v-if="list.length">
         <span class="btn" @click="placeOrder">立即下单</span>
-        <!-- <router-link class="btn" @click="placeOrder" to="/orderDetail">立即下单</router-link> -->
         <span class="seleted">已选 {{cartCheckedAmount}} 件</span>
         <span class="sum">应付总额：¥{{cartCheckedSum}}</span>
     </div>
@@ -35,26 +34,37 @@ export default {
         },
         orderInfo(){
             let nSum = 0;
-            // let aSelected = [];
             let nSelected = 0;
             this.list.forEach((item, index)=>{
                 if (item.checked){ // 只计算选中的
-                    // aSelected.push(item);
                     nSelected += item.amount;
                     nSum += item.amount * item.price;
                 }
             });
-            // this.aSelected = aSelected;
-            // this.$parent.$parent.orderInfo.sum = nSum;
-            // this.$parent.$parent.orderInfo.list = aSelected;
             return [nSelected, nSum];
         },
     },
     methods: {
+        sendCart(){
+            let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+            let oPostBody = {
+                act: 'updateCart',
+                cart: JSON.stringify(this.$store.state.user.cart),
+            };
+            this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                .then(res=>{
+                    // 后端保存失败，购物车回滚
+                    if (res.body !== 'true'){
+                        this.$store.commit('cartRollback', this.prevCart);
+                    }
+                })
+                .catch(err=>{
+                    this.$store.commit('cartRollback', this.prevCart);
+                    throw new Error(err);
+                });
+        },
         placeOrder(){
             // 向后端提交订单商品，后端生成订单信息并返回
-            // let sURL = 'http://red-space.cn/test/ajax.php';
-            // let sURL = 'http://127.0.0.1/gits/fyj/data/ajax.php';
             let sURL = 'http://localhost/gits/fyj/data/ajax.php';
             let oPostBody = {
                 act: 'createOrder',
@@ -69,7 +79,10 @@ export default {
                 .then(res=>{
                     // 创建为一个未支付的订单，该行为会同时删除购物车中已提交的商品
                     let oCurOrder = res.body;
+                    // 该提交会删除已经作为订单提交的购物车商品
                     this.$store.commit('unpaid', oCurOrder);
+                    // 向后端提交修改后的购物车
+                    this.sendCart();
                     this.$store.commit('setCurOrderID', oCurOrder.id);
                     this.$router.push('/orderDetail');
                 })

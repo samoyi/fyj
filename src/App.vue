@@ -1,85 +1,31 @@
-<!-- <template>
-<div id="app">
-<router-view/>
-</div>
-</template> -->
 <template>
     <section id="content">
         <cLoadingPage></cLoadingPage>
-        <router-view  :addr-list="addrList" ></router-view>
-        <!-- <router-view :cart-amount="cartAmount" :cart-list="cartList" :addr-list="addrList" :user-data="userData" :order-info="orderInfo"></router-view> -->
+        <router-view></router-view>
     </section>
 </template>
 
 <script>
 import cLoadingPage from './components/loading.vue';
-import {AJAX_GET} from './js/common.js';
 
 export default {
     data(){
         return {
             siteTitle: '浮遇纪',
-            // userData: null, // 如果自动登录，则一开始就取得用户数据，并全局可访问
-            // cartList: [], // userData中的购物车数据，在好几个组件的头部购物车图标都要显示数量
-            addrList: [],
-            // detailID: null,
-            // orderInfo: {},
+            // addrList: [],
         };
     },
     components: {
         cLoadingPage,
     },
     mounted(){
-        {
-            let sURL = 'http://www.fuyj.com.cn/ajax/login.php/101?phone=18009226074&password=18009226074';
-            let fnSuccessCallback = (res)=>{};
-            AJAX_GET(sURL, fnSuccessCallback);
-        }
-        //   document.cookie = "user_id=10006255;max-age=3600";
-        //   if( "user_id" in getCookies() ){
-        {
-            // 加载用户数据
-            // 包括购物车、订单、优惠券、地址、消息
-            //   let sURL = "../data/user.json",
-            // let sURL = 'http://www.fuyj.com.cn/ajax/user.php';
-            // let fnSuccessCallback = (res)=>{
-            //     let oParsed = JSON.parse(res);
-            //     this.userData = oParsed;
-            //     this.cartList = oParsed.cart;
-            //     let aAddr = oParsed.addr;
-            //     while (aAddr.length < 3){
-            //         aAddr.push({});
-            //     }
-            //     this.addrList = aAddr;
-            //     console.log(this.addrList);
-            //     //   this.addrList = oParsed.addr;
-            // };
-            // AJAX_GET(sURL, fnSuccessCallback);
-            let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=user&tel=18009';
-            this.$http.get(sURL).then(res=>{
-                // let oParsed = res.body;
-                this.$store.commit('loadUser', res.body);
-                // this.userData = oParsed;
-                // this.cartList = oParsed.cart;
-                // let aAddr = oParsed.addr;
-                // while (aAddr.length < 3){
-                //     aAddr.push({});
-                // }
-                // this.addrList = aAddr;
-            }, err=>{
-                throw new Error(err);
-            });
-        }
-        //   }
-    },
-    computed: {
-        // 计算购物车中商品数量
-        // cartAmount(){
-        //     if (!this.cartList.length){
-        //         return 0;
-        //     }
-        //     return this.cartList.reduce((sum, item)=>sum + item.amount, 0);
-        // },
+        // 加载用户数据
+        let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=user&tel=18009';
+        this.$http.get(sURL).then(res=>{
+            this.$store.commit('loadUser', res.body);
+        }, err=>{
+            throw new Error(err);
+        });
     },
 };
 </script>

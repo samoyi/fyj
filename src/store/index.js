@@ -26,7 +26,7 @@ export default new Vuex.Store({
 
         // 用户的状态。包括用户信息、历史订单、优惠券、消息
         user: {
-            cart: [], // 购物车列表
+            cart: [],
             order: [],
         },
     },
@@ -46,41 +46,14 @@ export default new Vuex.Store({
             };
         },
 
-        // 购物车已选商品的序号
-        // cartCheckedIndexes(state, getters){
-        //     getters.cartChecked.map(item=>item)
-        //     return state.user.cart.filter(item=>{
-        //         if (item.checked){
-        //             nSum += item.amount * item.price;
-        //         }
-        //     });
-        // },
-
         // 购物车已选商品总金额
         cartCheckedSum(state, getters){
-            // let nSum = 0;
-            // state.user.cart.forEach(item=>{
-            //     if (item.checked){
-            //         nSum += item.amount * item.price;
-            //     }
-            // });
-            // getters.cartChecked.items.forEach(item=>{
-            //     nSum += item.amount * item.price;
-            // });
             return getters.cartChecked.items.reduce((accu, curr)=>{
                 return accu + curr.amount * curr.price;
             }, 0);
-            // return nSum;
         },
         // 购物车已选商品总数量
         cartCheckedAmount(state, getters){
-            // let nAmount = 0;
-            // state.user.cart.forEach(item=>{
-            //     if (item.checked){
-            //         nAmount += item.amount;
-            //     }
-            // });
-            // return nAmount;
             return getters.cartChecked.items.reduce((accu, curr)=>{
                 return accu + curr.amount;
             }, 0);
@@ -89,9 +62,13 @@ export default new Vuex.Store({
         // 当前订单总金额
         // 当前订单为订单列表中的第一项
         curOrderSum(state){
-            if (state.user.order.length){
+            if (state.user.order.length && state.order.curOrderID){
                 let nSum = 0;
-                state.user.order[0].items.forEach(item=>{
+
+                let oCurOrder = state.user.order.find(order=>{
+                    return order.id === state.order.curOrderID;
+                });
+                oCurOrder.items.forEach(item=>{
                     nSum += item.amount * item.price;
                 });
                 return nSum;
@@ -100,9 +77,13 @@ export default new Vuex.Store({
                 return 0;
             }
         },
+        // 当前订单商品数量
         orderItemAmount(state){
-            if (state.user.order.length){
-                return state.user.order[0].items.length;
+            if (state.user.order.length && state.order.curOrderID){
+                let oCurOrder = state.user.order.find(order=>{
+                    return order.id === state.order.curOrderID;
+                });
+                return oCurOrder.items.length;
             }
             else {
                 return 0;
@@ -169,10 +150,6 @@ export default new Vuex.Store({
         },
 
         // 订单的状态
-        // 创建订单
-        // createOrder(state, list){
-        //     state.order.list = list;
-        // },
         setCurOrderID(state, id){
             state.order.curOrderID = Number.parseInt(id, 10);
         },
@@ -195,6 +172,26 @@ export default new Vuex.Store({
             delete order.checked;
             state.user.order.unshift(order);
             state.user.cart = state.user.cart.filter(item=>!item.checked);
+        },
+
+        // 取消订单
+        cancelOrder(state, id){
+            state.user.order.some(item=>{
+                if (item.id === id){
+                    item.status = 5;
+                    return true;
+                }
+            });
+        },
+
+        // 确认收货
+        signFor(state, id){
+            state.user.order.some(item=>{
+                if (item.id === id){
+                    item.status = 4;
+                    return true;
+                }
+            });
         },
 
         // 添加新收货地址

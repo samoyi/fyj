@@ -11,7 +11,6 @@
                     <span>¥</span>
                     <span class="num">{{item.attr_price}}</span>
                 </p>
-                <!-- <i></i> 购物车图标 -->
             </div>
             <div style="clear:both; height:64px;"></div>
         </div>
@@ -19,8 +18,6 @@
 </template>
 
 <script>
-
-// import {toDetail} from '../../js/common.js';
 
 export default {
     data(){
@@ -32,9 +29,6 @@ export default {
         };
     },
     props: ['list'],
-    methods: {
-        // toDetail,
-    },
 };
 
 </script>

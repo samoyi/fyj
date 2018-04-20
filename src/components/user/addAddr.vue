@@ -109,15 +109,7 @@ export default {
                 }
                 // this.$parent.$parent.$parent.addrList = addrList;
                 this.$parent.$parent.$parent.userData.addr = addrList;
-                console.log(this.$parent.$parent.$parent.userData);
 
-                // let sURL = 'http://www.fuyj.com.cn/ajax/addr_change.php';
-                // let data = 'act=add' + '&addr=' + JSON.stringify(oNewAddr);
-                // let fnSuccessCallback = (res)=>{
-                //     console.log(res);
-                // };
-                // AJAX_POST(sURL, data, fnSuccessCallback);
-                // history.back();
                 let sURL = 'http://localhost/gits/fyj/data/ajax.php';
                 let oPostBody = {
                     act: 'addAddr',

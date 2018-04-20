@@ -10,7 +10,7 @@
             <li v-for="(item, index) in orderList" :key="index">
                 <div class="top">
                     <span>订单编号： {{item.id}}</span>
-                    <span >{{orderStatus(item.status)}}</span>
+                    <span>订单状态：{{orderStatus(item.status)}}</span>
                 </div>
                 <div class="middle" v-for="(item1, index1) in item.items" :key="index1">
                     <img :src="item1.thumbnail" alt="item1.name" />
@@ -21,9 +21,9 @@
                 <div class="bottom">
                     <span>共{{getTotalAmount(item.items)}}件商品 合计：¥{{getTotalSum(item.items)}}</span>
                     <div>
-                        <span v-if="item.status<2" @click="cancelOrder(item.number)">取消订单</span>
-                        <a v-if="item.status===3" href="tel:4006633677">联系客服取消订单</a>
-                        <span v-if="getOrderStatus(item.status)" @click="handleOrder(item.status, item.number, index)">{{getOrderStatus(item.status)}}</span>
+                        <span v-if="item.status<2" @click="cancelOrder(item.id)">取消订单</span>
+                        <a v-if="item.status===2" href="tel:4006633677">联系客服取消订单</a>
+                        <span v-if="getOrderStatus(item.status)" @click="handleOrder(item.status, item.id)">{{getOrderStatus(item.status)}}</span>
                     </div>
                 </div>
             </li>
@@ -33,10 +33,7 @@
 
 <script>
 
-import {AJAX_POST} from '@/js/common';
-
 export default {
-    // props: ['list'],
     data(){
         return {};
     },
@@ -100,27 +97,44 @@ export default {
                 }
             }
         },
-        handleOrder(status, number, index){
+        handleOrder(status, id){
             if (status === 3){
-                let sURL = 'http://www.fuyj.com.cn/ajax/.php';
-                let data = 'act=&number=' + number;
-                let fnSuccessCallback = (res)=>{
-                    this.$parent.$parent.userData.order[index].status = 4;
+                // 确认收货
+                let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+                let oPostBody = {
+                    act: 'signFor',
+                    id: JSON.stringify(id),
                 };
-                AJAX_POST(sURL, data, fnSuccessCallback);
+                this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                    .then(res=>{
+                        if (res.body === 'true'){
+                            this.$store.commit('signFor', id);
+                        }
+                    })
+                    .catch(err=>{
+                        throw new Error(err);
+                    });
             }
-            if (status === 1){
-                alert('进入支付页面支付');
-                this.$parent.$parent.userData.order.status = 2;
+            if (status === 0){
+                this.$store.commit('setCurOrderID', id); // 设定为当前订单
+                this.$router.push('/orderDetail'); // 进入支付页面
             }
         },
-        cancelOrder(number){
-            let sURL = 'http://www.fuyj.com.cn/ajax/.php';
-            let data = 'act=cancel&number=' + number;
-            let fnSuccessCallback = (res)=>{
-                this.$parent.$parent.userData.order['index'].status = 5;
+        cancelOrder(id){
+            let sURL = 'http://localhost/gits/fyj/data/ajax.php';
+            let oPostBody = {
+                act: 'cancelOrder',
+                id: JSON.stringify(id),
             };
-            AJAX_POST(sURL, data, fnSuccessCallback);
+            this.$http.post(sURL, oPostBody, {emulateJSON: true})
+                .then(res=>{
+                    if (res.body === 'true'){
+                        this.$store.commit('cancelOrder', id);
+                    }
+                })
+                .catch(err=>{
+                    throw new Error(err);
+                });
         },
     },
 };

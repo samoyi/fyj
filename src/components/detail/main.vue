@@ -29,14 +29,11 @@ import notice from './notice.vue';
 import addToCart from './addToCart.vue';
 import addTip from './addTip.vue';
 
-// import {AJAX_GET} from '../js/common.js';
-
 export default {
     props: ['cartAmount'],
     data(){
         return {
             id: null,
-            // productInfo: null,
             productSummary: null,
             images: [],
             yongxin: null,
@@ -58,11 +55,8 @@ export default {
         'add-tip': addTip,
     },
     mounted(){
-        // let tepIndex = location.hash.indexOf('id');
-        // let productID = tepIndex === -1 ? this.$parent.detailID : location.hash.slice(tepIndex + 3);
         let productID = this.$route.params.id;
 
-        // let sURL = 'http://www.fuyj.com.cn/ajax/goods_detail.php?id=' + productID;
         let sURL = 'http://localhost/gits/fyj/data/ajax.php?act=detail&id=' + productID;
         this.$http.get(sURL).then(res=>{
             let oParsed = res.body;
@@ -86,28 +80,6 @@ export default {
         }, err=>{
             throw new Error(err);
         });
-
-        // let fnSuccessCallback = (res)=>{
-        //     let oParsed = JSON.parse(res);
-        //     this.productSummary = {
-        //         'image': oParsed.image,
-        //         'name': oParsed.name.trim(),
-        //         'des': oParsed.des.trim(),
-        //         'price': oParsed.price,
-        //         'spec': ['1.0磅', '2.0磅'],
-        //         'icon': oParsed.icon,
-        //         'tag': oParsed.field1[0].join(' / '),
-        //     };
-        //     console.log(this.productSummary);
-        //     this.yongxin = oParsed.field1[1];
-        //     this.productSpec = {
-        //         'des': oParsed.field2[0],
-        //         'icon': '刀叉',
-        //         'list': oParsed.field2.slice(1),
-        //     };
-        //     this.id = oParsed.id;
-        // };
-        // AJAX_GET(sURL, fnSuccessCallback);
     },
     methods: {
         switchChooseBox(){ // 隐藏半透明遮罩，同时隐藏购物车选择框

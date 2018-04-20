@@ -65,13 +65,10 @@
                     addrList.push(oNewAddr);
                     // 因为地址列表必须要有三个（空的用null补），所以这里在实际地址
                     // 的数组上用null补全三项
-                    console.log(addrList);
                     while(addrList.length<3){
                         addrList.push({});
                     }
-                    console.log(addrList);
                     this.$parent.$parent.$parent.addrList = addrList;
-                    console.log(addrList[2]);
                     alert("提交地址列表")
                     history.back();
                 }
