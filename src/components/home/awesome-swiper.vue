@@ -1,5 +1,7 @@
 <template>
-    <swiper :style="{height:height+'px'}"  class="index-carousel" v-show="list.length"
+    <!-- 因为下面的计算属性swiper要通过ref引用swiper组件，因此这里不能用v-if只能用v-show -->
+    <swiper :style="{height:height+'px'}"  class="index-carousel"
+     v-show="list.length"
         :options="swiperOption" ref="mySwiper">
         <!-- 这里的key应该用id，但因为测试数据的蛋糕详情页只有两种，所以加随机数避免重复 -->
         <swiper-slide class="swiper-item" v-for="item in list"

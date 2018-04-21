@@ -2,47 +2,47 @@
     "cardInfo": "即日起，首单用户购买【新品千层浮生】送小切块、咖啡兑换券一张",
     "recommend": [
         {
-            "goods_id": "21",
-            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/21_thumb_G_1469733882192.jpg",
+            "goods_id": "1",
+            "goods_thumb": "http://localhost/gits/fyj/data/image/cart/recommendation/4.jpg",
             "goods_name": "兩伴／Double Life",
             "attr_price": "198"
         },
         {
-            "goods_id": "22",
-            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/22_thumb_G_1439422203200.jpg",
+            "goods_id": "2",
+            "goods_thumb": "http://localhost/gits/fyj/data/image/cart/recommendation/3.jpg",
             "goods_name": "蔚蓝之星",
             "attr_price": "399"
         },
         {
-            "goods_id": "27",
-            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/27_thumb_G_1450202969897.jpg",
+            "goods_id": "1",
+            "goods_thumb": "http://localhost/gits/fyj/data/image/cart/recommendation/2.jpg",
             "goods_name": "点亮圣诞季",
             "attr_price": "228"
         },
         {
-            "goods_id": "33",
-            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/33_thumb_G_1463591027140.jpg",
+            "goods_id": "2",
+            "goods_thumb": "http://localhost/gits/fyj/data/image/cart/recommendation/1.jpg",
             "goods_name": "心花初放／Heart Blossoms",
             "attr_price": "229"
         }
     ],
     "add_on": [
         {
-            "id": "49",
+            "id": "1",
             "add_name": "完月切块",
-            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "add_img": "http://localhost/gits/fyj/data/image/cart/addon/1.jpg",
             "add_price": "5.00"
         },
         {
-            "id": "55",
+            "id": "2",
             "add_name": "香蕉先生",
-            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463589833339.jpg",
+            "add_img": "http://localhost/gits/fyj/data/image/cart/addon/2.jpg",
             "add_price": "5.00"
         },
         {
-            "id": "59",
+            "id": "1",
             "add_name": "浮生四季",
-            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315205.jpg",
+            "add_img": "http://localhost/gits/fyj/data/image/cart/addon/3.jpg",
             "add_price": "25.00"
         }
     ]

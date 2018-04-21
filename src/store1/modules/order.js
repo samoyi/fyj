@@ -3,10 +3,8 @@
 export default {
     strict: process.env.NODE_ENV !== 'production',
     state: {
-        // order: {
         curOrderID: '',
         curAddrID: 0,
-        // },
     },
     getters: {
         // 当前订单总金额

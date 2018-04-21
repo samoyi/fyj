@@ -1,13 +1,8 @@
 export default {
     state: {
         // 用户的状态。包括用户信息、历史订单、优惠券、消息
-        // user: {
-        // addr: [],
-        // card: [],
         cart: [],
-        // message: [],
         order: [],
-        // },
     },
     getters: {
 
@@ -44,7 +39,6 @@ export default {
 
         // 加载从数据库读取到的用户信息
         loadUser(state, info){
-            // state.user = info;
             Object.assign(state, info);
         },
 
@@ -114,7 +108,6 @@ export default {
         // 进入支付流程后，创建一个未支付的订单
         // 同时清空购物车里已经进入支付的商品
         unpaid(state, order){
-            // let aChecked = state.cart.list.filter(item=>item.checked);
             delete order.checked;
             state.order.unshift(order);
             state.cart = state.cart.filter(item=>!item.checked);

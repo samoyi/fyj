@@ -1,8 +1,10 @@
 <template>
-    <section class="add-on" v-if="list.length">
+    <section class="add-on" v-show="list.length">
         <h2>加价购</h2>
-        <swiper :options="swiperOption" class="swiper-box">
-            <swiper-slide class="swiper-item" v-for="item in list" :key="item.add_name">
+        <swiper class="swiper-box" :options="swiperOption" ref="mySwiper">
+            <!-- 这里的key应该用id，但因为测试数据的蛋糕详情页只有两种，所以加随机数避免重复 -->
+            <swiper-slide class="swiper-item" v-for="item in list"
+                :key="item.id+Math.random()">
                 <router-link :to="'/detail/'+item.id">
                     <img :src="item.add_img" :alt="item.add_name" />
                 </router-link>
@@ -17,8 +19,15 @@
 </template>
 
 <script>
+import 'swiper/dist/css/swiper.css';
+import { swiper, swiperSlide } from 'vue-awesome-swiper';
 
 export default {
+    components: {
+        swiper,
+        swiperSlide,
+    },
+    props: ['list'],
     data(){
         return {
             swiperOption: {
@@ -28,11 +37,13 @@ export default {
         };
     },
     computed: {
-        list(){
-            return this.$store.state.userModule.cart;
+        swiper(){
+            return this.$refs.mySwiper.swiper;
         },
     },
-    methods: {},
+    mounted(){
+        this.swiper.slideTo(0, 1000, false);
+    },
 };
 
 </script>

@@ -54,7 +54,7 @@ export default {
         },
         min(){
             if ((new Date()).getHours() < 18){ // 当天还有时间
-                this.bNextDay = false;
+                return this.getSomedayLater(0);
             }
             else { // 当天已经没有时间
                 this.bNextDay = true;
@@ -68,8 +68,24 @@ export default {
             this.$parent.$parent.deliveryInfo.hour = Number.parseInt(this.selectedHour, 10);
         },
     },
+    watch: {
+        date(newDate, oldDate){
+            if (newDate !== this.min()){
+                this.bNextDay = true;
+            }
+        },
+    },
     mounted(){
         this.date = this.min();
+
+        let date = new Date();
+        let nCurHour = date.getHours();
+        if (nCurHour + 4 > 20){
+            this.selectedHour = 10;
+        }
+        else {
+            this.selectedHour = nCurHour + 4;
+        }
     },
 };
 </script>
