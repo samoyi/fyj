@@ -1,0 +1,145 @@
+{
+    "cart": [],
+    "order": [
+        {
+            "number": "12193",
+            "products": [
+                {
+                    "id": "60",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+                    "name": "肆·臆／Fours Fairy Tale",
+                    "spec": "1.0磅",
+                    "price": 218,
+                    "amount": 1
+                },
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "10"
+        },
+        {
+            "number": "12194",
+            "products": [
+                {
+                    "id": "1",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201605/thumb_img/1_thumb_G_1463531426926.jpg",
+                    "name": "草莓扑倒覆盆子／Wild Berries",
+                    "spec": "1.0磅",
+                    "price": 188,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "10"
+        },
+        {
+            "number": "12202",
+            "products": [
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "16"
+        },
+        {
+            "number": "12203",
+            "products": [
+                {
+                    "id": "62",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201707/thumb_img/62_thumb_G_1499822517150.jpg",
+                    "name": "芒果奶油配／Mango cake",
+                    "spec": "1.0磅",
+                    "price": 198,
+                    "amount": 2
+                },
+                {
+                    "id": "60",
+                    "thumbnail": "http://www.fuyj.com.cn/images/201706/thumb_img/60_thumb_G_1496868398868.jpg",
+                    "name": "肆·臆／Fours Fairy Tale",
+                    "spec": "1.0磅",
+                    "price": 218,
+                    "amount": 1
+                }
+            ],
+            "state": 1,
+            "freight": "0.00",
+            "delivery_tel": "18009226074",
+            "delivery_consignee": "学霸",
+            "delivery_addr": "河海大学",
+            "delivery_date": "2017-07-18",
+            "delivery_hour": "16"
+        }
+    ],
+    "card": [
+        {
+            "id": "0",
+            "expires": "2017-08-10 15:00",
+            "name": "优惠120元"
+        },
+        {
+            "id": "0",
+            "expires": "2017-08-10 15:16",
+            "name": "优惠50元"
+        }
+    ],
+    "addr": [
+        {
+            "addr_id": "6530",
+            "tel": "12121212121",
+            "consignee": "1",
+            "province": "16",
+            "city": "220",
+            "area": "1838",
+            "consigneeAddr": "12",
+            "isDefault": false
+        },
+        {
+            "addr_id": "6436",
+            "tel": "18000000000",
+            "consignee": "收货人1",
+            "province": "16",
+            "city": "220",
+            "area": "1834",
+            "consigneeAddr": "收货地址1",
+            "isDefault": true
+        }
+    ],
+    "message": [
+        {
+            "date": "2017-07-11 15:00",
+            "content": "尊敬的会员，您好，您的优惠券马上要过期了，请在过期前使用，否则将不可用，如果您有什么问题，请直接联系客服，谢谢您的合作。"
+        },
+        {
+            "date": "2017-07-11 15:33",
+            "content": "近期我们网站推出了新品，您在工作之余可查看。"
+        }
+    ]
+}

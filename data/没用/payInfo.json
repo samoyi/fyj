@@ -1,0 +1,21 @@
+{
+    "products": [
+        {
+            "id": 10,
+            "spec": "2磅",
+            "amount": 2
+        },
+        {
+            "id": 10,
+            "spec": "3磅",
+            "amount": 2
+        }
+    ],
+    "sum": 992,
+    "freight": 15,
+    "delivery_tel": 133039403940,
+    "delivery_consignee": "王富贵",
+    "delivery_addr": "北纬路甲一号",
+    "delivery_date": "2017-07-18",
+    "delivery_hour": 16
+}

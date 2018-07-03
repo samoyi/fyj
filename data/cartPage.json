@@ -1,0 +1,49 @@
+{
+    "cardInfo": "即日起，首单用户购买【新品千层浮生】送小切块、咖啡兑换券一张",
+    "recommend": [
+        {
+            "id": 10,
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "兩伴／Double Life",
+            "attr_price": "198"
+        },
+        {
+            "id": 10,
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "蔚蓝之星",
+            "attr_price": "399"
+        },
+        {
+            "id": 10,
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "点亮圣诞季",
+            "attr_price": "228"
+        },
+        {
+            "id": 10,
+            "goods_thumb": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "goods_name": "点亮圣诞季",
+            "attr_price": "228"
+        }
+    ],
+    "add_on": [
+        {
+            "id": 10,
+            "add_name": "С",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315359.jpg",
+            "add_price": "5.00"
+        },
+        {
+            "id": 10,
+            "add_name": "",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463542315205.jpg",
+            "add_price": "5.00"
+        },
+        {
+            "id": 10,
+            "add_name": "",
+            "add_img": "http://fuyj.com.cn/images/201605/thumb_img/10_thumb_P_1463589833933.jpg",
+            "add_price": "25.00"
+        }
+    ]
+}

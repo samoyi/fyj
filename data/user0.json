@@ -1,0 +1,141 @@
+{
+    "cart": [
+        {
+            "id": 10,
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "2磅",
+            "price": 198,
+            "amount": 1,
+            "checked": true
+        },
+        {
+            "id": 10,
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
+            "checked": true
+        }
+    ],
+    "order": [
+        {
+            "id": 10,
+            "number": "439483204203752",
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/0.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "2磅",
+            "price": 198,
+            "amount": 1,
+            "state": 1,
+            "freight": 15,
+            "delivery_tel": 133039403940,
+            "delivery_consignee": "王富贵",
+            "delivery_addr": "北纬路甲一号",
+            "delivery_date":"2017-7-18",
+            "delivery_hour": 18
+        },
+        {
+            "id": 10,
+            "number": "439483204203752",
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/1.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
+            "state": 2,
+            "freight": 15,
+            "delivery_tel": 133039403940,
+            "delivery_consignee": "王富贵",
+            "delivery_addr": "北纬路甲一号",
+            "delivery_date":"2017-7-18",
+            "delivery_hour": 18
+        },
+        {
+            "id": 10,
+            "number": "439483204203752",
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
+            "state": 3,
+            "freight": 15,
+            "delivery_tel": 133039403940,
+            "delivery_consignee": "王富贵",
+            "delivery_addr": "北纬路甲一号",
+            "delivery_date":"2017-7-18",
+            "delivery_hour": 18
+        },
+        {
+            "id": 10,
+            "number": "439483204203752",
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
+            "state": 4,
+            "freight": 15,
+            "delivery_tel": 133039403940,
+            "delivery_consignee": "王富贵",
+            "delivery_addr": "北纬路甲一号",
+            "delivery_date":"2017-7-18",
+            "delivery_hour": 18
+        },
+        {
+            "id": 10,
+            "number": "439483204203752",
+            "thumbnail": "http://funca.oss-cn-hangzhou.aliyuncs.com/Fuyj/index/new/2.jpg",
+            "name": "一抹茶的温柔治愈",
+            "spec": "3磅",
+            "price": 298,
+            "amount": 2,
+            "state": 5,
+            "freight": 15,
+            "delivery_tel": 133039403940,
+            "delivery_consignee": "王富贵",
+            "delivery_addr": "北纬路甲一号",
+            "delivery_date":"2017-7-18",
+            "delivery_hour": 18
+        }
+    ],
+    "card": [
+        {
+            "id": 10,
+            "expire": "2017-9-3 12:00",
+            "name": "188元优惠券"
+        },
+        {
+            "id": 10,
+            "expire": "2017-9-3 12:00",
+            "name": "8元优惠券"
+        }
+    ],
+    "addr": [
+        {
+            "tel": 133039403940,
+            "consignee": "王富贵",
+            "addr": "北纬路甲一号",
+            "isDefault": false
+        },
+        {
+            "tel": 158039403940,
+            "consignee": "赵小美",
+            "addr": "北纬路甲一号",
+            "isDefault": true
+        },
+        {}
+    ],
+    "message":[
+        {
+            "date": "1997年7月1日",
+            "content": "香港回归香港回归香港回归香港回归香港回归香港回归香港回归香港回归"
+        },
+        {
+            "date": "2017年7月1日",
+            "content": "香港回归20年"
+        }
+    ]
+}
